@@ -9,7 +9,7 @@ export default function Navbar() {
   const router = useRouter();
   return (
     <>
-      <div className="w-full flex items-center justify-center px-8">
+      <div className="w-full flex items-center justify-center px-8 fixed z-10 sm:relative bg-gray-100 dark:bg-gray-900 sm:bg-transparent dark:sm:bg-transparent sm:shadow-none">
         <div className="w-full h-24 flex flex-row items-center gap-x-12 max-w-7xl">
           {nav.map((e, key) => (
             <Link
@@ -26,7 +26,7 @@ export default function Navbar() {
           ))}
           <MobileNav router={router} />
         </div>
-        <div className="w-fit h-fit">
+        <div className="w-fit h-fit flex items-center justify-end">
           <ThemeSwitch />
         </div>
       </div>
