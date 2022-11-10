@@ -18,7 +18,7 @@ export default function MobileNav({ router }) {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="fixed w-8 h-8 z-20 block sm:hidden text-gray-900 dark:text-gray-100 opacity-100"
+        className="fixed w-8 h-8 z-20 block sm:hidden text-gray-900 dark:text-gray-100 opacity-100 cursor-pointer"
         transition={{ type: "spring", duration: 0.8 }}
         animate={menuOpen == false ? "closed" : "open"}
         whileTap={{ scale: 0.8, opacity: 0.5 }}

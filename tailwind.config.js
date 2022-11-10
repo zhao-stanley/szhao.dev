@@ -14,6 +14,28 @@ module.exports = {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
+      keyframes: {
+        gshift: {
+          "0%": {
+            backgroundPosition: "0% 50%",
+            rotateZ: "rotateX(0deg)"
+          },
+          "100%": {
+            backgroundPosition: "0% 50%",
+            rotateZ: "rotateX(180deg)"
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+            transform: "rotateX(0deg)"
+          },
+        },
+      },
+      animation: {
+        gshift: "gshift 7.5s ease-in-out infinite",
+      },
+      backgroundSize: {
+        500: "300%",
+      },
     },
   },
   plugins: [

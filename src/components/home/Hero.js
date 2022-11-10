@@ -1,12 +1,16 @@
 import Image from "next/image";
 import profile from "../../../public/static/img/profile.png";
 import siteMetadata from "../../data/siteMetadata";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <>
-      <main className="py-4 w-full h-full flex flex-col justify-center gap-y-4">
-        <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden shadow-lg rounded-3xl hover:rotate-12 hover:hue-rotate-180 transition ease-in-out duration-300 select-none">
+      <main className="py-4 w-full h-full flex flex-col sm:flex-row-reverse justify-center gap-y-4 sm:justify-between md:max-w-2xl lg:items-center lg:max-w-4xl">
+        <div
+          className="relative h-20 w-20 sm:h-32 sm:w-32 lg:w-48 lg:h-48 flex-shrink-0 overflow-hidden rounded-3xl hover:rotate-[360deg] duration-[1.375s] hover:scale-110 hover:hue-rotate-180 transition ease-in-out select-none"
+          style={{ boxShadow: `0 10px 25px -1px #fe99b6` }}
+        >
           <Image
             layout="fill"
             objectFit="cover"
@@ -17,16 +21,27 @@ export default function Hero() {
             src={profile}
           />
         </div>
-        <section className="flex flex-col gap-y-1">
-          <h1 className="font-bold text-3xl tracking-tight">Stanley Zhao</h1>
-          <h3>
-            Chief Engineer at{" "}
-            <span className="bg-gradient-to-tl from-[#55e0af] to-[#289178] bg-clip-text font-semibold text-transparent inline">
-              SciLynk
-            </span>
-          </h3>
+        <section className="flex flex-col gap-y-2 max-w-sm">
+          <div className="flex flex-col gap-y-1">
+            <h1 className="font-bold text-3xl md:text-5xl tracking-tight">
+              Stanley Zhao
+            </h1>
+            <h2 className="text-base md:text-xl">
+              Chief Engineer at{" "}
+              <Link
+                href="https://scilynk.com/"
+                target="_blank"
+                rel="opener"
+                className="bg-gradient-to-tl from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-semibold inline"
+              >
+                SciLynk
+              </Link>
+            </h2>
+          </div>
+          <p className="whitespace-prewrap text-base md:text-lg">
+            {siteMetadata.desc}
+          </p>
         </section>
-        <p>{siteMetadata.desc}</p>
       </main>
     </>
   );

@@ -1,10 +1,8 @@
----
-title: Everything I Know About Style Guides, Design Systems, and Component Libraries
-date: "11/8/2022"
+title: Fourth
+date: "11/12/2022"
 draft: false
-lang: html
-slug: introtohtml
-number: 1
+desc: "A test description for this blog"
+genre: cybersecurity
 ---
 
 ## Workshop 1: Personal Website

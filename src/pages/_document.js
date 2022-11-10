@@ -12,11 +12,10 @@ class MyDocument extends Document {
           />
           <meta name="theme-color" content={siteMetadata.themeColor} />
           <meta name="title" content={siteMetadata.title} />
-          <title>{siteMetadata.title}</title>
           <meta name="description" content={siteMetadata.desc} />
           <meta name="keywords" content={siteMetadata.tags} />
           <meta name="robots" content="index, follow" />
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="language" content="English" />
           <link
             rel="apple-touch-icon"
