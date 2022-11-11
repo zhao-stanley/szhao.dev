@@ -1,9 +1,9 @@
+---
 title: Thoughts on Markdown
 date: "11/10/2022"
 draft: false
 desc: "Some thoughts about Markdown and packages that accompany it."
 genre: webdev
-
 ---
 
 Working with Markdown was a very fun experience. Some cool things I thought in particular were the [ReactMarkdown](https://github.com/remarkjs/react-markdown) and [RemarkGemoji](https://github.com/remarkjs/remark-gemoji) packages.
@@ -12,7 +12,7 @@ Working with Markdown was a very fun experience. Some cool things I thought in p
 
 ReactMarkdown is what parses this content I'm writing in the first place. Bundling it with a package such as [React Syntax Highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter) allows me to create nice looking codeblocks such as this:
 
-_Java Example_
+***Java Example***
 
 ```java
 String one = "foo";
@@ -21,7 +21,7 @@ String two = "bar";
 System.out.println(one + two); //foobar
 ```
 
-_C++ Example_
+***C++ Example***
 
 ```c++
 int main() {

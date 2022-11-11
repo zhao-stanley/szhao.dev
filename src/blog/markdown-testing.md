@@ -1,7 +1,8 @@
-title: First Post
+---
+title: Markdown Testing
 date: "11/9/2022"
 draft: false
-desc: "First blog post for testing purposes."
+desc: "Markdown template to test that everything works"
 genre: webdev
 ---
 

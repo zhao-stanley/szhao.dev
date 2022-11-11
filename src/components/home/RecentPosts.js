@@ -25,7 +25,7 @@ export default function RecentPosts({ recentPosts }) {
             </div>
           </Link>
         </li>
-        <li className="w-full bg-gradient-to-br p-2 rounded-2xl from-[#4fd966] to-[#0575E6] bg-500 animate-gshift shadow-lg shadow-[#0575E680]">
+        <li className="w-full bg-gradient-to-tr p-2 rounded-2xl from-[#4fd966] to-[#0575E6] bg-500 animate-gshift shadow-lg shadow-[#4fd96680]">
           <Link href={`/blog/${recentPosts[1].slug}`}>
             <div className="w-full h-full p-4 bg-gray-100 dark:bg-gray-900 rounded-xl flex flex-col justify-between gap-y-4">
               <div className="flex flex-col gap-y-1">

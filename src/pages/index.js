@@ -4,7 +4,6 @@ import RecentPosts from "../components/home/RecentPosts";
 import Projects from "../components/home/Projects";
 
 export default function Home({ data }) {
-  console.log(data);
   const frontMatter = data.map((post) => matter(post));
   const allPosts = frontMatter.map((listItem) => listItem.data);
   allPosts.sort((a, b) => {
@@ -32,11 +31,14 @@ export async function getStaticProps() {
 
   const data = posts.map((post) => {
     const path = `${process.cwd()}/src/blog/${post}`;
-    let rawContent = fs.readFileSync(path, {
+    const rawContent = fs.readFileSync(path, {
       encoding: "utf-8",
     });
-    rawContent = `---\nslug: ${post.replace(".md", "")}\n` + rawContent;
-    return rawContent;
+    let final = rawContent.replace(
+      `---`,
+      `---\nslug: ${post.replace(".md", "")}\n`
+    );
+    return final;
   });
 
   return {

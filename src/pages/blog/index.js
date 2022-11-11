@@ -31,7 +31,7 @@ export default function Blog({ data }) {
   return (
     <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
       <div className="w-full h-full md:max-w-[704px] lg:max-w-[928px] flex flex-col gap-y-4">
-        <div className="flex flex-col gap-y-4 p-4">
+        <div className="flex flex-col gap-y-4 py-4">
           <div className="flex flex-col gap-y-2 ">
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
               Blog
@@ -71,15 +71,17 @@ export default function Blog({ data }) {
         </div>
         <ul className="flex flex-col gap-y-4 w-full">
           {filteredPosts.map((e, key) => (
-            <li
-              className="w-full flex flex-col gap-y-1 p-4 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 ease-in-out transition"
-              key={key}
-            >
-              <Link href={`/blog/${e.slug}`}>
+            <Link href={`/blog/${e.slug}`} key={key}>
+              <li className="w-full flex flex-col gap-y-1 p-4 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 ease-in-out transition duration-300">
                 <div className="tracking-tight">
-                  <h2 className="font-semibold text-base md:text-xl">
-                    {e.title}
-                  </h2>
+                  <div className="flex flex-row w-full justify-between items-center">
+                    <h2 className="font-semibold text-base md:text-xl">
+                      {e.title}
+                    </h2>
+                    <span className="text-xs md:text-base text-blue-500 font-medium">
+                      #{e.genre}
+                    </span>
+                  </div>
                   <h3 className="text-sm md:text-lg">
                     {new Date(e.date).toLocaleString("en-US", {
                       timeZone: "UTC",
@@ -90,8 +92,8 @@ export default function Blog({ data }) {
                   </h3>
                 </div>
                 <p className="text-sm md:text-lg tracking-tight">{e.desc}</p>
-              </Link>
-            </li>
+              </li>
+            </Link>
           ))}
           {filteredPosts.length == 0 ? (
             <span className="px-4">{`No posts matched your query :(`}</span>
@@ -110,12 +112,14 @@ export async function getStaticProps() {
   const posts = files.filter((post) => post.endsWith(".md"));
   const data = posts.map((post) => {
     const path = `${process.cwd()}/src/blog/${post}`;
-    let rawContent = fs.readFileSync(path, {
+    const rawContent = fs.readFileSync(path, {
       encoding: "utf-8",
     });
-    rawContent = `---\nslug: ${post.replace(".md", "")}\n` + rawContent;
-
-    return rawContent;
+    let final = rawContent.replace(
+      `---`,
+      `---\nslug: ${post.replace(".md", "")}\n`
+    );
+    return final;
   });
 
   return {

@@ -5,7 +5,7 @@ export default function Projects() {
   const sortedProjects = projects.sort((a, b) => b.year - a.year);
   return (
     <>
-      <section className="w-full h-full flex flex-col gap-y-8 py-4 md:max-w-2xl lg:max-w-4xl">
+      <section className="w-full h-full flex flex-col gap-y-8 pt-4 pb-16 md:max-w-2xl lg:max-w-4xl">
         <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
           Recent Projects
         </h2>

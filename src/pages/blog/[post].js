@@ -35,7 +35,7 @@ export default function Post({ postContent }) {
               <div className="flex flex-col gap-y-1 md:flex-row md:justify-between">
                 <div className="flex flex-row gap-x-1 items-center">
                   <div className="flex flex-row gap-x-2 items-center">
-                    <div className="relative h-6 w-6 flex-shrink-0 overflow-hidden shadow-lg rounded-3xl hover:rotate-12 hover:hue-rotate-180 transition ease-in-out duration-300 select-none">
+                    <div className="relative h-6 w-6 flex-shrink-0 overflow-hidden shadow-lg rounded-3xl select-none">
                       <Image
                         layout="fill"
                         objectFit="cover"
@@ -72,7 +72,7 @@ export default function Post({ postContent }) {
               </div>
               <Link
                 href="/blog"
-                className="text-sm md:text-base cursor-pointer font-medium w-fit"
+                className="text-sm md:text-base cursor-pointer font-medium w-fit text-gray-700 dark:text-gray-300"
               >
                 &larr; Back to Posts
               </Link>
@@ -96,12 +96,15 @@ export default function Post({ postContent }) {
 export async function getServerSideProps(context) {
   const fs = require("fs");
   const { post } = context.params;
-  let postContent = fs.readFileSync(
+  const rawContent = fs.readFileSync(
     `${process.cwd()}/src/blog/${post}.md`,
     "utf8"
   );
 
-  postContent = `---\nslug: ${post.replace(".md", "")}\n` + postContent;
+  let postContent = rawContent.replace(
+    `---`,
+    `---\nslug: ${post.replace(".md", "")}\n`
+  );
 
   return {
     props: {

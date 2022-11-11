@@ -5,6 +5,7 @@ import Router from "next/router";
 import siteMetadata from "../data/siteMetadata";
 import Navbar from "../components/global/Navbar";
 import Head from "next/head";
+import Footer from "../components/global/Footer";
 
 NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = (url) => {
@@ -23,6 +24,7 @@ function App({ Component, pageProps }) {
       </Head>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   );
 }
