@@ -13,7 +13,7 @@ export default function Work() {
             rel="opener"
           >
             <li
-              className="shadow-lg w-full py-4 pl-4 pr-0 rounded-xl flex flex-row justify-between items-center"
+              className="shadow-lg w-full py-4 pl-4 pr-2 rounded-xl flex flex-row justify-between items-center"
               style={{
                 border: `3px solid #${e.theme}80`,
                 boxShadow: `0 5px 30px -1px #${e.theme}a0`,

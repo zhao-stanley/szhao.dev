@@ -6,7 +6,7 @@ export default function Contests() {
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full tracking-tight">
         {contests.map((e, key) => (
           <li
-            className="shadow-lg w-full py-6 pl-4 pr-0 rounded-xl flex flex-row justify-between items-center"
+            className="shadow-lg w-full py-6 pl-4 pr-2 rounded-xl flex flex-row justify-between items-center"
             key={key}
             style={{
               border: `3px solid #${
