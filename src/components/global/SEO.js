@@ -1,4 +1,5 @@
 import Head from "next/head";
+import siteMetadata from "../../data/siteMetadata";
 
 export default function SEO() {
   return (
