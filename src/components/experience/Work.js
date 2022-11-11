@@ -5,9 +5,10 @@ export default function Work() {
   return (
     <>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full tracking-tight">
-        {experience.map((e) => (
+        {experience.map((e, key) => (
           <Link
             href={e.href}
+            key={key}
             target={`${e.href.includes("http") ? "_blank" : "_self"}`}
             rel="opener"
           >

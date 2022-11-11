@@ -4,9 +4,10 @@ export default function Contests() {
   return (
     <>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full tracking-tight">
-        {contests.map((e) => (
+        {contests.map((e, key) => (
           <li
             className="shadow-lg w-full py-6 pl-4 pr-0 rounded-xl flex flex-row justify-between items-center"
+            key={key}
             style={{
               border: `3px solid #${
                 e.genre.toLowerCase() == "ctf" ? "d91c1c" : "4287f5"

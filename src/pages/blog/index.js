@@ -39,7 +39,7 @@ export default function Blog({ data }) {
             <p className="tracking-tight text-sm md:text-lg">
               I just write whatever comes to mind, usually software engineering,
               competitive programming, or cybersecurity. Since the revamp of my
-              portfolio, I've written{" "}
+              portfolio, I&apos;ve written{" "}
               <span className="font-semibold">{allPosts.length}</span> blog
               posts. Use the search bar below to filter the posts.
             </p>
