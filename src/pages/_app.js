@@ -4,8 +4,8 @@ import NProgress from "nprogress";
 import Router from "next/router";
 import siteMetadata from "../data/siteMetadata";
 import Navbar from "../components/global/Navbar";
-import Head from "next/head";
 import Footer from "../components/global/Footer";
+import SEO from "../components/global/SEO";
 
 NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = (url) => {
@@ -19,9 +19,7 @@ Router.onRouteChangeError = () => NProgress.done();
 function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.defaultTheme}>
-      <Head>
-        <title>{siteMetadata.title}</title>
-      </Head>
+      <SEO />
       <Navbar />
       <Component {...pageProps} />
       <Footer />
