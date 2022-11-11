@@ -32,7 +32,7 @@ export default function SEO() {
       <meta property="og:description" content={siteMetadata.desc} />
       <meta
         property="og:image"
-        content="https://www.szhao.dev/img/preview.png"
+        content="https://www.szhao.dev/static/img/profile.png"
       />
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://www.szhao.dev/" />
