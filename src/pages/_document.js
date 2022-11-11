@@ -35,7 +35,6 @@ class MyDocument extends Document {
             href="/static/favicons/favicon-16x16.png"
           />
           <link rel="manifest" href="/site.webmanifest" />
-          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         </Head>
         <body className="bg-gray-100 dark:bg-gray-900 text-black antialiased dark:bg-dark dark:text-white">
           <Main />

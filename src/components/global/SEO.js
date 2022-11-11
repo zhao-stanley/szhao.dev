@@ -42,6 +42,7 @@ export default function SEO() {
         property="twitter:image"
         content="https://www.szhao.dev/static/img/profile.png"
       />
+      <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </Head>
   );
 }
