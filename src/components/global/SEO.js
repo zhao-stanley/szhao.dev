@@ -1,10 +1,10 @@
 import Head from "next/head";
 import siteMetadata from "../../data/siteMetadata";
 
-export default function SEO() {
+export default function SEO({ title, desc }) {
   return (
     <Head>
-      <title>{siteMetadata.title}</title>
+      <title>{title ? title : siteMetadata.title}</title>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -24,20 +24,29 @@ export default function SEO() {
       />
       <link rel="manifest" href="/img/site.webmanifest" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <meta name="title" content={siteMetadata.title} />
-      <meta name="description" content={siteMetadata.desc} />
+      <meta name="title" content={title ? title : siteMetadata.title} />
+      <meta name="description" content={desc ? desc : siteMetadata.desc} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://www.szhao.dev/" />
-      <meta property="og:title" content={siteMetadata.title} />
-      <meta property="og:description" content={siteMetadata.desc} />
+      <meta property="og:title" content={title ? title : siteMetadata.title} />
+      <meta
+        property="og:description"
+        content={desc ? desc : siteMetadata.desc}
+      />
       <meta
         property="og:image"
         content="https://www.szhao.dev/static/img/profile.png"
       />
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://www.szhao.dev/" />
-      <meta property="twitter:title" content={siteMetadata.title} />
-      <meta property="twitter:description" content={siteMetadata.desc} />
+      <meta
+        property="twitter:title"
+        content={title ? title : siteMetadata.title}
+      />
+      <meta
+        property="twitter:description"
+        content={desc ? desc : siteMetadata.desc}
+      />
       <meta
         property="twitter:image"
         content="https://www.szhao.dev/static/img/profile.png"

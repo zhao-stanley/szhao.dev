@@ -1,7 +1,7 @@
 ---
 title: Third
 date: "11/11/2022"
-draft: false
+draft: true
 desc: "asdasd"
 genre: competitive-programming
 ---

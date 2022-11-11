@@ -2,6 +2,7 @@ import matter from "gray-matter";
 import Hero from "../components/home/Hero";
 import RecentPosts from "../components/home/RecentPosts";
 import Projects from "../components/home/Projects";
+import SEO from "../components/global/SEO";
 
 export default function Home({ data }) {
   const frontMatter = data.map((post) => matter(post));
@@ -12,13 +13,16 @@ export default function Home({ data }) {
   const recentPosts = allPosts.slice(0, 3);
 
   return (
-    <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
-      <div className="w-full h-full flex flex-col gap-y-4 items-center">
-        <Hero />
-        <RecentPosts recentPosts={recentPosts} />
-        <Projects />
+    <>
+      <SEO />
+      <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
+        <div className="w-full h-full flex flex-col gap-y-4 items-center">
+          <Hero />
+          <RecentPosts recentPosts={recentPosts} />
+          <Projects />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

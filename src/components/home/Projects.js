@@ -1,5 +1,22 @@
 import projects from "../../data/projects";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const variants = {
+  offscreen: {
+    opacity: 0,
+    y: 50,
+  },
+  onscreen: {
+    y: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+    opacity: 1,
+  },
+};
 
 export default function Projects() {
   const sortedProjects = projects.sort((a, b) => b.year - a.year);
@@ -11,12 +28,16 @@ export default function Projects() {
         </h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {sortedProjects.map((p, key) => (
-            <li
+            <motion.li
               className="w-full h-full p-6 rounded-2xl flex flex-col gap-y-4 border-2 border-gray-700 border-opacity-100 dark:border-opacity-25 justify-between"
               style={{
                 backgroundColor: `#${p.theme}d0`,
                 boxShadow: `0 10px 15px -1px #${p.theme}a0`,
               }}
+              variants={variants}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.7 }}
               key={key}
             >
               <div className="flex flex-col w-full h-full gap-y-2 justify-start">
@@ -66,7 +87,7 @@ export default function Projects() {
               >
                 View on GitHub
               </Link>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </section>

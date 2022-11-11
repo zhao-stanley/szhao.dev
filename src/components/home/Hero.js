@@ -6,10 +6,10 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <>
-      <main className="py-4 w-full h-full flex flex-col sm:flex-row-reverse justify-center gap-y-4 sm:justify-between md:max-w-2xl lg:items-center lg:max-w-4xl">
+      <main className="pt-8 pb-4 sm:py-8 w-full h-full flex flex-col sm:flex-row-reverse justify-center gap-y-6 sm:justify-between md:max-w-2xl lg:items-center lg:max-w-4xl">
         <div
           className="relative h-20 w-20 sm:h-32 sm:w-32 lg:w-48 lg:h-48 flex-shrink-0 overflow-hidden rounded-3xl hover:rotate-[360deg] duration-[1.375s] hover:scale-110 hover:hue-rotate-180 transition ease-in-out select-none"
-          style={{ boxShadow: `0 10px 25px -1px #fe99b6` }}
+          style={{ boxShadow: `0 10px 20px -1px #fe99b6` }}
         >
           <Image
             layout="fill"

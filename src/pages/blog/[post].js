@@ -6,14 +6,17 @@ import { CodeBlock } from "../../components/global/CodeBlock";
 import Link from "next/link";
 import profile from "../../../public/static/img/profile.png";
 import Image from "next/image";
+import SEO from "../../components/global/SEO";
+import siteMetadata from "../../data/siteMetadata";
 
 export default function Post({ postContent }) {
   const { data, content } = matter(postContent);
   if (data.draft) {
     return (
       <>
-        <div className="w-full h-auto min-h-screen py-20 flex flex-col items-center justify-center">
-          <div className="max-w-[1536px] w-full p-12 flex flex-col items-center divide-y-2">
+        <SEO title={`${data.title} | ${siteMetadata.title}`} />
+        <div className="w-full h-auto min-h-screen flex flex-col items-center justify-center">
+          <div className="max-w-7xl w-full pt-24 sm:pt-4 sm:pb-16 px-8 md:px-0 flex flex-col divide-y-2 md:max-w-2xl lg:max-w-4xl">
             <h1 className="text-center text-4xl md:text-5xl 2xl:text-6xl font-bold tracking-tight">
               This blog post is under construction 🚧
             </h1>
@@ -25,9 +28,10 @@ export default function Post({ postContent }) {
 
   return (
     <>
+      <SEO title={`${data.title} | ${siteMetadata.title}`} desc={data.desc} />
       <div className="w-full h-auto min-h-screen flex flex-col items-center justify-center">
         <div className="max-w-7xl w-full py-24 sm:pt-4 sm:pb-16 px-8 md:px-0 flex flex-col divide-y-2 md:max-w-2xl lg:max-w-4xl">
-          <div className="flex flex-col justify-center gap-y-2 md:gap-y-4 pb-6">
+          <div className="flex flex-col justify-center gap-y-2 md:gap-y-4 py-8">
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
               {data.title}
             </h1>

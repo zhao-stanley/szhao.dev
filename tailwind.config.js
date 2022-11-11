@@ -18,15 +18,15 @@ module.exports = {
         gshift: {
           "0%": {
             backgroundPosition: "0% 50%",
-            rotateZ: "rotateX(0deg)"
+            rotateZ: "rotateX(0deg)",
           },
           "100%": {
             backgroundPosition: "0% 50%",
-            rotateZ: "rotateX(180deg)"
+            rotateZ: "rotateX(180deg)",
           },
           "50%": {
             backgroundPosition: "100% 50%",
-            transform: "rotateX(0deg)"
+            transform: "rotateX(0deg)",
           },
         },
       },
