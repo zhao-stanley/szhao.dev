@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import profile from "../../../public/static/img/profile.png";
 import siteMetadata from "../../data/siteMetadata";
 import Link from "next/link";

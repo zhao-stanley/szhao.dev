@@ -5,9 +5,11 @@ import remarkGemoji from "remark-gemoji";
 import { CodeBlock } from "../../components/global/CodeBlock";
 import Link from "next/link";
 import profile from "../../../public/static/img/profile.png";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import SEO from "../../components/global/SEO";
 import siteMetadata from "../../data/siteMetadata";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 
 export default function Post({ postContent }) {
   const { data, content } = matter(postContent);
@@ -84,8 +86,8 @@ export default function Post({ postContent }) {
           </div>
           <article className="prose prose-h1:font-bold prose-h1:mb-0 dark:prose-invert lg:prose-lg w-full pt-6 max-w-7xl prose-a:text-blue-500">
             <ReactMarkdown
-              rehypePlugins={[rehypeRaw]}
-              remarkPlugins={[remarkGemoji]}
+              rehypePlugins={[rehypeRaw, rehypeKatex]}
+              remarkPlugins={[remarkGemoji, remarkMath]}
               components={CodeBlock}
             >
               {content}
