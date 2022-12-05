@@ -21,11 +21,11 @@ In order to prepare, I decided to invest in a [NeetCode](https://neetcode.io) li
 ## Static Arrays
 
 First topic of NeetCodes' curriculum are static arrays. I would like to think I'm familiar with arrays but there's always more to learn. Below are my solutions to LeetCode problems 26 and 27.
-The first solution of each problem is my attempt at solving with just intuition. It's likely not the most optimal solution. The second solution is the alternative solution I learned from NeetCode's solution and my own implementation of it.
+The first solution of each problem is my attempt at solving with just intuition. It's likely not the most optimal solution. The second solution is what I learned from NeetCode's solution and then implementing it myself.
 
-### LeetCode 26. Remove Duplicates from Sorted Array
+### [LeetCode 26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
-#### Intuitive Solution --> O(n^2) time (_for loop x while loop_)
+#### Intuitive Solution --> O(n^3) time (_for loop x while loop x splice()_)
 
 ```javascript
 //  @param {number[]} nums
@@ -48,6 +48,7 @@ The problem said to modify the original array rather than allocate extra memory 
   - `splice()` syntax --> `splice(index, # of items, [replacement])`
     - Left the last argument blank to just remove the item completely rather than replacing it with anything.
 - Since I removed the elements rather than replacing them, the array size is also changed, so I can just return the size when it's done.
+- Note: `splice()` actually has a [worst-case time complexity of O(n)](https://stackoverflow.com/questions/62090988/what-is-the-time-complexity-of-array-splice-array-splice)
 
 #### Two Pointers Solution --> O(n) time (_for loop_)
 
@@ -77,7 +78,7 @@ var removeDuplicates = function (nums) {
 - The left pointer corresponds to where each unique element should go in ascending order. This also means the **value of the left pointer tells us how many unique elements there are**.
   - We can return this value when we are done looping through the entire array.
 
-### LeetCode 27. Remove Element
+### [LeetCode 27. Remove Element](https://leetcode.com/problems/remove-element/)
 
 #### Intuitive Solution --> O(n) time (_for loop_)
 
@@ -98,7 +99,7 @@ var removeElement = function (nums, val) {
 - Objective is to remove all elements that match `val`. The issue with splicing it forward is that the index changes, which can cause the loop to skip past a value if it occurs more than two times.
 - Loop through starting from the last element
   - If it's equal to the value we want to remove, we'll remove it
-- `splice` will decrease the array size by 1, but the for loop condition makes sure it's not out of bounds anyways thanks to `nums.length - 1`.
+- `splice()` will decrease the array size by 1, but the for loop condition makes sure it's not out of bounds anyways thanks to `nums.length - 1`.
 
 #### Two Pointers Solution --> O(n) time (_for loop_)
 
