@@ -22,7 +22,7 @@ export default function SEO({ title, desc }) {
         sizes="16x16"
         href="/img/favicon-16x16.png"
       />
-      <link rel="manifest" href="/img/site.webmanifest" />
+      <link rel="manifest" href="/site.webmanifest" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="title" content={title ? title : siteMetadata.title} />
       <meta name="description" content={desc ? desc : siteMetadata.desc} />
