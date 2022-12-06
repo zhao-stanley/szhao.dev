@@ -2,7 +2,7 @@
 title: Interview Prep Day 2
 date: "12/4/2022"
 draft: false
-desc: "Analyzing some dynamic array and stack problems. These are Leetcode problems 1929, 682, 20, and 155."
+desc: "Analyzing some dynamic array and stack problems. These are Leetcode problems 1929 and 682."
 genre: dsa
 ---
 
