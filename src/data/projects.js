@@ -1,10 +1,18 @@
 const projects = [
   {
+    name: "SciLynk",
+    year: 2022,
+    link: "https://scilynk.com/",
+    desc: "Every minute counts. Leave behind finding, sorting, and analyzing research. Let SciLynk accelerate your research workflow.",
+    theme: "1f6c8a",
+    tags: ["React", "TailwindCSS", "CSS", "ExpressJS", "MongoDB"],
+  },
+  {
     name: "DiscussMed",
     year: 2022,
     link: "https://www.discussmed.org/",
     desc: "Collection of blog posts, interviews, and resources to raise youth awareness about diseases and disorders. ",
-    theme: "1f6c8a",
+    theme: "28bf81",
     github: "zhao-stanley/DiscussMed",
     tags: ["React", "NextJS", "TailwindCSS", "CSS", "Markdown"],
   },
@@ -72,7 +80,7 @@ const projects = [
     year: 2022,
     link: "https://trash4cash.vercel.app/",
     desc: "Mockup of a recycling rewards website to incentivize recycling and reduce trash.",
-    theme: "4ac778",
+    theme: "006400",
     github: "zhao-stanley/trash4cash",
     tags: ["React", "NextJS", "TailwindCSS", "CSS", "ThreeJS"],
   },

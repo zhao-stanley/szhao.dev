@@ -111,7 +111,7 @@ export default function Projects({ children }) {
                   <Link href={`/projects?tag=${t.toLowerCase()}`} key={key}>
                     <li
                       style={{ backgroundColor: `#${p.theme}cf` }}
-                      className="px-3 py-2 rounded-lg text-xs font-bold text-white shadow-md hover:brightness-[90%] transition duration-300 tracking-tight"
+                      className="p-2 rounded-lg text-xs font-bold text-white shadow-md hover:brightness-[90%] transition duration-300 tracking-tight"
                     >
                       {t}
                     </li>
