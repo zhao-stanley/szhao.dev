@@ -19,8 +19,8 @@ export default function Post({ postContent }) {
         <SEO title={`${data.title} | ${siteMetadata.title}`} />
         <div className="w-full h-auto min-h-screen flex flex-col items-center justify-center">
           <div className="max-w-7xl w-full pt-24 sm:pt-4 sm:pb-16 px-8 md:px-0 flex flex-col divide-y-2 md:max-w-2xl lg:max-w-4xl">
-            <h1 className="text-center text-4xl md:text-5xl 2xl:text-6xl font-bold tracking-tight">
-              This blog post is under construction 🚧
+            <h1 className="text-center text-3xl md:text-4xl 2xl:text-5xl font-bold tracking-tight">
+              This post is still being written... 🚧
             </h1>
           </div>
         </div>
@@ -66,11 +66,11 @@ export default function Post({ postContent }) {
                     })}
                   </h2>
                 </div>
-                <h2 className="text-base md:text-lg text-gray-800 dark:text-gray-200 tracking-tight flex gap-x-1">
+                <h2 className="text-base md:text-lg text-gray-800 dark:text-gray-200 tracking-tight flex gap-x-1 items-center">
                   {readingTime(content)} min read •{" "}
                   {data.genre.map((g) => (
                     <Link
-                      className="text-blue-500 font-medium"
+                      className="text-blue-500 border-b-2 pt-[0.125rem] leading-4 border-transparent hover:border-blue-500 transition duration-300"
                       href={`/blog?genre=${g}`}
                     >
                       #{g}

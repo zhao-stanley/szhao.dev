@@ -83,7 +83,7 @@ export default function Blog({ data }) {
               </svg>
             </div>
           </div>
-          <ul className="flex flex-col gap-y-4 w-full">
+          <ul className="flex flex-col gap-y-6 w-full pb-12">
             {filteredPosts.map((e, key) => (
               <Link href={`/blog/${e.slug}`} key={key}>
                 <li className="w-full flex flex-col gap-y-1 p-4 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 ease-in-out transition duration-300 border-2 dark:border-gray-200 border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 shadow-md">
