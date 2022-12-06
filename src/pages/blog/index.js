@@ -97,6 +97,7 @@ export default function Blog({ data }) {
                           <Link
                             className="border-b-2 leading-4 border-transparent hover:border-blue-500 transition duration-300"
                             href={`/blog?genre=${g}`}
+                            key={key}
                           >{`#${g}`}</Link>
                         ))}
                       </span>
