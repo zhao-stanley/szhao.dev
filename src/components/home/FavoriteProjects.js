@@ -23,7 +23,7 @@ export default function FavoriteProjects({ children }) {
   const sortedProjects = sorted.slice(0, 4);
   return (
     <>
-      <section className="w-full h-full flex flex-col gap-y-8 pt-4 pb-16 md:max-w-2xl lg:max-w-4xl">
+      <section className="w-full h-full flex flex-col gap-y-6 pt-4 pb-16 md:max-w-2xl lg:max-w-4xl">
         {children}
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {sortedProjects.map((p, key) => (

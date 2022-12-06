@@ -21,8 +21,8 @@ export default function Home({ data }) {
           <Hero />
           <RecentPosts recentPosts={recentPosts} />
           <FavoriteProjects>
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
-              Favorite Projects
+            <h2 className="text-xl md:text-2xl font-semibold tracking-tight">
+              Some of my favorite projects...
             </h2>
           </FavoriteProjects>
         </div>
