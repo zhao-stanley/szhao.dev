@@ -40,9 +40,12 @@ export default function Blog({ data }) {
               <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
                 Posts{searchValue ? ` about ` : null}
                 {searchValue ? (
-                  <span className="text-[#3b82f6]">
-                    {searchValue.substring(0, 10)}
-                  </span>
+                  <>
+                    <span className="text-[#3b82f6] underline dark:decoration-gray-200 decoration-gray-800 underline-offset-[6px]">
+                      {searchValue.substring(0, 10)}
+                    </span>
+                    .
+                  </>
                 ) : null}
               </h1>
               <p className="text-gray-800 dark:text-gray-200 text-base md:text-xl font-medium tracking-tight">

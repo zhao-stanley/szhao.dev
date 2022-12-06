@@ -1,5 +1,4 @@
-import Contests from "../../components/experience/Contests";
-import Work from "../../components/experience/Work";
+import Link from "next/link";
 import SEO from "../../components/global/SEO";
 import Projects from "../../components/home/Projects";
 import siteMetadata from "../../data/siteMetadata";
@@ -18,12 +17,28 @@ export default function ProjectsPage() {
           <div className="flex flex-col gap-y-4 py-8">
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
               Projects {tag ? `built with ` : null}
-              {tag ? <span className="text-[#3b82f6]">{properCase(tag)}</span> : null}
+              {tag ? (
+                <>
+                  <span className="text-[#3b82f6] underline dark:decoration-gray-200 decoration-gray-800 underline-offset-[6px]">
+                    {properCase(tag)}
+                  </span>
+                  .
+                </>
+              ) : null}
             </h1>
             <p className="text-gray-800 dark:text-gray-200 text-base md:text-xl font-medium tracking-tight">
               I love putting my skills to work by developing meaningful and
               beautiful projects. Below are some of my most recent projects,
-              which you can also find on GitHub.
+              which you can also find on{" "}
+              <Link
+                href={`https://github.com/zhao-stanley`}
+                target="_blank"
+                rel="opener"
+                className="text-[#3b82f6] font-semibold hover:brightness-[80%] transition duration-300"
+              >
+                my GitHub
+              </Link>
+              .
             </p>
           </div>
           <Projects />
