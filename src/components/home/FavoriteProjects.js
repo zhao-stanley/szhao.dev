@@ -76,7 +76,7 @@ export default function FavoriteProjects({ children }) {
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-auto fill-white hover:brightness-[80%] transition duration-300"
+                            className="w-6 h-auto fill-white hover:brightness-75 transition duration-300"
                             fill="currentColor"
                             viewBox="0 0 1024 1024"
                           >
