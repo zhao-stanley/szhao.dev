@@ -19,8 +19,7 @@ const variants = {
 };
 
 export default function FavoriteProjects({ children }) {
-  const sorted = projects.sort((a, b) => b.year - a.year);
-  const sortedProjects = sorted.slice(0, 4);
+  const sortedProjects = projects.slice(0, 4).sort((a, b) => b.year - a.year);
   return (
     <>
       <section className="w-full h-full flex flex-col gap-y-6 pt-4 pb-16 md:max-w-2xl lg:max-w-4xl">

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import SEO from "../../components/global/SEO";
-import Projects from "../../components/home/Projects";
-import siteMetadata from "../../data/siteMetadata";
+import SEO from "../components/global/SEO";
+import Projects from "../components/home/Projects";
+import siteMetadata from "../data/siteMetadata";
 import { useRouter } from "next/router";
-import properCase from "../../utils";
+import properCase from "../utils";
 
 export default function ProjectsPage() {
   const router = useRouter();
@@ -27,9 +27,9 @@ export default function ProjectsPage() {
               ) : null}
             </h1>
             <p className="text-gray-800 dark:text-gray-200 text-base md:text-xl font-medium tracking-tight">
-              I love putting my skills to work by developing meaningful and
-              beautiful projects. Below are some of my most recent projects,
-              which you can also find on{" "}
+              I love putting my skills to work by developing beautiful and
+              meaningful projects. Below are all of my projects which you can
+              also find on{" "}
               <Link
                 href={`https://github.com/zhao-stanley`}
                 target="_blank"
