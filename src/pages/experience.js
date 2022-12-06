@@ -14,8 +14,9 @@ export default function Experience() {
               Experience
             </h1>
             <p className="text-gray-800 dark:text-gray-200 text-base md:text-xl font-medium tracking-tight">
-              Below are the numerous projects and organizations I've been a part
-              of, where I oversaw and developed a variety of web applications.
+              Below are the numerous projects and organizations I&apos;ve been a
+              part of, where I oversaw and developed a variety of web
+              applications.
             </p>
           </div>
           <Work />

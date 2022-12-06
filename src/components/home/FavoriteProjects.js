@@ -96,11 +96,10 @@ export default function FavoriteProjects({ children }) {
               </div>
               <ul className="flex flex-wrap gap-2">
                 {p.tags.map((t, key) => (
-                  <Link href={`/projects?tag=${t.toLowerCase()}`}>
+                  <Link href={`/projects?tag=${t.toLowerCase()}`} key={key}>
                     <li
                       style={{ backgroundColor: `#${p.theme}cf` }}
                       className="p-2 rounded-lg text-xs font-bold text-white shadow-md hover:brightness-[90%] transition duration-300 tracking-tight"
-                      key={key}
                     >
                       {t}
                     </li>

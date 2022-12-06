@@ -72,6 +72,7 @@ export default function Post({ postContent }) {
                     <Link
                       className="text-blue-500 font-medium border-b-2 pt-[0.125rem] leading-4 border-transparent hover:border-blue-500 transition duration-300"
                       href={`/blog?genre=${g}`}
+                      key={key}
                     >
                       #{g}
                     </Link>
