@@ -26,7 +26,7 @@ export default function Blog({ data }) {
           (e) =>
             e.title.toLowerCase().includes(searchValue.toLowerCase()) ||
             e.desc.toLowerCase().includes(searchValue.toLowerCase()) ||
-            e.genre.toLowerCase().includes(searchValue.toLowerCase())
+            e.genre.join(" ").includes(searchValue.toLowerCase())
         )
       : allPosts;
 
@@ -38,9 +38,14 @@ export default function Blog({ data }) {
           <div className="flex flex-col gap-y-4 py-8">
             <div className="flex flex-col gap-y-2">
               <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
-                Blog
+                Posts{searchValue ? ` about ` : null}
+                {searchValue ? (
+                  <span className="text-[#3b82f6]">
+                    #{searchValue.substring(0, 10)}
+                  </span>
+                ) : null}
               </h1>
-              <p className="tracking-tight text-sm md:text-lg">
+              <p className="text-gray-800 dark:text-gray-200 text-base md:text-xl font-medium tracking-tight">
                 I just write whatever comes to mind, usually software
                 engineering, competitive programming, or cybersecurity. Since
                 the revamp of my portfolio, I&apos;ve written{" "}
@@ -76,14 +81,14 @@ export default function Blog({ data }) {
           <ul className="flex flex-col gap-y-4 w-full">
             {filteredPosts.map((e, key) => (
               <Link href={`/blog/${e.slug}`} key={key}>
-                <li className="w-full flex flex-col gap-y-1 p-4 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 ease-in-out transition duration-300">
+                <li className="w-full flex flex-col gap-y-1 p-4 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 ease-in-out transition duration-300 border-2 dark:border-gray-200 border-gray-800 hover:border-[#3b82f6] dark:hover:border-[#3b82f6] shadow-md">
                   <div className="tracking-tight">
                     <div className="flex flex-row w-full justify-between items-center">
                       <h2 className="font-semibold text-base md:text-xl">
                         {e.title}
                       </h2>
                       <span className="text-xs md:text-base text-blue-500 font-medium">
-                        #{e.genre}
+                        {e.genre.map((g) => `#${g}`).join(" ")}
                       </span>
                     </div>
                     <h3 className="text-sm md:text-lg">

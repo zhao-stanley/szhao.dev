@@ -1,9 +1,9 @@
 ---
 title: Interview Prep Day 3
 date: "12/5/2022"
-draft: true
+draft: false
 desc: "Analyzing some more stack problems. These are Leetcode problems 20 and 155."
-genre: dsa
+genre: ["dsa", "stacks"]
 ---
 
 ## Day 3
@@ -61,35 +61,88 @@ This was a tough one :sweat_smile:! Took me rereading a bunch of times and rewat
 
 ### [LeetCode 155. Min Stack](https://leetcode.com/problems/min-stack/)
 
-#### Intuitive Solution --> O(n) time (_for loop_ + `reduce()`)
+#### Intuitive Solution --> O(n) time (_spread operator (...)_)
 
 ```javascript
-//  @param {string[]} ops
-//  @return {number}
-var calPoints = function (ops) {
-  let stack = [];
-  for (let i = 0; i < ops.length; i++) {
-    if (ops[i] === "C") {
-      stack.pop();
-    } else if (ops[i] === "D") {
-      stack.push(Number(stack[stack.length - 1]) * 2);
-    } else if (ops[i] === "+") {
-      stack.push(
-        Number(stack[stack.length - 1]) + Number(stack[stack.length - 2])
-      );
-    } else {
-      stack.push(Number(ops[i]));
-    }
+let MinStack = class {
+  constructor() {
+    this.stack = [];
   }
-  return stack.reduce((a, b) => a + b, 0);
+};
+
+//  @param {number} val
+//  @return {void}
+MinStack.prototype.push = function (val) {
+  this.stack.push(val);
+};
+
+//  @return {void}
+MinStack.prototype.pop = function () {
+  this.stack.pop();
+};
+
+//  @return {number}
+MinStack.prototype.top = function () {
+  return this.stack.at(-1);
+};
+
+//  @return {number}
+MinStack.prototype.getMin = function () {
+  return Math.min(...this.stack);
 };
 ```
 
-- Create an array to represent a stack.
-- If the operation is "C", we `pop()` the last element.
-- If the operation is "D", we are going to `push()` double value of the last element in the stack.
-- If the operation is "+", we are going to `push()` the sum of the last two elements in the stack.
-- Otherwise, we can just add the element to the stack (since it must be a number).
-  - We're wrapping the values with `Number()` because the provided operations are Strings and we must return a number.
-- At the end, we can return the sum as a Number by using `reduce()`, which will sum all the elements in the stack.
-- Note: My intuitive solution actually ended up being the same as NeetCode's :partying_face:!
+- Initialized a stack in the constructor
+- Used the built in functions for `push()` and `pop()`, which should be O(1) time complexity.
+- `at(-1)` gives the last element of the stack
+- `Math.min()` returns the minimum value of a bunch of provided values. Using the `...` spread operator is actually O(n), which isn't optimal.
+  Each function is supposed to be O(1), which I did not accomplish. Let's see what NeetCode's solution is!
+
+#### Two Stacks Solution --> O(1) time (normal stack operations)
+
+```javascript
+let MinStack = class {
+  constructor() {
+    this.stack = [];
+    this.minStack = [];
+  }
+};
+
+//  @param {number} val
+//  @return {void}
+MinStack.prototype.push = function (val) {
+  this.stack.push(val);
+  if (this.minStack.length == 0 || this.minStack.at(-1) >= val) {
+    this.minStack.push(val);
+  }
+};
+
+//  @return {void}
+MinStack.prototype.pop = function () {
+  let topOfStack = this.stack.pop();
+  let minVal = this.minStack.at(-1);
+  if (topOfStack == minVal) {
+    this.minStack.pop();
+  }
+};
+
+//  @return {number}
+MinStack.prototype.top = function () {
+  return this.stack.at(-1);
+};
+
+//  @return {number}
+MinStack.prototype.getMin = function () {
+  return this.minStack.at(-1);
+};
+```
+
+- Initialize two stacks. First stack will be the general stack we return. The second stack, `minStack`, will keep track of the minimum values that are pushed to the stack.
+  - The top value of `minStack` will always be the minimum value.
+- When we push, we check two conditions for `minStack`. If either are true, we will also push `val` to `minStack`.
+  - If `minStack` has no elements yet, we can push `val` to be the first minimum value.
+  - If the top element of `minStack` is greater than or equal to `val`, we can push `val` because it's less than or equal to.
+    - We push `val` even if it may equal because there may be two of the same values, and one of them might be removed.
+      - Example: We push two 3's into `stack` but only 3 once in `minStack`. If we `pop()` a 3, minStack is empty, even though the minimum value is still 3.
+- We can keep track of what element we popped from `stack`. If this element is equal to the element at the top of `minStack`, then we also remove the element from `minStack`.
+- For our `getMin` function, we can return the element at the top of `minStack` because the **topmost element must be the minimum value**.

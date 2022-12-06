@@ -3,7 +3,7 @@ title: Interview Prep Day 1
 date: "12/3/2022"
 draft: false
 desc: "Analyzing some array problems. These are Leetcode problems 26 and 27."
-genre: dsa
+genre: ["dsa", "arrays"]
 ---
 
 ## Introduction

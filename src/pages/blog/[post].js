@@ -66,14 +66,16 @@ export default function Post({ postContent }) {
                     })}
                   </h2>
                 </div>
-                <h2 className="text-base md:text-lg text-gray-800 dark:text-gray-200 tracking-tight">
+                <h2 className="text-base md:text-lg text-gray-800 dark:text-gray-200 tracking-tight flex gap-x-1">
                   {readingTime(content)} min read •{" "}
-                  <Link
-                    className="text-blue-500 font-medium"
-                    href={`/blog?genre=${data.genre}`}
-                  >
-                    #{data.genre}
-                  </Link>
+                  {data.genre.map((g) => (
+                    <Link
+                      className="text-blue-500 font-medium"
+                      href={`/blog?genre=${g}`}
+                    >
+                      #{g}
+                    </Link>
+                  ))}
                 </h2>
               </div>
               <Link

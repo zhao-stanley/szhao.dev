@@ -3,7 +3,7 @@ title: Thoughts on Markdown
 date: "11/10/2022"
 draft: false
 desc: "Some thoughts about Markdown and packages that accompany it."
-genre: webdev
+genre: ["webdev"]
 ---
 
 Working with Markdown was a very fun experience. Some cool things I thought in particular were the [ReactMarkdown](https://github.com/remarkjs/react-markdown) and [RemarkGemoji](https://github.com/remarkjs/remark-gemoji) packages.

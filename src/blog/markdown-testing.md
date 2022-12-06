@@ -3,7 +3,7 @@ title: Markdown Testing
 date: "11/9/2022"
 draft: false
 desc: "Markdown template to test that everything works"
-genre: webdev
+genre: ["webdev"]
 ---
 
 Markdown template to test everything, courtesy of [Ismaestro](https://github.com/Ismaestro/markdown-template)

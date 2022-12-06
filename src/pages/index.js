@@ -3,6 +3,7 @@ import Hero from "../components/home/Hero";
 import RecentPosts from "../components/home/RecentPosts";
 import Projects from "../components/home/Projects";
 import SEO from "../components/global/SEO";
+import FavoriteProjects from "../components/home/FavoriteProjects";
 
 export default function Home({ data }) {
   const frontMatter = data.map((post) => matter(post));
@@ -19,7 +20,11 @@ export default function Home({ data }) {
         <div className="w-full h-full flex flex-col gap-y-4 items-center">
           <Hero />
           <RecentPosts recentPosts={recentPosts} />
-          <Projects />
+          <FavoriteProjects>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
+              Favorite Projects
+            </h2>
+          </FavoriteProjects>
         </div>
       </div>
     </>

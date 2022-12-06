@@ -1,8 +1,6 @@
 import projects from "../../data/projects";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
-import properCase from "../../utils";
 
 const variants = {
   offscreen: {
@@ -20,24 +18,15 @@ const variants = {
   },
 };
 
-export default function Projects({ children }) {
-  const router = useRouter();
-  const { tag } = router.query;
-  const sortedProjects = projects.sort((a, b) => b.year - a.year);
-  let filteredProjects, projectDisplay;
-  if (tag) {
-    filteredProjects = sortedProjects.filter((p) =>
-      p.tags.includes(properCase(tag))
-    );
-  }
-
-  projectDisplay = tag ? filteredProjects : sortedProjects;
+export default function FavoriteProjects({ children }) {
+  const sorted = projects.sort((a, b) => b.year - a.year);
+  const sortedProjects = sorted.slice(0, 4);
   return (
     <>
       <section className="w-full h-full flex flex-col gap-y-8 pt-4 pb-16 md:max-w-2xl lg:max-w-4xl">
         {children}
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projectDisplay.map((p, key) => (
+          {sortedProjects.map((p, key) => (
             <motion.li
               className="w-full h-full p-6 rounded-2xl flex flex-col gap-y-8 border-2 border-gray-700 border-opacity-100 dark:border-opacity-25 justify-between"
               style={{
@@ -108,10 +97,11 @@ export default function Projects({ children }) {
               </div>
               <ul className="flex flex-wrap gap-2">
                 {p.tags.map((t, key) => (
-                  <Link href={`/projects?tag=${t.toLowerCase()}`} key={key}>
+                  <Link href={`/projects?tag=${t.toLowerCase()}`}>
                     <li
                       style={{ backgroundColor: `#${p.theme}cf` }}
                       className="px-3 py-2 rounded-lg text-xs font-bold text-white shadow-md hover:brightness-[90%] transition duration-300 tracking-tight"
+                      key={key}
                     >
                       {t}
                     </li>
@@ -121,6 +111,14 @@ export default function Projects({ children }) {
             </motion.li>
           ))}
         </ul>
+        <div className="w-full flex flex-col items-center pt-8">
+          <Link
+            href="/projects"
+            className="w-[75%] cursor-pointer px-4 py-3 font-semibold rounded-3xl text-center border-2 dark:text-gray-200 dark:border-gray-200 text-gray-800 border-gray-800 transition duration-300 ease-linear hover:text-white hover:bg-gray-800 dark:hover:text-black dark:hover:bg-gray-200"
+          >
+            View all projects
+          </Link>
+        </div>
       </section>
     </>
   );

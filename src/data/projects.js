@@ -6,6 +6,7 @@ const projects = [
     desc: "Collection of blog posts, interviews, and resources to raise youth awareness about diseases and disorders. ",
     theme: "1f6c8a",
     github: "zhao-stanley/DiscussMed",
+    tags: ["React", "NextJS", "TailwindCSS", "CSS", "Markdown"],
   },
   {
     name: "WebLFG",
@@ -13,6 +14,7 @@ const projects = [
     link: "https://www.weblfg.com/",
     desc: "Publisher of the most popular, memorable, and cutting-edge browser games, completely free.",
     theme: "df8686",
+    tags: ["React", "NextJS", "TailwindCSS", "CSS", "Prisma"],
   },
   {
     name: "Roslyn Code Club",
@@ -21,6 +23,7 @@ const projects = [
     desc: "Club website showcasing executive board, weekly workshops, and previous projects.",
     theme: "5d78fc",
     github: "Roslyn-Code-Club/website",
+    tags: ["React", "NextJS", "TailwindCSS", "CSS", "Markdown"],
   },
   {
     name: "UBG100",
@@ -28,6 +31,7 @@ const projects = [
     link: "https://ubg100.github.io/",
     desc: "Publisher of the most popular, memorable, and cutting-edge browser games, completely free. Predecessor to WebLFG.",
     theme: "df8686",
+    tags: ["HTML", "JavaScript", "CSS"],
   },
   {
     name: "Parallax",
@@ -35,6 +39,7 @@ const projects = [
     link: "https://parallaxbot.cf/",
     desc: "Accompanying website for my verified Discord bot Parallax for documentation and feature showcase.",
     theme: "b07cc6",
+    tags: ["HTML", "JavaScript", "CSS", "NodeJS", "MongoDB"],
   },
   {
     name: "Stickers",
@@ -42,6 +47,7 @@ const projects = [
     link: "https://joinsaturn.com/",
     desc: "Dynamic social media component created as an internship project for Saturn to improve proficiency in React.",
     theme: "e68a51",
+    tags: ["React", "CSS"],
   },
   {
     name: "Music Artist Portfolio",
@@ -50,6 +56,7 @@ const projects = [
     desc: "Portfolio and promotional website created for a musical artist created to learn React.",
     theme: "507D5F",
     github: "zhao-stanley/jc-portfolio",
+    tags: ["React", "TailwindCSS", "CSS"],
   },
   {
     name: "Twitter Mockup",
@@ -58,6 +65,7 @@ const projects = [
     desc: "Mock up with tweets of a character from a novel. Created as a school project.",
     theme: "1DA1F2",
     github: "zhao-stanley/mocktwitter",
+    tags: ["React", "NextJS", "TailwindCSS", "CSS"],
   },
   {
     name: "Trash4Cash",
@@ -66,6 +74,7 @@ const projects = [
     desc: "Mockup of a recycling rewards website to incentivize recycling and reduce trash.",
     theme: "4ac778",
     github: "zhao-stanley/trash4cash",
+    tags: ["React", "NextJS", "TailwindCSS", "CSS", "ThreeJS"],
   },
   {
     name: "Club Platform",
@@ -74,6 +83,7 @@ const projects = [
     desc: "Unique interpretation of platform for club leadership via a website featuring my skillset.",
     theme: "a6a1dd",
     github: "zhao-stanley/clubplatform",
+    tags: ["React", "NextJS", "TailwindCSS", "CSS"],
   },
 ];
 

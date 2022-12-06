@@ -8,6 +8,10 @@ const nav = [
     href: "/blog",
   },
   {
+    title: "Projects",
+    href: "/projects",
+  },
+  {
     title: "Experience",
     href: "/experience",
   },

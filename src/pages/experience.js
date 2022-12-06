@@ -13,6 +13,10 @@ export default function Experience() {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
               Experience
             </h1>
+            <p className="text-gray-800 dark:text-gray-200 text-base md:text-xl font-medium tracking-tight">
+              I've been a part of many different projects and organizations,
+              which you can view below.
+            </p>
           </div>
           <Work />
         </div>
@@ -21,6 +25,10 @@ export default function Experience() {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
               Contests
             </h1>
+            <p className="text-gray-800 dark:text-gray-200 text-base md:text-xl font-medium tracking-tight">
+              Applying my skills in a competitive environment is a great way to
+              learn and grow. Below are my most recent contest placements.
+            </p>
           </div>
           <Contests />
         </div>
