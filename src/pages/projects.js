@@ -19,7 +19,7 @@ export default function ProjectsPage() {
               Projects {tag ? `built with ` : null}
               {tag ? (
                 <>
-                  <span className="text-[#3b82f6] underline dark:decoration-gray-200 decoration-gray-800 underline-offset-[6px]">
+                  <span className="text-blue-500 underline dark:decoration-gray-200 decoration-gray-800 underline-offset-[6px]">
                     {properCase(tag)}
                   </span>
                   .
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                 href={`https://github.com/zhao-stanley`}
                 target="_blank"
                 rel="opener"
-                className="text-[#3b82f6] font-semibold hover:brightness-[80%] transition duration-300"
+                className="text-blue-500 font-semibold hover:brightness-[80%] transition duration-300"
               >
                 my GitHub
               </Link>

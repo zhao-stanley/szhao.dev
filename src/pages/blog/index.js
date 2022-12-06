@@ -41,10 +41,10 @@ export default function Blog({ data }) {
                 Posts{searchValue ? ` about ` : null}
                 {searchValue ? (
                   <>
-                    <span className="text-[#3b82f6] underline dark:decoration-gray-200 decoration-gray-800 underline-offset-[6px]">
+                    <span className="text-blue-500 underline dark:decoration-gray-200 decoration-gray-800 underline-offset-[6px]">
                       {searchValue.substring(0, 10)}
                     </span>
-                    .
+                    {searchValue.length > 10 ? "..." : "."}
                   </>
                 ) : null}
               </h1>
@@ -52,8 +52,10 @@ export default function Blog({ data }) {
                 I just write whatever comes to mind, usually software
                 engineering, competitive programming, or cybersecurity. Since
                 the revamp of my portfolio, I&apos;ve written{" "}
-                <span className="font-semibold">{allPosts.length}</span> blog
-                posts. Use the search bar below to filter the posts.
+                <span className="font-bold text-blue-500">
+                  {allPosts.length} blog posts.
+                </span>{" "}
+                Use the search bar below to filter the posts.
               </p>
             </div>
             <div className="relative max-w-lg">
@@ -63,7 +65,7 @@ export default function Blog({ data }) {
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search by post name, tag, or description"
-                className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+                className="block w-full rounded-md border border-gray-300 bg-white pl-4 pr-10 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
               />
               <svg
                 className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
@@ -84,14 +86,19 @@ export default function Blog({ data }) {
           <ul className="flex flex-col gap-y-4 w-full">
             {filteredPosts.map((e, key) => (
               <Link href={`/blog/${e.slug}`} key={key}>
-                <li className="w-full flex flex-col gap-y-1 p-4 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 ease-in-out transition duration-300 border-2 dark:border-gray-200 border-gray-800 hover:border-[#3b82f6] dark:hover:border-[#3b82f6] shadow-md">
+                <li className="w-full flex flex-col gap-y-1 p-4 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 ease-in-out transition duration-300 border-2 dark:border-gray-200 border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 shadow-md">
                   <div className="tracking-tight">
                     <div className="flex flex-row w-full justify-between items-center">
                       <h2 className="font-semibold text-base md:text-xl">
                         {e.title}
                       </h2>
-                      <span className="text-xs md:text-base text-blue-500 font-medium">
-                        {e.genre.map((g) => `#${g}`).join(" ")}
+                      <span className="text-xs md:text-base text-blue-500 font-medium flex gap-x-1">
+                        {e.genre.map((g) => (
+                          <Link
+                            className="border-b-2 leading-4 border-transparent hover:border-blue-500 transition duration-300"
+                            href={`/blog?genre=${g}`}
+                          >{`#${g}`}</Link>
+                        ))}
                       </span>
                     </div>
                     <h3 className="text-sm md:text-lg">
