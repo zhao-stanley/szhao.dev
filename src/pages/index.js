@@ -4,6 +4,7 @@ import RecentPosts from "../components/home/RecentPosts";
 import Projects from "../components/home/Projects";
 import SEO from "../components/global/SEO";
 import FavoriteProjects from "../components/home/FavoriteProjects";
+import ContactMe from "../components/home/ContactMe";
 
 export default function Home({ data }) {
   const frontMatter = data.map((post) => matter(post));
@@ -25,6 +26,7 @@ export default function Home({ data }) {
               Some of my favorite projects...
             </h2>
           </FavoriteProjects>
+          <ContactMe />
         </div>
       </div>
     </>
