@@ -38,7 +38,7 @@ export default function ContactMe() {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.2 }}
         >
-          You can contact me below! I'm open to freelancing, job hiring,
+          You can contact me below! I&apos;m open to freelancing, job hiring,
           tutoring, or if you just want to say hi :&#41;
         </motion.h1>
         <motion.div
