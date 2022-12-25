@@ -1,6 +1,6 @@
 const experience = [
   {
-    title: "Chief Engineer",
+    title: "Chief Technology Officer",
     location: "SciLynk",
     tenure: "Oct 2022 - Present",
     type: "job",
@@ -16,7 +16,7 @@ const experience = [
     href: "https://discussmed.org/",
   },
   {
-    title: "CEO",
+    title: "Founder/CEO",
     location: "WebLFG",
     tenure: "June 2019 - Present",
     type: "job",

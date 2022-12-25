@@ -27,7 +27,7 @@ export default function Hero() {
               Stanley Zhao
             </h1>
             <h2 className="text-base md:text-xl">
-              Chief Engineer at{" "}
+              Chief Technology Officer at{" "}
               <Link
                 href="https://scilynk.com/"
                 target="_blank"
