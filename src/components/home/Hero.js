@@ -39,7 +39,7 @@ export default function Hero() {
             </h2>
           </div>
           <p className="whitespace-prewrap text-sm md:text-base">
-            Hey! I'll be studying computer science at{" "}
+            Hey! I&#39;ll be studying computer science at{" "}
             <span className="text-red-500 font-extrabold tracking-wide">
               MIT{" "}
             </span>
