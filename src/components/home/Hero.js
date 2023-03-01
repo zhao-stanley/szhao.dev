@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
           <p className="whitespace-prewrap text-sm md:text-base">
             Hey! I&#39;ll be studying computer science at{" "}
-            <span className="text-red-500 font-extrabold tracking-wide">
+            <span className="text-transparent bg-gradient-to-br from-red-800 to-red-500 bg-clip-text font-extrabold tracking-wide">
               MIT{" "}
             </span>
             this fall. My academic interests include web development,
