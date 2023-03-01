@@ -8,6 +8,14 @@ const projects = [
     tags: ["React", "TailwindCSS", "CSS", "ExpressJS", "MongoDB"],
   },
   {
+    name: "WebLFG",
+    year: 2022,
+    link: "https://www.weblfg.com/",
+    desc: "Publisher of the most popular, memorable, and cutting-edge browser games, completely free.",
+    theme: "df8686",
+    tags: ["React", "NextJS", "TailwindCSS", "CSS", "Prisma"],
+  },
+  {
     name: "DiscussMed",
     year: 2022,
     link: "https://www.discussmed.org/",
@@ -15,14 +23,6 @@ const projects = [
     theme: "28bf81",
     github: "zhao-stanley/DiscussMed",
     tags: ["React", "NextJS", "TailwindCSS", "CSS", "Markdown"],
-  },
-  {
-    name: "WebLFG",
-    year: 2022,
-    link: "https://www.weblfg.com/",
-    desc: "Publisher of the most popular, memorable, and cutting-edge browser games, completely free.",
-    theme: "df8686",
-    tags: ["React", "NextJS", "TailwindCSS", "CSS", "Prisma"],
   },
   {
     name: "Roslyn Code Club",

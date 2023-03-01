@@ -21,7 +21,7 @@ export default function Hero() {
             src={profile}
           />
         </div>
-        <section className="flex flex-col gap-y-2 max-w-sm">
+        <section className="flex flex-col gap-y-2 max-w-lg">
           <div className="flex flex-col gap-y-1">
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight">
               Stanley Zhao
@@ -38,8 +38,13 @@ export default function Hero() {
               </Link>
             </h2>
           </div>
-          <p className="whitespace-prewrap text-base md:text-lg">
-            {siteMetadata.desc}
+          <p className="whitespace-prewrap text-sm md:text-base">
+            Hey! I'll be studying computer science at{" "}
+            <span className="text-red-500 font-extrabold tracking-wide">
+              MIT{" "}
+            </span>
+            this fall. My academic interests include web development,
+            competitive programming, and cybersecurity.
           </p>
         </section>
       </main>
