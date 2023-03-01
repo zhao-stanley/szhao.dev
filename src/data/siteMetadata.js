@@ -2,7 +2,7 @@ const siteMetadata = {
   defaultTheme: "dark",
   themeColor: "#3b82f6",
   title: "Stanley Zhao - Software Engineer, Student, Cybersecurity Enthusiast",
-  desc: "I develop software, study cybersecurity, and occassionally write :)",
+  desc: "Hey! I'll be studying computer science at MIT this fall. My interests include web development, competitive programming, and cybersecurity.",
   tags: "stanley, zhao, scilynk, discussmed",
   email: "contact@szhao.dev",
 };
