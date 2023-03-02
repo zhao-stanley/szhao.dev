@@ -51,14 +51,14 @@ export default function About({}) {
             </Link>
             , I focus on developing and maintaining the web app so that
             researchers have a smooth and efficient experience. <br />
-            <br />I also work on implementing new technologies to ensure we're
-            using the most cutting-edge tech stack.
+            <br />I also work on implementing new technologies to ensure
+            we&apos;re using the most cutting-edge tech stack.
             <br />
             <br />
             My personal tech stack of choice includes Next.js, TailwindCSS, and
-            Node.js. It's pretty clear I enjoy developing for the web! I find
-            the ability to view your code's output in realtime visually
-            satisfying.
+            Node.js. It&apos;s pretty clear I enjoy developing for the web! I
+            find the ability to view your code&apos;s output in realtime
+            visually satisfying.
             <br />
             <br />
             Feel free to connect/contact me through my socials below!
