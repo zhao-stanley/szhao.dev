@@ -1,8 +1,11 @@
 import { getNowPlaying } from "../../utils";
 
+export const config = {
+  runtime: "experimental-edge",
+};
+
 export default async function handler(req) {
   const response = await getNowPlaying();
-  console.log(response)
 
   if (response.status === 204 || response.status > 400) {
     return new Response(JSON.stringify({ isPlaying: false }), {
