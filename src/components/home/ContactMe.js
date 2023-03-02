@@ -22,7 +22,7 @@ export default function ContactMe() {
       <section className="w-full flex flex-col gap-4 pb-40">
         <h3 className="font-serif text-2xl">Contact Me</h3>
         <p>
-          Don't hesitate to contact me below. I'm open to freelancing,
+          Don&apos;t hesitate to contact me below. I&apos;m open to freelancing,
           inquiries, tutoring, or if you just want to say hi!
         </p>
         <motion.div
