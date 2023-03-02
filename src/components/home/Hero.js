@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <>
-      <main className="w-full max-w-4xl py-8 flex flex-col gap-4">
+      <main className="w-full max-w-4xl flex flex-col gap-4">
         <h1 className="font-serif text-3xl">Stanley Zhao</h1>
         <p>
           Greetings! I&apos;m the{" "}

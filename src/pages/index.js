@@ -19,9 +19,11 @@ export default function Home({ data, numberPosts, githubFollowers }) {
   return (
     <>
       <SEO />
-      <Hero />
-      <Body numberPosts={numberPosts} githubFollowers={githubFollowers} />
-      <Spotify />
+      <div className="w-full flex flex-col gap-8 py-8">
+        <Hero />
+        <Body numberPosts={numberPosts} githubFollowers={githubFollowers} />
+        <Spotify />
+      </div>
       {/* <SEO />
       <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
         <div className="w-full h-full flex flex-col gap-y-4 items-center">
