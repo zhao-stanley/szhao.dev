@@ -25,8 +25,8 @@ export default function About({}) {
             limited to) web development, cybersecurity, and competitive
             programming.
             <br />
-            <br /> Outside of computer science, I enjoy playing music, dabbling
-            in graphic design, and playing sports like volleyball and
+            <br /> Outside of computer science, I enjoy performing music,
+            dabbling in graphic design, and playing sports like volleyball and
             basketball.
             <br />
             <br />
