@@ -70,7 +70,7 @@ function AnimatedBars() {
 
 export default function CurrentlyPlaying() {
   const { data } = useSWR("/api/currentlyPlaying", fetcher, {
-    refreshInterval: 1000,
+    refreshInterval: 5000,
   });
   return (
     <div className="flex flex-row-reverse items-center sm:flex-row space-x-0 sm:space-x-2 w-full">
