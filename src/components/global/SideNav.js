@@ -23,7 +23,7 @@ export default function SideNav() {
     },
   ];
   return (
-    <nav className="w-full flex flex-col gap-4">
+    <nav className="w-fit flex flex-col gap-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-8 sm:w-12 fill-white"

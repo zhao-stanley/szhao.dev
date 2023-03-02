@@ -6,7 +6,7 @@ import SEO from "../components/global/SEO";
 import FavoriteProjects from "../components/home/FavoriteProjects";
 import ContactMe from "../components/home/ContactMe";
 import Body from "../components/home/Body";
-import Spotify from "../components/home/Spotify";
+import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
 
 export default function Home({ data, numberPosts, githubFollowers }) {
   const frontMatter = data.map((post) => matter(post));
@@ -19,10 +19,14 @@ export default function Home({ data, numberPosts, githubFollowers }) {
   return (
     <>
       <SEO />
-      <div className="w-full flex flex-col gap-8 py-8">
+      <div className="w-full max-w-4xl flex flex-col gap-8">
         <Hero />
         <Body numberPosts={numberPosts} githubFollowers={githubFollowers} />
-        <Spotify />
+        <section className="w-full flex flex-col gap-4">
+          <h3 className="font-serif text-2xl">Music Activity</h3>
+          <CurrentlyPlaying />
+        </section>
+        <ContactMe />
       </div>
       {/* <SEO />
       <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">

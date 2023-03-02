@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { useEffect } from "react";
 import { animate } from "motion";
+import Link from "next/link";
 
 async function fetcher(input, init) {
   const res = await fetch(input, init);
@@ -76,7 +77,7 @@ function AnimatedBars() {
   );
 }
 
-export default function Spotify() {
+export default function CurrentlyPlaying() {
   const { data } = useSWR("/api/currentlyPlaying", fetcher);
 
   return (
@@ -93,23 +94,19 @@ export default function Spotify() {
       )}
       <div className="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
         {data?.songUrl ? (
-          <a
-            className="capsize text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate"
+          <Link
+            className="capsize text-gray-100 font-medium max-w-max truncate"
             href={data.songUrl}
-            target="_blank"
-            rel="noopener noreferrer"
           >
             {data.title}
-          </a>
+          </Link>
         ) : (
-          <p className="capsize text-gray-800 dark:text-gray-200 font-medium">
-            Not Playing
-          </p>
+          <p className="capsize text-gray-200 font-medium">Not Playing</p>
         )}
-        <span className="capsize mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
+        <span className="capsize mx-2 text-gray-400 hidden sm:block">
           {" – "}
         </span>
-        <p className="capsize text-gray-500 dark:text-gray-300 max-w-max truncate">
+        <p className="capsize text-gray-400 max-w-max truncate">
           {data?.artist ?? "Spotify"}
         </p>
       </div>

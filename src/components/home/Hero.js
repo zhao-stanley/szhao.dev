@@ -3,12 +3,12 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <>
-      <main className="w-full max-w-4xl flex flex-col gap-4">
+      <main className="w-full max-w-lg flex flex-col gap-4">
         <h1 className="font-serif text-3xl">Stanley Zhao</h1>
         <p>
           Greetings! I&apos;m the{" "}
           <span className="font-semibold">
-            CTO at{" "}
+            Chief Technology Officer at{" "}
             <Link
               href="https://scilynk.com/"
               target="_blank"
