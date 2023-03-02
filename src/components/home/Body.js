@@ -1,26 +1,9 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import countapi from "countapi-js";
-import millify from "millify";
 import Image from "next/image";
 import profile from "../../../public/static/img/profile.png";
 import siteMetadata from "../../data/siteMetadata";
-const token = process.env.NEXT_PUBLIC_COUNTAPI;
 
 export default function Body({ numberPosts, githubFollowers, viewCount }) {
-  // const [fetched, setFetched] = useState(false);
-  // useEffect(() => {
-  //   if (fetched === false) {
-  //     setFetched(true);
-  //     countapi.hit("szhao.dev", token).then((e) =>
-  //       setViewCount(
-  //         millify(e.value, {
-  //           precision: 2,
-  //         })
-  //       )
-  //     );
-  //   }
-  // }, [fetched]);
   return (
     <section className="flex flex-col sm:flex-row gap-8">
       <div
@@ -35,7 +18,7 @@ export default function Body({ numberPosts, githubFollowers, viewCount }) {
           src={profile}
         />
       </div>
-      <ul className="flex flex-col gap-2 text-sm sm:text-base lg:text-lg">
+      <ul className="flex flex-col gap-2 text-sm sm:text-base">
         <Link href={siteMetadata.github}>
           <li className="flex flex-row gap-2 text-[#aeaeae] items-center hover:text-white fill-[#aeaeae] hover:fill-white transition ease-in-out duration-300">
             <svg

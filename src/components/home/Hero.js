@@ -4,10 +4,8 @@ export default function Hero() {
   return (
     <>
       <main className="w-full max-w-lg flex flex-col gap-4">
-        <h1 className="font-serif text-3xl lg:text-4xl">
-          Stanley Zhao
-        </h1>
-        <p className="text-sm sm:text-base lg:text-lg">
+        <h1 className="font-serif text-3xl lg:text-4xl">Stanley Zhao</h1>
+        <p className="text-neutral-200 text-sm sm:text-base">
           Greetings! I&apos;m the{" "}
           <span className="font-semibold">
             Chief Technology Officer at{" "}

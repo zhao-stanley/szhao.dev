@@ -55,14 +55,24 @@ export default function SideNav() {
       </Link>
       <div className="w-fit flex flex-row md:flex-col items-start gap-4">
         {navLinks.map((l, key) => (
-          <Link
+          <motion.span
+            onClick={() => router.push(l.href)}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1 * key,
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 100,
+            }}
             key={key}
             aria-selected={l.href === router.pathname}
-            className="w-fit text-sm sm:text-base lg:text-lg font-serif text-[#6f6f6f] hover:text-white transition-all ease-linear px-3 py-2 aria-selected:bg-[#282626] rounded-lg aria-selected:text-white"
+            className="w-fit cursor-pointer text-sm sm:text-base lg:text-lg font-serif text-[#6f6f6f] hover:text-white transition-all ease-linear px-3 py-2 aria-selected:bg-[#282626] rounded-lg aria-selected:text-white"
             href={l.href}
           >
             {l.title.toLowerCase()}
-          </Link>
+          </motion.span>
         ))}
       </div>
     </nav>

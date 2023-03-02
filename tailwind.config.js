@@ -29,10 +29,14 @@ module.exports = {
             transform: "rotateX(0deg)",
           },
         },
+        marquee: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         gshift: "gshift 7.5s ease-in-out infinite",
-        rainbow: "rainbow 18s ease infinite",
+        marquee: "marquee 5s linear infinite",
       },
       backgroundSize: {
         500: "300%",

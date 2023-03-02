@@ -2,10 +2,11 @@ const siteMetadata = {
   defaultTheme: "light",
   themeColor: "#3b82f6",
   title: "Stanley Zhao - Software Engineer, Student, Cybersecurity Enthusiast",
-  desc: "Hey! I'll be studying computer science at MIT this fall. My academic interests include web development, competitive programming, and cybersecurity.",
+  desc: "Greetings! I'm a computer science major from New York who will be attending MIT in the fall. My interests in computer science include web development, cybersecurity, and competitive programming.",
   tags: "stanley, zhao, scilynk, discussmed",
-  email: "contact@szhao.dev",
   github: "https://github.com/zhao-stanley",
+  linkedin: "https://www.linkedin.com/in/sz5/",
+  gmail: "mailto:contact@szhao.dev",
 };
 
 export default siteMetadata;

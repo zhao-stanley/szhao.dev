@@ -20,10 +20,8 @@ export default function ContactMe() {
   return (
     <>
       <section className="w-full flex flex-col gap-2 sm:gap-4">
-        <h3 className="font-serif text-xl sm:text-2xl">
-          Contact Me
-        </h3>
-        <p className="text-sm sm:text-base">
+        <h3 className="font-serif text-xl sm:text-2xl">Contact Me</h3>
+        <p className="text-neutral-200 text-sm sm:text-base">
           Don&apos;t hesitate to contact me below. I&apos;m open to freelancing,
           inquiries, tutoring, or if you just want to say hi!
         </p>
@@ -36,8 +34,8 @@ export default function ContactMe() {
           viewport={{ once: true, amount: 0.1 }}
         >
           <Link
-            href={`mailto:${siteMetadata.email}`}
-            className="w-full sm:w-3/4 text-xs sm:text-sm lg:text-base cursor-pointer px-4 py-3 font-semibold rounded-3xl text-center border-2 text-white border-white transition duration-300 ease-linear hover:text-black hover:bg-white"
+            href={siteMetadata.gmail}
+            className="w-full text-xs sm:text-sm lg:text-base cursor-pointer px-4 py-3 font-semibold rounded-xl hover:bg-neutral-900 transition-all ease-linear text-center text-white border-[1px] border-neutral-800"
           >
             Send me an email
           </Link>
