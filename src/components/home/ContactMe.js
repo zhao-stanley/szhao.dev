@@ -19,14 +19,16 @@ const variants = {
 export default function ContactMe() {
   return (
     <>
-      <section className="w-full flex flex-col gap-4 pb-40">
-        <h3 className="font-serif text-2xl">Contact Me</h3>
-        <p>
+      <section className="w-full flex flex-col gap-2 sm:gap-4">
+        <h3 className="font-serif text-xl sm:text-2xl">
+          Contact Me
+        </h3>
+        <p className="text-sm sm:text-base">
           Don&apos;t hesitate to contact me below. I&apos;m open to freelancing,
           inquiries, tutoring, or if you just want to say hi!
         </p>
         <motion.div
-          className="w-full flex flex-col items-center"
+          className="w-full flex flex-col mt-4"
           variants={variants}
           initial="offscreen"
           whileInView="onscreen"
@@ -35,7 +37,7 @@ export default function ContactMe() {
         >
           <Link
             href={`mailto:${siteMetadata.email}`}
-            className="w-2/3 sm:w-1/2 cursor-pointer px-4 py-3 font-semibold rounded-3xl text-center border-2 dark:text-gray-200 dark:border-gray-200 text-gray-800 border-gray-800 transition duration-300 ease-linear hover:text-white hover:bg-gray-800 dark:hover:text-black dark:hover:bg-gray-200"
+            className="w-full sm:w-3/4 text-xs sm:text-sm lg:text-base cursor-pointer px-4 py-3 font-semibold rounded-3xl text-center border-2 text-white border-white transition duration-300 ease-linear hover:text-black hover:bg-white"
           >
             Send me an email
           </Link>
