@@ -5,8 +5,10 @@ import Projects from "../components/home/Projects";
 import SEO from "../components/global/SEO";
 import FavoriteProjects from "../components/home/FavoriteProjects";
 import ContactMe from "../components/home/ContactMe";
+import Body from "../components/home/Body";
+import Spotify from "../components/home/Spotify";
 
-export default function Home({ data }) {
+export default function Home({ data, numberPosts, githubFollowers }) {
   const frontMatter = data.map((post) => matter(post));
   const allPosts = frontMatter.map((listItem) => listItem.data);
   allPosts.sort((a, b) => {
@@ -17,6 +19,10 @@ export default function Home({ data }) {
   return (
     <>
       <SEO />
+      <Hero />
+      <Body numberPosts={numberPosts} githubFollowers={githubFollowers} />
+      <Spotify />
+      {/* <SEO />
       <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
         <div className="w-full h-full flex flex-col gap-y-4 items-center">
           <Hero />
@@ -28,7 +34,7 @@ export default function Home({ data }) {
           </FavoriteProjects>
           <ContactMe />
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
@@ -39,6 +45,7 @@ export async function getStaticProps() {
   const files = fs.readdirSync(`${process.cwd()}/src/blog`, "utf-8");
 
   const posts = files.filter((post) => post.endsWith(".md"));
+  let numberPosts = posts.length;
 
   const data = posts.map((post) => {
     const path = `${process.cwd()}/src/blog/${post}`;
@@ -52,7 +59,13 @@ export async function getStaticProps() {
     return final;
   });
 
+  const username = "zhao-stanley"; // replace USERNAME with the desired GitHub username
+  const url = `https://api.github.com/users/${encodeURI(username)}`;
+  const githubFollowers = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => data.followers);
+
   return {
-    props: { data },
+    props: { data, numberPosts, githubFollowers },
   };
 }

@@ -8,11 +8,11 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        serif: ["Gloock", ...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         gshift: {
@@ -32,6 +32,7 @@ module.exports = {
       },
       animation: {
         gshift: "gshift 7.5s ease-in-out infinite",
+        rainbow: "rainbow 18s ease infinite",
       },
       backgroundSize: {
         500: "300%",

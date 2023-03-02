@@ -1,6 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --npc: white; /* nprogresscolor */
+}
 
 /* =================== Progress =================== */
 #nprogress {
@@ -8,7 +13,7 @@
 }
 
 #nprogress .bar {
-  background: #3b82f6;
+  background: var(--npc);
   position: fixed;
   z-index: 1031;
   top: 0;
@@ -23,7 +28,7 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #3b82f6, 0 0 5px #3b82f6;
+  box-shadow: 0 0 10px var(--npc), 0 0 5px var(--npc);
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -45,8 +50,8 @@
   box-sizing: border-box;
 
   border: solid 2px transparent;
-  border-top-color: #3b82f6;
-  border-left-color: #3b82f6;
+  border-top-color: var(--npc);
+  border-left-color: var(--npc);
   border-radius: 50%;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;

@@ -1,10 +1,11 @@
 import "../../styles/globals.css";
-import { ThemeProvider } from "next-themes";
 import NProgress from "nprogress";
 import Router from "next/router";
 import siteMetadata from "../data/siteMetadata";
 import Navbar from "../components/global/Navbar";
 import Footer from "../components/global/Footer";
+import SideNav from "../components/global/SideNav";
+import Layout from "../components/global/Layout";
 
 NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = (url) => {
@@ -17,11 +18,14 @@ Router.onRouteChangeError = () => NProgress.done();
 
 function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme={siteMetadata.defaultTheme}>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
-    </ThemeProvider>
+    <>
+      {/* <Navbar /> */}
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+
+      {/* <Footer /> */}
+    </>
   );
 }
 

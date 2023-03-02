@@ -32,7 +32,7 @@ export default function Blog({ data }) {
 
   return (
     <>
-      <SEO title={`Blog | ${siteMetadata.title}`} />
+      {/* <SEO title={`Blog | ${siteMetadata.title}`} />
       <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
         <div className="w-full h-full md:max-w-[704px] lg:max-w-[928px] flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-4 py-8">
@@ -120,7 +120,7 @@ export default function Blog({ data }) {
             ) : null}
           </ul>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
