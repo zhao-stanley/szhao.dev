@@ -53,17 +53,17 @@ export default function Blog({ data }) {
             <span className="font-bold">{allPosts.length} blog posts.</span> Use
             the search bar below to filter the posts.
           </p>
-          <div className="relative w-full">
+          <div className="relative w-full flex flex-row items-center">
             <input
               aria-label="Search by post name, tag, or description"
               type="text"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search by post name, tag, or description"
-              className="block w-full rounded-md border bg-transparent pl-4 pr-10 py-2 focus:ring-primary-500 border-neutral-800 text-white"
+              className="block w-full rounded-md border bg-transparent text-xs sm:text-sm pl-4 pr-8 py-2 focus:ring-primary-500 border-neutral-800 text-white"
             />
             <svg
-              className="absolute right-3 top-3 h-5 w-5 text-white"
+              className="absolute right-2 top-3 h-4 w-4 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -89,16 +89,19 @@ export default function Blog({ data }) {
                 <div className="flex flex-row w-full justify-between items-start">
                   <span className="text-white font-semibold">{p.title}</span>
                   <span className="flex flex-row gap-1 items-center text-xs sm:text-sm">
-                    {p.genre.map((g) => (
-                      <Link
-                        className="hover:brightness-50 hover:font-bold transition-all duration-300"
-                        href={`/blog?genre=${g}`}
-                        key={key}
-                      >{`#${g}`}</Link>
+                    {p.genre.map((g, gkey) => (
+                      <span key={gkey}>{`#${g}`}</span>
                     ))}
                   </span>
                 </div>
-                <span className="text-xs sm:text-sm">{p.date}</span>
+                <span className="text-xs sm:text-sm">
+                  {new Date(p.date).toLocaleString("en-US", {
+                    timeZone: "UTC",
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })}
+                </span>
               </div>
               <span className="max-w-max truncate text-xs sm:text-sm">
                 {p.desc}
