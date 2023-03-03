@@ -48,8 +48,8 @@ export default function Blog({ data }) {
           </h1>
           <p className="text-neutral-200 text-sm sm:text-base">
             I like to write about whatever is on my mind, whether that be a new
-            framework I'm trying or my process for learning something. As of
-            now, I&apos;ve written a total of{" "}
+            framework I&apos;m trying or my process for learning something. As
+            of now, I&apos;ve written a total of{" "}
             <span className="font-bold">{allPosts.length} blog posts.</span> Use
             the search bar below to filter the posts.
           </p>
