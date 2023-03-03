@@ -32,8 +32,85 @@ export default function Blog({ data }) {
 
   return (
     <>
-      {/* <SEO title={`Blog | ${siteMetadata.title}`} />
-      <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
+      <SEO title={`Blog | ${siteMetadata.title}`} />
+      <div className="w-full max-w-2xl flex flex-col gap-8">
+        <main className="w-full flex flex-col gap-4">
+          <h1 className="font-serif text-3xl lg:text-4xl">
+            Blog{searchValue ? ` Posts About ` : null}
+            {searchValue ? (
+              <>
+                <span className="text-blue-500 underline decoration-white underline-offset-[6px]">
+                  {searchValue.substring(0, 10)}
+                </span>
+                {searchValue.length > 10 ? "..." : "."}
+              </>
+            ) : null}
+          </h1>
+          <p className="text-neutral-200 text-sm sm:text-base">
+            I like to write about whatever is on my mind, whether that be a new
+            framework I'm trying or my process for learning something. As of
+            now, I&apos;ve written a total of{" "}
+            <span className="font-bold">{allPosts.length} blog posts.</span> Use
+            the search bar below to filter the posts.
+          </p>
+          <div className="relative w-full">
+            <input
+              aria-label="Search by post name, tag, or description"
+              type="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Search by post name, tag, or description"
+              className="block w-full rounded-md border bg-transparent pl-4 pr-10 py-2 focus:ring-primary-500 border-neutral-800 text-white"
+            />
+            <svg
+              className="absolute right-3 top-3 h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+        </main>
+        <section className="w-full flex flex-col gap-2 sm:gap-4 justify-center">
+          {filteredPosts.map((p, key) => (
+            <Link
+              key={key}
+              className="w-full p-4 text-neutral-200 text-sm sm:text-base max-w-full truncate overflow-x-hidden overflow-ellipsis whitespace-nowrap border-[1px] border-neutral-800 transition-all ease-linear hover:bg-neutral-900 rounded-lg flex flex-col gap-2"
+              href={`/blog/${p.slug}`}
+            >
+              <div className="flex flex-col">
+                <div className="flex flex-row w-full justify-between items-start">
+                  <span className="text-white font-semibold">{p.title}</span>
+                  <span className="flex flex-row gap-1 items-center text-xs sm:text-sm">
+                    {p.genre.map((g) => (
+                      <Link
+                        className="hover:brightness-50 hover:font-bold transition-all duration-300"
+                        href={`/blog?genre=${g}`}
+                        key={key}
+                      >{`#${g}`}</Link>
+                    ))}
+                  </span>
+                </div>
+                <span className="text-xs sm:text-sm">{p.date}</span>
+              </div>
+              <span className="max-w-max truncate text-xs sm:text-sm">
+                {p.desc}
+              </span>
+            </Link>
+          ))}
+          {filteredPosts.length == 0 ? (
+            <span className="italic">{`No posts matched your query :(`}</span>
+          ) : null}
+        </section>
+      </div>
+      {/* <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
         <div className="w-full h-full md:max-w-[704px] lg:max-w-[928px] flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-4 py-8">
             <div className="flex flex-col gap-y-2">

@@ -18,7 +18,7 @@ export default function Body({ numberPosts, githubFollowers, viewCount }) {
           src={profile}
         />
       </div>
-      <ul className="flex flex-col gap-2 text-sm sm:text-base">
+      <ul className="flex flex-col gap-2 text-sm sm:text-base w-fit">
         <Link href={siteMetadata.github}>
           <li className="flex flex-row gap-2 text-[#aeaeae] items-center hover:text-white fill-[#aeaeae] hover:fill-white transition ease-in-out duration-300">
             <svg
