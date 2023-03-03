@@ -62,3 +62,37 @@ export const getTopTracks = async () => {
     },
   });
 };
+
+export const getGithubStars = async (username) => {
+  const response = await fetch(
+    `https://api.github.com/users/${username}/repos`,
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }
+  );
+  const repositories = await response.json();
+  let totalStars = 0;
+  for (let i = 0; i < repositories.length; i++) {
+    totalStars += repositories[i].stargazers_count;
+  }
+  return totalStars;
+};
+
+export const getGithubRepos = async (username) => {
+  const response = await fetch(
+    `https://api.github.com/users/${username}/repos`,
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }
+  );
+  const repositories = await response.json();
+  let totalStars = 0;
+  for (let i = 0; i < repositories.length; i++) {
+    totalStars += repositories[i].stargazers_count;
+  }
+  return totalStars;
+};

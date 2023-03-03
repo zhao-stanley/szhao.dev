@@ -21,7 +21,7 @@ export default function About({}) {
             <span className="bg-gradient-to-br from-red-500 to-[#A31F34] bg-clip-text text-transparent font-black inline">
               MIT
             </span>{" "}
-            in the fall. My interests in computer science include (but not
+            in the fall. My interests in computer science include (but are not
             limited to) web development, cybersecurity, and competitive
             programming.
             <br />
