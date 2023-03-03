@@ -18,7 +18,7 @@ export default function About({}) {
           <p className="text-neutral-200 text-sm sm:text-base">
             Hello! I&apos;m a computer science major from New York who will be
             attending{" "}
-            <span className="bg-gradient-to-br from-red-500 to-[#A31F34] bg-clip-text text-transparent font-semibold inline">
+            <span className="bg-gradient-to-br from-red-500 to-[#A31F34] bg-clip-text text-transparent font-black inline">
               MIT
             </span>{" "}
             in the fall. My interests in computer science include (but not
@@ -45,7 +45,7 @@ export default function About({}) {
               href="https://scilynk.com/"
               target="_blank"
               rel="opener"
-              className="bg-gradient-to-tl from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-semibold inline"
+              className="bg-gradient-to-br from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-semibold inline"
             >
               SciLynk
             </Link>

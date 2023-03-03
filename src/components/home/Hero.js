@@ -13,7 +13,7 @@ export default function Hero() {
               href="https://scilynk.com/"
               target="_blank"
               rel="opener"
-              className="bg-gradient-to-tl from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-semibold inline"
+              className="bg-gradient-to-br from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-semibold inline"
             >
               SciLynk
             </Link>

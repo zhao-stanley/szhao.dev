@@ -27,7 +27,7 @@ export default function SideNav() {
       <Link href={"/"}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-8 sm:w-12 lg:w-14 fill-white"
+          className="w-8 sm:w-12 lg:w-14 fill-white hover:fill-gray-300 ease-linear transition-all hover:scale-95"
           version="1.2"
           viewBox="0 0 500 500"
         >
