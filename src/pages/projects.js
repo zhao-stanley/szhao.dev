@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { getGithubRepos } from "../utils";
 import { getGithubStars, getGithubForks } from "../utils";
 import Repository from "../components/home/Repository";
+import closedSourceRepos from "../data/closedSourceRepos";
 
 export default function ProjectsPage({ stars, forks, repos }) {
   const router = useRouter();
@@ -18,8 +19,8 @@ export default function ProjectsPage({ stars, forks, repos }) {
           <p className="text-neutral-200 text-sm sm:text-base">
             Along my journey as a developer, I&apos;ve utilized a variety of
             open source tools that have assisted me along my self-taught
-            programming journey. Below are all my open source projects to date,
-            which have accumulated a total of{" "}
+            programming journey. To date, my open source projects have
+            accumulated a total of{" "}
             <span
               className="font-semibold inline-flex flex-row items-center"
               title={`${stars} stars`}
@@ -40,10 +41,21 @@ export default function ProjectsPage({ stars, forks, repos }) {
                 ></path>
               </svg>
             </span>
-            on GitHub.
+            on GitHub. Below are all my projects, both closed and open source.
           </p>
         </main>
         <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-4 justify-center">
+          {closedSourceRepos.map((p, key) => (
+            <Repository
+              key={key}
+              name={p.name}
+              desc={p.desc}
+              link={p.link}
+              lang={p.lang}
+              stars={0}
+              forks={0}
+            />
+          ))}
           {repos.map((p, key) => (
             <Repository
               key={key}

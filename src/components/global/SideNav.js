@@ -69,7 +69,9 @@ export default function SideNav() {
             key={key}
             aria-selected={
               l.href === router.pathname ||
-              (router.pathname.includes("/blog/[post]") && l.href === "/blog")
+              (router.pathname.includes("/blog/[post]") &&
+                l.href === "/blog") ||
+              (router.pathname === "/resume" && l.href === "/about")
             }
             className="w-fit cursor-pointer text-sm sm:text-base lg:text-lg font-serif text-[#6f6f6f] hover:text-white transition-all ease-linear px-3 py-2 aria-selected:bg-[#282626] rounded-lg aria-selected:text-white"
             href={l.href}
