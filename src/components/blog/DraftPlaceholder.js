@@ -2,7 +2,7 @@ export default function DraftPlaceholder() {
   return (
     <easteregg className="text-neutral-200 text-sm sm:text-base blur-sm select-none">
       Good job, you&apos;ve found me! I&apos;m not finished writing this post
-      yet, but I hope you will find the following text entertaining :&lpar;
+      yet, but I hope you will find the following text entertaining :)
       <br />
       <br />
       We&apos;re no strangers to love You know the rules and so do I A full
