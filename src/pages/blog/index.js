@@ -11,6 +11,9 @@ export default function Blog({ data }) {
   const { genre } = router.query;
   const frontMatter = data.map((post) => matter(post));
   const allPosts = frontMatter.map((listItem) => listItem.data);
+  const allGenres = [
+    ...new Set(allPosts.reduce((acc, cur) => acc.concat(cur.genre), [])),
+  ];
   allPosts.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
   });
@@ -33,7 +36,7 @@ export default function Blog({ data }) {
   return (
     <>
       <SEO title={`Blog | ${siteMetadata.title}`} />
-      <div className="w-full max-w-2xl flex flex-col gap-8">
+      <div className="w-full max-w-xl lg:max-w-2xl flex flex-col gap-8">
         <main className="w-full flex flex-col gap-4">
           <h1 className="font-serif text-3xl lg:text-4xl">
             Blog{searchValue ? ` Posts About ` : null}
@@ -48,10 +51,18 @@ export default function Blog({ data }) {
           </h1>
           <p className="text-neutral-200 text-sm sm:text-base">
             I like to write about whatever is on my mind, whether that be a new
-            framework I&apos;m trying or my process for learning something. As
-            of now, I&apos;ve written a total of{" "}
-            <span className="font-bold">{allPosts.length} blog posts.</span> Use
-            the search bar below to filter the posts.
+            framework I&apos;m experimenting with or the journey of learning
+            something new. As of now, I&apos;ve written a total of{" "}
+            <span className="font-bold">{allPosts.length} blog posts</span>{" "}
+            about{" "}
+            <span className="font-bold">
+              {allGenres.length} different topics
+            </span>
+            .
+            <br />
+            <br />
+            If you&apos;re looking for something specific, you can search for a
+            post by its name, tag, or description using the search bar below.
           </p>
           <div className="relative w-full flex flex-row items-center">
             <input

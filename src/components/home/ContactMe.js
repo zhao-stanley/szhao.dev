@@ -25,14 +25,7 @@ export default function ContactMe() {
           Don&apos;t hesitate to contact me below. I&apos;m open to freelancing,
           inquiries, tutoring, or if you just want to say hi!
         </p>
-        <motion.div
-          className="w-full flex flex-col mt-4"
-          variants={variants}
-          initial="offscreen"
-          whileInView="onscreen"
-          transition={{ ease: [0, 0.71, 0.2, 1.01] }}
-          viewport={{ once: true, amount: 0.1 }}
-        >
+        <div className="w-full flex flex-col mt-4">
           <Link
             href={siteMetadata.gmail}
             target="_blank"
@@ -40,7 +33,7 @@ export default function ContactMe() {
           >
             Send me an email
           </Link>
-        </motion.div>
+        </div>
       </section>
     </>
   );

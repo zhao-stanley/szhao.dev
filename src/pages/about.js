@@ -1,14 +1,8 @@
-import matter from "gray-matter";
-import Hero from "../components/home/Hero";
-import RecentPosts from "../components/home/RecentPosts";
-import Projects from "../components/home/Projects";
 import SEO from "../components/global/SEO";
-import ContactMe from "../components/home/ContactMe";
-import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
 import Link from "next/link";
 import siteMetadata from "../data/siteMetadata";
 
-export default function About({}) {
+export default function About() {
   return (
     <>
       <SEO title={`About | ${siteMetadata.title}`} />

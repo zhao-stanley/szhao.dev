@@ -23,7 +23,7 @@ export default function SideNav() {
     },
   ];
   return (
-    <nav className="w-fit flex flex-col gap-4">
+    <nav className="w-fit h-fit flex flex-col gap-4 md:sticky top-6 md:top-12 lg:top-24">
       <Link href={"/"}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ export default function SideNav() {
           />
         </svg>
       </Link>
-      <div className="w-fit flex flex-row md:flex-col items-start gap-4">
+      <div className="w-fit flex flex-row md:flex-col items-start gap-2">
         {navLinks.map((l, key) => (
           <motion.span
             onClick={() => router.push(l.href)}
@@ -67,7 +67,10 @@ export default function SideNav() {
               stiffness: 100,
             }}
             key={key}
-            aria-selected={l.href === router.pathname}
+            aria-selected={
+              l.href === router.pathname ||
+              (router.pathname.includes("/blog/[post]") && l.href === "/blog")
+            }
             className="w-fit cursor-pointer text-sm sm:text-base lg:text-lg font-serif text-[#6f6f6f] hover:text-white transition-all ease-linear px-3 py-2 aria-selected:bg-[#282626] rounded-lg aria-selected:text-white"
             href={l.href}
           >

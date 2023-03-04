@@ -1,30 +1,13 @@
-import matter from "gray-matter";
 import Hero from "../components/home/Hero";
-import RecentPosts from "../components/home/RecentPosts";
-import Projects from "../components/home/Projects";
 import SEO from "../components/global/SEO";
-import FavoriteProjects from "../components/home/FavoriteProjects";
 import ContactMe from "../components/home/ContactMe";
 import Body from "../components/home/Body";
 import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
 import countapi from "countapi-js";
 import millify from "millify";
-import siteMetadata from "../data/siteMetadata";
 const token = process.env.NEXT_PUBLIC_COUNTAPI;
 
-export default function Home({
-  data,
-  numberPosts,
-  githubFollowers,
-  viewCount,
-}) {
-  const frontMatter = data.map((post) => matter(post));
-  const allPosts = frontMatter.map((listItem) => listItem.data);
-  allPosts.sort((a, b) => {
-    return new Date(b.date) - new Date(a.date);
-  });
-  const recentPosts = allPosts.slice(0, 3);
-
+export default function Home({ numberPosts, githubFollowers, viewCount }) {
   return (
     <>
       <SEO />
@@ -65,18 +48,6 @@ export async function getStaticProps() {
 
   const posts = files.filter((post) => post.endsWith(".md"));
 
-  const data = posts.map((post) => {
-    const path = `${process.cwd()}/src/blog/${post}`;
-    const rawContent = fs.readFileSync(path, {
-      encoding: "utf-8",
-    });
-    let final = rawContent.replace(
-      `---`,
-      `---\nslug: ${post.replace(".md", "")}\n`
-    );
-    return final;
-  });
-
   //Github Followers
   const username = "zhao-stanley";
   const url = `https://api.github.com/users/${encodeURI(username)}`;
@@ -102,6 +73,6 @@ export async function getStaticProps() {
   );
 
   return {
-    props: { data, numberPosts, githubFollowers, viewCount },
+    props: { numberPosts, githubFollowers, viewCount },
   };
 }
