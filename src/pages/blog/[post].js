@@ -16,7 +16,7 @@ export default function Post({ postContent }) {
     return (
       <>
         <SEO
-          title={`${data.title} ${data.draft === true ? "[DRAFT]" : ""} | ${
+          title={`${data.draft === true ? "[DRAFT]" : ""} ${data.title} | ${
             siteMetadata.title
           }`}
           desc={"This post is still being written... 🚧"}
@@ -24,7 +24,12 @@ export default function Post({ postContent }) {
         <div className="w-full max-w-2xl flex flex-col gap-8">
           <main className="w-full flex flex-col gap-4">
             <h1 className="font-serif text-3xl lg:text-4xl">
-              {data.title} {data.draft === true ? "[DRAFT]" : ""}
+              {data.draft === true ? (
+                <span className="text-red-500">[DRAFT] </span>
+              ) : (
+                ""
+              )}{" "}
+              {data.title}
             </h1>
             <section className="text-neutral-200 text-xs sm:text-sm w-full flex flex-row justify-between items-center gap-2">
               <span
@@ -45,27 +50,31 @@ export default function Post({ postContent }) {
               </span>
               <div className="w-full h-[0.125rem] bg-neutral-800"></div>
               <span
-                title={`${readingTime(content)} minute read`}
+                title={`0 minute read`}
                 className="p-2 border-[1px] border-neutral-800 rounded-md whitespace-nowrap"
               >
-                {readingTime(content)} min read
+                0 min read
               </span>
             </section>
             <section className="p-2 border-[1px] border-neutral-800 rounded-md text-neutral-200 text-xs sm:text-sm whitespace-nowrap flex flex-row justify-around">
-              {data.genre.map((g, key) => (
-                <Link
-                  className="font-medium hover:text-blue-500 transition ease-linear"
-                  href={`/blog?genre=${g}`}
-                  title={`View all #${g} posts`}
-                  key={key}
-                >
-                  #{g}
-                </Link>
-              ))}
+              {data.genre.length > 0 ? (
+                data.genre.map((g, key) => (
+                  <Link
+                    className="font-medium hover:text-blue-500 transition ease-linear"
+                    href={`/blog?genre=${g}`}
+                    title={`View all #${g} posts`}
+                    key={key}
+                  >
+                    #{g}
+                  </Link>
+                ))
+              ) : (
+                <span className="font-medium">No tags</span>
+              )}
             </section>
             <p className="text-neutral-200 text-sm sm:text-base">
-              Hello! Unfortunately, this post is still a draft and hasn't been
-              finished yet. Feel free to check back some other time!
+              Psst! This post is still a draft and hasn't been finished yet.
+              Check back another time!
               <br />
             </p>
             <DraftPlaceholder />

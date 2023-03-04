@@ -93,14 +93,19 @@ export default function Blog({ data }) {
           {filteredPosts.map((p, key) => (
             <Link
               key={key}
-              title={`${p.title} ${p.draft === true ? "[DRAFT]" : ""}`}
+              title={`${p.draft === true ? "[DRAFT]" : ""} ${p.title}`}
               className="w-full p-4 text-neutral-200 text-sm sm:text-base max-w-full truncate overflow-x-hidden overflow-ellipsis whitespace-nowrap border-[1px] border-neutral-800 transition-all ease-linear hover:bg-neutral-900 rounded-lg flex flex-col gap-2"
               href={`/blog/${p.slug}`}
             >
               <div className="flex flex-col">
                 <div className="flex flex-row w-full justify-between items-start">
                   <span className="text-white font-semibold">
-                    {p.title} {p.draft === true ? "[DRAFT]" : ""}
+                    {p.draft === true ? (
+                      <span className="text-red-500">[DRAFT] </span>
+                    ) : (
+                      ""
+                    )}
+                    {p.title}
                   </span>
                   <span className="flex flex-row gap-1 items-center text-xs sm:text-sm">
                     {p.genre.map((g, gkey) => (
