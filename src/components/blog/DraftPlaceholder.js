@@ -1,6 +1,6 @@
 export default function DraftPlaceholder() {
   return (
-    <p className="text-neutral-200 text-sm sm:text-base blur-sm select-none">
+    <easteregg className="text-neutral-200 text-sm sm:text-base blur-sm select-none">
       Good job, you&apos;ve found me! I&apos;m not finished writing this post
       yet, but I hope you find the following text entertaining.
       <br />
@@ -62,6 +62,6 @@ export default function DraftPlaceholder() {
       Never gonna give you up Never gonna let you down Never gonna run around
       and desert you Never gonna make you cry Never gonna say goodbye Never
       gonna tell a lie and hurt you
-    </p>
+    </easteregg>
   );
 }
