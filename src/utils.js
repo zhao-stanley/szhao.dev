@@ -77,6 +77,17 @@ export const getGithubStars = async (username) => {
   for (let i = 0; i < repositories.length; i++) {
     totalStars += repositories[i].stargazers_count;
   }
+  //Account for Roslyn Code Club organization
+  const codeclub = await fetch(
+    "https://api.github.com/repos/Roslyn-Code-Club/roslyncode.club",
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }
+  );
+  const codeclubJson = await codeclub.json();
+  totalStars += codeclubJson.stargazers_count;
   return totalStars;
 };
 
@@ -94,6 +105,17 @@ export const getGithubForks = async (username) => {
   for (let i = 0; i < repositories.length; i++) {
     totalForks += repositories[i].forks_count;
   }
+  //Account for Roslyn Code Club organization
+  const codeclub = await fetch(
+    "https://api.github.com/repos/Roslyn-Code-Club/roslyncode.club",
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }
+  );
+  const codeclubJson = await codeclub.json();
+  totalForks += codeclubJson.forks_count;
   return totalForks;
 };
 
@@ -107,5 +129,15 @@ export const getGithubRepos = async (username) => {
     }
   );
   const repositories = await response.json();
+  const codeclub = await fetch(
+    "https://api.github.com/repos/Roslyn-Code-Club/roslyncode.club",
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }
+  );
+  const codeclubJson = await codeclub.json();
+  repositories.push(codeclubJson);
   return repositories;
 };
