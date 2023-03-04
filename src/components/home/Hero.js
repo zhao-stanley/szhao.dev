@@ -3,11 +3,11 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <>
-      <main className="w-full max-w-lg flex flex-col gap-4">
+      <main className="w-full flex flex-col gap-4">
         <h1 className="font-serif text-3xl lg:text-4xl">Stanley Zhao</h1>
         <p className="text-neutral-200 text-sm sm:text-base">
           Greetings! I&apos;m the{" "}
-          <span className="font-semibold">
+          <span className="font-bold">
             Chief Technology Officer at{" "}
             <Link
               href="https://scilynk.com/"
