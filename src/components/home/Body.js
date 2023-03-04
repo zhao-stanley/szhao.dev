@@ -19,7 +19,7 @@ export default function Body({ numberPosts, githubFollowers, viewCount }) {
         />
       </div>
       <ul className="flex flex-col gap-2 text-sm sm:text-base w-fit">
-        <Link href={siteMetadata.github}>
+        <Link href={siteMetadata.github} target="_blank">
           <li className="flex flex-row gap-2 text-[#aeaeae] items-center hover:text-white fill-[#aeaeae] hover:fill-white transition ease-in-out duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export default function Body({ numberPosts, githubFollowers, viewCount }) {
             {githubFollowers} followers on GitHub
           </li>
         </Link>
-        <Link href={"/blog"}>
+        <Link href={"/blog"}  >
           <li className="flex flex-row gap-2 text-[#aeaeae] items-center hover:text-white fill-[#aeaeae] hover:fill-white transition ease-in-out duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
