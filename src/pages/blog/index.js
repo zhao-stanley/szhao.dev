@@ -52,17 +52,16 @@ export default function Blog({ data }) {
           <p className="text-neutral-200 text-sm sm:text-base">
             I like to write about whatever is on my mind, whether that be a new
             framework I&apos;m experimenting with or the journey of learning
-            something new. As of now, I&apos;ve written a total of{" "}
+            something new.
+            <br />
+            <br />
+            As of now, I&apos;ve written a total of{" "}
             <span className="font-bold">{allPosts.length} blog posts</span>{" "}
             about{" "}
             <span className="font-bold">
               {allGenres.length} different topics
             </span>
             .
-            <br />
-            <br />
-            If you&apos;re looking for something specific, you can search for a
-            post by its name, tag, or description using the search bar below.
           </p>
           <div className="relative w-full flex flex-row items-center">
             <input
