@@ -73,7 +73,7 @@ export default function Post({ postContent }) {
               )}
             </section>
             <p className="text-neutral-200 text-sm sm:text-base">
-              Psst! This post is still a draft and hasn't been finished yet.
+              Psst! This post is still a draft and hasn&apos;t been finished yet.
               Check back another time!
               <br />
             </p>
