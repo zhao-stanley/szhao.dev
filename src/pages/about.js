@@ -41,7 +41,7 @@ export default function About() {
           <div className="w-full h-[0.125rem] bg-neutral-700" />
           <br />
           <p className="text-neutral-200 text-sm sm:text-base">
-            Currently, I'm the Chief Technology Officer @{" "}
+            Currently, I&apos;m the Chief Technology Officer @{" "}
             <Link
               href="https://scilynk.com/"
               target="_blank"
