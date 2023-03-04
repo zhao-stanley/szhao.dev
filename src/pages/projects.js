@@ -3,11 +3,12 @@ import SEO from "../components/global/SEO";
 import Projects from "../components/home/Projects";
 import siteMetadata from "../data/siteMetadata";
 import { useRouter } from "next/router";
-import properCase from "../utils";
-import { getGithubStars } from "../utils";
+import properCase, { getGithubRepos } from "../utils";
+import { getGithubStars, getGithubForks } from "../utils";
 import projects from "../data/projects";
+import Repository from "../components/home/Repository";
 
-export default function ProjectsPage({ stars }) {
+export default function ProjectsPage({ stars, forks, repos }) {
   const router = useRouter();
   const { tag } = router.query;
 
@@ -20,33 +21,42 @@ export default function ProjectsPage({ stars }) {
           <p className="text-neutral-200 text-sm sm:text-base">
             Along my journey as a developer, I&apos;ve utilized a variety of
             open source tools that have assisted me along my self-taught
-            programming journey. Below are all my open source projects, which
-            have accumulated a total of{" "}
-            <span className="font-semibold inline-flex flex-row items-center">
+            programming journey. Below are all my open source projects to date,
+            which have accumulated a total of{" "}
+            <span
+              className="font-semibold inline-flex flex-row items-center"
+              title={`${stars} stars`}
+            >
               {stars}
               ⭐️
-            </span>{" "}
+            </span>
+            and{" "}
+            <span
+              className="font-semibold inline-flex flex-row items-center"
+              title={`${forks} forks`}
+            >
+              {forks}
+              <svg className="mr-1 w-4 h-auto fill-white" viewBox="0 0 16 16">
+                <path
+                  fillRule="evenodd"
+                  d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                ></path>
+              </svg>
+            </span>
             on GitHub.
           </p>
         </main>
         <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-4 justify-center">
-          {projects.map((p, key) => (
-            <Link
+          {repos.map((p, key) => (
+            <Repository
               key={key}
-              className="w-full p-4 text-neutral-200 text-sm sm:text-base max-w-full truncate overflow-x-hidden overflow-ellipsis whitespace-nowrap border-[1px] border-neutral-800 transition-all ease-linear hover:bg-neutral-900 rounded-lg flex flex-col gap-2"
-              href={p.link}
-            >
-              <div className="flex flex-col">
-                <div className="flex flex-row w-full justify-between items-start">
-                  <span className="text-white font-semibold">{p.name}</span>
-                  <span className="flex flex-row gap-1 items-center text-xs sm:text-sm"></span>
-                </div>
-                <span className="text-xs sm:text-sm">{p.year}</span>
-              </div>
-              <span className="max-w-max truncate text-xs sm:text-sm">
-                {p.desc}
-              </span>
-            </Link>
+              name={p.name}
+              desc={p.description}
+              link={p.html_url}
+              lang={p.language}
+              stars={p.stargazers_count}
+              forks={p.forks_count}
+            />
           ))}
         </section>
       </div>
@@ -89,10 +99,16 @@ export default function ProjectsPage({ stars }) {
 
 export const getStaticProps = async () => {
   const stars = await getGithubStars("zhao-stanley");
+  const forks = await getGithubForks("zhao-stanley");
+  const data = await getGithubRepos("zhao-stanley");
+  let repos = data.filter((repo) => !repo.fork);
+  repos = repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
   return {
     props: {
       stars,
+      forks,
+      repos,
     },
   };
 };
