@@ -1,11 +1,8 @@
-import Link from "next/link";
 import SEO from "../components/global/SEO";
-import Projects from "../components/home/Projects";
 import siteMetadata from "../data/siteMetadata";
 import { useRouter } from "next/router";
-import properCase, { getGithubRepos } from "../utils";
+import { getGithubRepos } from "../utils";
 import { getGithubStars, getGithubForks } from "../utils";
-import projects from "../data/projects";
 import Repository from "../components/home/Repository";
 
 export default function ProjectsPage({ stars, forks, repos }) {
