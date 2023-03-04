@@ -1,4 +1,5 @@
 import SEO from "../components/global/SEO";
+import siteMetadata from "../data/siteMetadata";
 
 export default function About({}) {
   return (

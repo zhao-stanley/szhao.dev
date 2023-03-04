@@ -9,6 +9,7 @@ import Body from "../components/home/Body";
 import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
 import countapi from "countapi-js";
 import millify from "millify";
+import siteMetadata from "../data/siteMetadata";
 const token = process.env.NEXT_PUBLIC_COUNTAPI;
 
 export default function Home({
