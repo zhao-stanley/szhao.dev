@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import siteMetadata from "../../data/siteMetadata";
+import { getAvailability } from "../../utils";
 
 const variants = {
   offscreen: {
@@ -24,6 +25,17 @@ export default function ContactMe() {
         <p className="text-neutral-200 text-sm sm:text-base">
           Don&apos;t hesitate to contact me below. I&apos;m open to freelancing,
           inquiries, tutoring, or if you just want to say hi!
+          <br />
+          <br />
+          Currently, it's{" "}
+          <strong>
+            {new Date().toLocaleTimeString("en-US", {
+              timeZone: "America/New_York",
+              hour: "numeric",
+              minute: "2-digit",
+            })}
+          </strong>{" "}
+          for me, so {getAvailability(new Date())}
         </p>
         <div className="w-full flex flex-col mt-4">
           <Link
