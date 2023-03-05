@@ -65,7 +65,9 @@ export async function getStaticProps() {
   let numberPosts = posts.length;
 
   //View Count
-  const viewCount = await countapi.hit("szhao.dev", token).then((e) => e.value);
+  const viewCount = await countapi.hit("szhao.dev", token).then((e) => {
+    return e.value;
+  });
 
   return {
     props: { numberPosts, githubFollowers, viewCount },
