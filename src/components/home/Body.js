@@ -3,8 +3,23 @@ import Image from "next/image";
 import profile from "../../../public/static/img/profile.png";
 import siteMetadata from "../../data/siteMetadata";
 import millify from "millify";
+import countapi from "countapi-js";
+import { useEffect, useState } from "react";
+const token = process.env.NEXT_PUBLIC_COUNTAPI;
 
-export default function Body({ numberPosts, githubFollowers, viewCount }) {
+export default function Body({ numberPosts, githubFollowers }) {
+  const [viewCount, setViewCount] = useState(0);
+  //View Count
+  async function getViewCount() {
+    const response = await countapi.hit("szhao.dev", token);
+    const { value } = response;
+    return setViewCount(value);
+  }
+
+  useEffect(() => {
+    getViewCount();
+  }, []);
+
   return (
     <section className="flex flex-col sm:flex-row gap-8">
       <div

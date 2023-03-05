@@ -3,8 +3,6 @@ import SEO from "../components/global/SEO";
 import ContactMe from "../components/home/ContactMe";
 import Body from "../components/home/Body";
 import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
-import countapi from "countapi-js";
-const token = process.env.NEXT_PUBLIC_COUNTAPI;
 
 export default function Home({ numberPosts, githubFollowers, viewCount }) {
   return (
@@ -64,12 +62,7 @@ export async function getStaticProps() {
   //Number of Posts
   let numberPosts = posts.length;
 
-  //View Count
-  const viewCount = await countapi.hit("szhao.dev", token).then((e) => {
-    return e.value;
-  });
-
   return {
-    props: { numberPosts, githubFollowers, viewCount },
+    props: { numberPosts, githubFollowers },
   };
 }
