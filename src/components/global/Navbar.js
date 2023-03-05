@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ThemeSwitch from "./ThemeSwitch";
 import nav from "../../data/nav";
 import { useRouter } from "next/router";
 import MobileNav from "./MobileNav";
@@ -25,9 +24,6 @@ export default function Navbar() {
             </Link>
           ))}
           <MobileNav router={router} />
-        </div>
-        <div className="w-fit h-fit flex items-center justify-end">
-          <ThemeSwitch />
         </div>
       </div>
     </>
