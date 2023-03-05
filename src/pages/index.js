@@ -4,7 +4,6 @@ import ContactMe from "../components/home/ContactMe";
 import Body from "../components/home/Body";
 import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
 import countapi from "countapi-js";
-import millify from "millify";
 const token = process.env.NEXT_PUBLIC_COUNTAPI;
 
 export default function Home({ numberPosts, githubFollowers, viewCount }) {
@@ -66,11 +65,7 @@ export async function getStaticProps() {
   let numberPosts = posts.length;
 
   //View Count
-  const viewCount = await countapi.hit("szhao.dev", token).then((e) =>
-    millify(e.value, {
-      precision: 2,
-    })
-  );
+  const viewCount = await countapi.hit("szhao.dev", token).then((e) => e.value);
 
   return {
     props: { numberPosts, githubFollowers, viewCount },

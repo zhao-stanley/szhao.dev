@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import profile from "../../../public/static/img/profile.png";
 import siteMetadata from "../../data/siteMetadata";
+import millify from "millify";
 
 export default function Body({ numberPosts, githubFollowers, viewCount }) {
   return (
@@ -31,7 +32,7 @@ export default function Body({ numberPosts, githubFollowers, viewCount }) {
             {githubFollowers} followers on GitHub
           </li>
         </Link>
-        <Link href={"/blog"}  >
+        <Link href={"/blog"}>
           <li className="flex flex-row gap-2 text-[#aeaeae] items-center hover:text-white fill-[#aeaeae] hover:fill-white transition ease-in-out duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +51,10 @@ export default function Body({ numberPosts, githubFollowers, viewCount }) {
             {numberPosts} blog posts written
           </li>
         </Link>
-        <li className="flex flex-row gap-2 text-[#aeaeae] items-center hover:text-white fill-[#aeaeae] hover:fill-white transition ease-in-out duration-300">
+        <li
+          title={`${viewCount.toLocaleString("en-US")} visits`}
+          className="flex flex-row gap-2 text-[#aeaeae] items-center hover:text-white fill-[#aeaeae] hover:fill-white transition ease-in-out duration-300"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -70,7 +74,10 @@ export default function Body({ numberPosts, githubFollowers, viewCount }) {
               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          {viewCount} visits
+          {millify(viewCount, {
+            precision: 2,
+          })}{" "}
+          visits
         </li>
       </ul>
     </section>
