@@ -146,7 +146,7 @@ export const getAvailability = (currentTime) => {
   //Between 10AM and 9PM on weekends
   if (currentTime.getDay() === 0 || currentTime.getDay() === 6) {
     if (currentTime.getHours() >= 10 && currentTime.getHours() < 21) {
-      return "I'm most likely free and will get back to you soon.";
+      return "I'm probably free and will get back to you soon.";
     } else {
       return "I'm probably sleeping right now. I will get back to you soon!";
     }
@@ -159,7 +159,7 @@ export const getAvailability = (currentTime) => {
       return "I'm probably in school right now. I will get back to you soon!.";
       //Between 3PM and 9PM on weekdays
     } else if (currentTime.getHours() >= 15 && currentTime.getHours() < 21) {
-      return "I'm most likely available and will get back to you soon!";
+      return "I'm probably free and will get back to you soon!";
     }
   }
 };
