@@ -26,4 +26,4 @@ If you plan on forking this, you will need the following tokens in your `.env`:
 - `SPOTIFY_CLIENT_SECRET`: Once you've registered your app on Spotify, click `SHOW CLIENT SECRET`.
 
 
-###### Design inspiration taken from [Lee Robinson](leerob.io) and [Conrad Crawford](cnrad.dev)
+###### Design inspiration taken from [Lee Robinson](https://leerob.io) and [Conrad Crawford](https://cnrad.dev)
