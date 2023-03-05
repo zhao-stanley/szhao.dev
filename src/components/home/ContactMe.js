@@ -45,11 +45,11 @@ export default function ContactMe() {
       <section className="w-full flex flex-col gap-2 sm:gap-4">
         <h3 className="font-serif text-xl sm:text-2xl">Contact Me</h3>
         <p className="text-neutral-200 text-sm sm:text-base">
-          Don&apos;t hesitate to contact me below. I&apos;m open to freelancing,
-          inquiries, tutoring, or if you just want to say hi!
+          I&apos;m open to freelancing, tutoring, or if you just want to say
+          hello! Don&apos;t hesitate to contact me below.
           <br />
           <br />
-          Currently, it&apos;s <strong>{time}</strong> for me, so {availability}
+          It&apos;s currently <strong>{time}</strong> for me, so {availability}
         </p>
         <div className="w-full flex flex-col mt-4">
           <Link
