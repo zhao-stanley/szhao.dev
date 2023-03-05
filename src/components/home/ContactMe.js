@@ -2,6 +2,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import siteMetadata from "../../data/siteMetadata";
 import { getAvailability } from "../../utils";
+import { useEffect, useState } from "react";
 
 const variants = {
   offscreen: {
@@ -18,6 +19,27 @@ const variants = {
 };
 
 export default function ContactMe() {
+  useEffect(() => {
+    setInterval(() => {
+      setTime(
+        new Date().toLocaleTimeString("en-US", {
+          timeZone: "America/New_York",
+          hour: "numeric",
+          minute: "2-digit",
+        })
+      );
+      setAvailability(getAvailability(new Date()));
+    }, 1000);
+  }, []);
+  const [time, setTime] = useState(
+    new Date().toLocaleTimeString("en-US", {
+      timeZone: "America/New_York",
+      hour: "numeric",
+      minute: "2-digit",
+    })
+  );
+  const [availability, setAvailability] = useState(getAvailability(new Date()));
+
   return (
     <>
       <section className="w-full flex flex-col gap-2 sm:gap-4">
@@ -27,15 +49,7 @@ export default function ContactMe() {
           inquiries, tutoring, or if you just want to say hi!
           <br />
           <br />
-          Currently, it&apos;s{" "}
-          <strong>
-            {new Date().toLocaleTimeString("en-US", {
-              timeZone: "America/New_York",
-              hour: "numeric",
-              minute: "2-digit",
-            })}
-          </strong>{" "}
-          for me, so {getAvailability(new Date())}
+          Currently, it&apos;s <strong>{time}</strong> for me, so {availability}
         </p>
         <div className="w-full flex flex-col mt-4">
           <Link
