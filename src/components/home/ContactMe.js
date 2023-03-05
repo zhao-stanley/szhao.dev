@@ -19,6 +19,14 @@ const variants = {
 };
 
 export default function ContactMe() {
+  const [time, setTime] = useState(
+    new Date().toLocaleTimeString("en-US", {
+      timeZone: "America/New_York",
+      hour: "numeric",
+      minute: "2-digit",
+    })
+  );
+  const [availability, setAvailability] = useState(getAvailability(new Date()));
   useEffect(() => {
     setInterval(() => {
       setTime(
@@ -31,14 +39,6 @@ export default function ContactMe() {
       setAvailability(getAvailability(new Date()));
     }, 1000);
   }, []);
-  const [time, setTime] = useState(
-    new Date().toLocaleTimeString("en-US", {
-      timeZone: "America/New_York",
-      hour: "numeric",
-      minute: "2-digit",
-    })
-  );
-  const [availability, setAvailability] = useState(getAvailability(new Date()));
 
   return (
     <>
