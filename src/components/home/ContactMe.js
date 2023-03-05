@@ -27,7 +27,7 @@ export default function ContactMe() {
           inquiries, tutoring, or if you just want to say hi!
           <br />
           <br />
-          Currently, it's{" "}
+          Currently, it&apos;s{" "}
           <strong>
             {new Date().toLocaleTimeString("en-US", {
               timeZone: "America/New_York",
