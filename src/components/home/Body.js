@@ -11,7 +11,7 @@ export default function Body({ numberPosts, githubFollowers }) {
   const [viewCount, setViewCount] = useState(0);
   //View Count
   async function getViewCount() {
-    const response = await countapi.hit("szhao.dev", token);
+    const response = await countapi.get("szhao.dev", token);
     const { value } = response;
     return setViewCount(value);
   }

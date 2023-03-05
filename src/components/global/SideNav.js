@@ -1,8 +1,17 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import countapi from "countapi-js";
+const token = process.env.NEXT_PUBLIC_COUNTAPI;
 
 export default function SideNav() {
+  useEffect(() => {
+    async function hit() {
+      await countapi.hit("szhao.dev", token);
+    }
+    hit();
+  }, []);
   const router = useRouter();
   const navLinks = [
     {
