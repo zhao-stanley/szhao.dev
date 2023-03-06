@@ -97,8 +97,8 @@ export default function Blog({ data }) {
               href={`/blog/${p.slug}`}
             >
               <div className="flex flex-col">
-                <div className="flex flex-row w-full justify-between items-start">
-                  <span className="text-white font-semibold">
+                <div className="flex flex-row w-full justify-between items-start gap-2">
+                  <span className="text-white font-semibold max-w-[80%] truncate">
                     {p.draft === true ? (
                       <span className="text-red-500">[DRAFT] </span>
                     ) : (
@@ -107,7 +107,7 @@ export default function Blog({ data }) {
                     {p.title}
                   </span>
                   <span className="flex flex-row gap-1 items-center text-xs sm:text-sm">
-                    {p.genre.map((g, gkey) => (
+                    {p.genre.slice(0, 3).map((g, gkey) => (
                       <span key={gkey}>{`#${g}`}</span>
                     ))}
                   </span>
