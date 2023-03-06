@@ -1,8 +1,12 @@
 import Hero from "../components/home/Hero";
 import SEO from "../components/global/SEO";
-import ContactMe from "../components/home/ContactMe";
 import Body from "../components/home/Body";
+import dynamic from "next/dynamic";
 import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
+
+const ContactMe = dynamic(() => import("../components/home/ContactMe"), {
+  ssr: false,
+});
 
 export default function Home({ numberPosts, githubFollowers, viewCount }) {
   return (
