@@ -19,7 +19,7 @@ export default function Repository({ name, desc, link, lang, stars, forks }) {
     >
       <div className="flex flex-col justify-between gap-6 w-full h-full">
         <div className="flex flex-col">
-          <span className="text-white font-bold" title={name}>
+          <span className="text-white font-bold w-fit" title={name}>
             {name}
           </span>
           <span className="max-w-max truncate text-xs sm:text-sm" title={desc}>
