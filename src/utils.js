@@ -151,17 +151,13 @@ export const getAvailability = (currentTime) => {
       return "I am probably sleeping right now. I will get back to you soon!";
     }
   } else {
-    //Between 12AM and 8AM on weekdays
-    if (currentTime.getHours() >= 0 && currentTime.getHours() < 8) {
-      return "I am probably sleeping right now. I will get back to you soon!";
-      //Between 8AM and 3PM on weekdays
-    } else if (currentTime.getHours() >= 8 && currentTime.getHours() < 15) {
+   if (currentTime.getHours() >= 8 && currentTime.getHours() < 15) {
       return "I am probably in school right now. I will get back to you soon!.";
       //Between 3PM and 9PM on weekdays
     } else if (currentTime.getHours() >= 15 && currentTime.getHours() < 21) {
       return "I am probably available and will get back to you soon!";
     } else {
-      //Between 9PM and 12AM on weekdays
+      //Between 9PM and 8AM on weekdays
       return "I am probably sleeping right now. I will get back to you soon!";
     }
   }
