@@ -160,6 +160,9 @@ export const getAvailability = (currentTime) => {
       //Between 3PM and 9PM on weekdays
     } else if (currentTime.getHours() >= 15 && currentTime.getHours() < 21) {
       return "I am probably available and will get back to you soon!";
+    } else {
+      //Between 9PM and 12AM on weekdays
+      return "I am probably sleeping right now. I will get back to you soon!";
     }
   }
 };
