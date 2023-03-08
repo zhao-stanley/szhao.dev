@@ -119,5 +119,6 @@ export const getStaticProps = async () => {
       forks,
       repos,
     },
+    revalidate: 30,
   };
 };
