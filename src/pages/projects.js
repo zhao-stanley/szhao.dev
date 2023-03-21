@@ -27,7 +27,7 @@ export default function ProjectsPage({ stars, forks, repos }) {
             >
               {stars}
               ⭐️
-            </span>
+            </span>{" "}
             and{" "}
             <span
               className="font-semibold inline-flex flex-row items-center"
