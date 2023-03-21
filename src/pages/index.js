@@ -68,5 +68,6 @@ export async function getStaticProps() {
 
   return {
     props: { numberPosts, githubFollowers },
+    revalidate: 30,
   };
 }
