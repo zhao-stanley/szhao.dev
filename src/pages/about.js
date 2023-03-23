@@ -19,8 +19,7 @@ export default function About() {
               MIT
             </span>{" "}
             in the fall. My interests in computer science include (but are not
-            limited to) web development, cybersecurity, and competitive
-            programming.
+            limited to) web development, artificial intelligence, and cybersecurity.
             <br />
             <br /> Outside of computer science, I enjoy performing music,
             dabbling in graphic design, and playing sports like volleyball and
