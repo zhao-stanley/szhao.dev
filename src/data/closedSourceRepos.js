@@ -11,6 +11,12 @@ const closedSourceRepos = [
     desc: "Publisher of the most popular, memorable, and cutting-edge browser games, completely free.",
     lang: "JavaScript",
   },
+  {
+    name: "Roslyn Academy",
+    link: "https://www.roslyn.academy/",
+    desc: "Taught by students, for students. Receive quality tutoring from top-performing students who have walked the same path as you.",
+    lang: "JavaScript",
+  },
 ];
 
 export default closedSourceRepos;
