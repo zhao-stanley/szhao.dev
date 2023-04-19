@@ -22,8 +22,8 @@ export default function About() {
             limited to) web development, artificial intelligence, and cybersecurity.
             <br />
             <br /> Outside of computer science, I enjoy performing music,
-            dabbling in graphic design, and playing sports like volleyball and
-            basketball.
+            dabbling in graphic design, and playing sports like volleyball,
+            basketball, and badminton.
             <br />
             <br />
             You can{" "}
