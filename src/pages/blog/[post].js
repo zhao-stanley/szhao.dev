@@ -16,9 +16,7 @@ export default function Post({ postContent }) {
     return (
       <>
         <SEO
-          title={`${data.draft === true ? "[DRAFT]" : ""} ${data.title} | ${
-            siteMetadata.title
-          }`}
+          title={`[DRAFT] ${data.title} | ${siteMetadata.title}`}
           desc={"This post is still being written... 🚧"}
         />
         <div className="w-full max-w-2xl flex flex-col gap-8">
@@ -73,8 +71,8 @@ export default function Post({ postContent }) {
               )}
             </section>
             <p className="text-neutral-200 text-sm sm:text-base">
-              Psst! This post is still a draft and hasn&apos;t been finished yet.
-              Check back another time!
+              Psst! This post is still a draft and hasn&apos;t been finished
+              yet. Check back another time!
               <br />
             </p>
             <DraftPlaceholder />
