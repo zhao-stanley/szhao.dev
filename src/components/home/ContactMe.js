@@ -53,7 +53,7 @@ export default function ContactMe() {
         </p>
         <div className="w-full flex flex-col mt-4">
           <Link
-            href={siteMetadata.gmail}
+            href={siteMetadata.email}
             target="_blank"
             className="w-full text-xs sm:text-sm lg:text-base cursor-pointer px-4 py-3 font-semibold rounded-xl hover:bg-neutral-900 transition-all ease-linear text-center text-white border-[1px] border-neutral-800"
           >

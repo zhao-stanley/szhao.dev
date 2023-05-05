@@ -19,7 +19,8 @@ export default function About() {
               MIT
             </span>{" "}
             in the fall. My interests in computer science include (but are not
-            limited to) web development, artificial intelligence, and cybersecurity.
+            limited to) web development, artificial intelligence, and
+            cybersecurity.
             <br />
             <br /> Outside of computer science, I enjoy performing music,
             dabbling in graphic design, and playing sports like volleyball,
@@ -156,9 +157,9 @@ export default function About() {
           </Link>
           <Link
             className="w-full p-4 border-[1px] border-neutral-800 transition-all ease-linear hover:bg-neutral-900 rounded-md flex flex-row gap-2 items-center justify-between"
-            href={siteMetadata.gmail}
+            href={siteMetadata.email}
             target="_blank"
-            title={`Gmail — ${siteMetadata.gmail_user}`}
+            title={`Gmail — ${siteMetadata.email_user}`}
           >
             <div className="flex flex-row items-center gap-3 fill-white">
               <svg
@@ -170,7 +171,7 @@ export default function About() {
                 <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                 <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
               </svg>
-              <span>{siteMetadata.gmail_user}</span>
+              <span>{siteMetadata.email_user}</span>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -7,8 +7,8 @@ const siteMetadata = {
   github_user: "zhao-stanley",
   linkedin: "https://www.linkedin.com/in/sz5/",
   linkedin_user: "Stanley Zhao",
-  gmail: "mailto:hello@szhao.dev",
-  gmail_user: "hello@szhao.dev",
+  email: "mailto:stanleyz@mit.edu",
+  email_user: "stanleyz@mit.edu",
   discord: "https://discord.com/users/310422534975782932",
   discord_user: "r0cket#0115",
 };
