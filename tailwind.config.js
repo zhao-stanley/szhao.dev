@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        serif: ["Gloock", ...defaultTheme.fontFamily.serif],
+        serif: ["Poppins", ...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         gshift: {

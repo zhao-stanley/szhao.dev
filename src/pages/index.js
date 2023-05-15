@@ -12,18 +12,12 @@ export default function Home({ numberPosts, githubFollowers, viewCount }) {
   return (
     <>
       <SEO />
-      <div className="w-full max-w-2xl flex flex-col gap-8">
-        <Hero />
-        <Body
-          numberPosts={numberPosts}
-          githubFollowers={githubFollowers}
-          viewCount={viewCount}
-        />
-        <section className="w-full flex flex-col gap-2 sm:gap-4">
-          <h3 className="font-serif text-xl sm:text-2xl">Music Activity</h3>
-          <CurrentlyPlaying />
-        </section>
-        <ContactMe />
+      <div className="w-full max-w-2xl flex flex-col gap-8 p-8">
+        <h1 className="text-2xl font-semibold font-serif">sz.</h1>
+        <p className="font-serif text-sm">
+          <span className="underline font-serif">stanley zhao</span> · software
+          engineer building eyecandy for the web · currently at scilynk
+        </p>
       </div>
       {/* <SEO />
       <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
