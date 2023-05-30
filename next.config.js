@@ -9,6 +9,9 @@ const nextConfig = {
     return config;
   },
   swcMinify: true,
+  images: {
+    domains: ["i.scdn.co"],
+  },
 };
 
 module.exports = nextConfig;

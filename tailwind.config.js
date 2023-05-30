@@ -11,8 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        serif: ["Gloock", ...defaultTheme.fontFamily.serif],
+        // sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter var", ...defaultTheme.fontFamily.serif],
+        chinese: ["Ma Shan Zheng", ...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         gshift: {
@@ -29,14 +30,24 @@ module.exports = {
             transform: "rotateX(0deg)",
           },
         },
-        marquee: {
-          "0%": { transform: "translateX(100%)" },
-          "100%": { transform: "translateX(-100%)" },
+        shine: {
+          "0%": {
+            opacity: "0",
+            left: "-100%",
+          },
+          "50%": {
+            opacity: "0.5",
+            left: "0%",
+          },
+          "100%": {
+            opacity: "0",
+            left: "100%",
+          },
         },
       },
       animation: {
         gshift: "gshift 7.5s ease-in-out infinite",
-        marquee: "marquee 5s linear infinite",
+        shine: "shine 0.75s linear 1",
       },
       backgroundSize: {
         500: "300%",

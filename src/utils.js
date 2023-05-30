@@ -1,3 +1,5 @@
+import proverbs from "./data/proverbs";
+
 let base64 = require("base-64");
 
 export default function properCase(text) {
@@ -151,7 +153,7 @@ export const getAvailability = (currentTime) => {
       return "I am probably sleeping right now. I will get back to you soon!";
     }
   } else {
-   if (currentTime.getHours() >= 8 && currentTime.getHours() < 15) {
+    if (currentTime.getHours() >= 8 && currentTime.getHours() < 15) {
       return "I am probably in school right now. I will get back to you soon!.";
       //Between 3PM and 9PM on weekdays
     } else if (currentTime.getHours() >= 15 && currentTime.getHours() < 21) {
@@ -160,5 +162,19 @@ export const getAvailability = (currentTime) => {
       //Between 9PM and 8AM on weekdays
       return "I am probably sleeping right now. I will get back to you soon!";
     }
+  }
+};
+
+export const getRandomProverb = () => {
+  let proverb = proverbs[Math.floor(Math.random() * proverbs.length)];
+  return {
+    chinese: proverb.chinese,
+    english: proverb.english,
+  };
+};
+
+export const scrollToTop = () => {
+  if (typeof window !== "undefined") {
+    return window.scrollTo({ top: 0, behavior: "smooth" });
   }
 };
