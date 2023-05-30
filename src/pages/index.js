@@ -3,10 +3,11 @@ import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
 import Link from "next/link";
 import Image from "next/image";
 import pfp from "../../public/static/img/full.jpg";
-import { getGithubRepos, getRandomProverb, scrollToTop } from "../utils";
+import { getGithubRepos, scrollToTop } from "../utils";
 import { getGithubStars, getGithubForks } from "../utils";
 import closedSourceRepos from "../data/closedSourceRepos";
 import { motion } from "framer-motion";
+import siteMetadata from "../data/siteMetadata";
 
 const aboutContainer = {
   hidden: {
@@ -38,7 +39,7 @@ const aboutChild = {
 export default function Home({ stars, forks, repos }) {
   return (
     <>
-      <SEO />
+      <SEO title={`Stanley Zhao | ${siteMetadata.title}`} />
       <section className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col justify-center lg:flex-row gap-8 px-6 pb-8 z-[1]">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
