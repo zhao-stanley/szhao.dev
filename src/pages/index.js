@@ -69,8 +69,8 @@ export default function Home({ stars, forks, repos }) {
             variants={aboutChild}
             className="text-xl xl:text-4xl font-medium"
           >
-            I'm a student and software engineer from New York building eye candy
-            for the web.
+            I&apos;m a student and software engineer from New York building eye
+            candy for the web.
           </motion.h3>
           <motion.p
             variants={aboutChild}
@@ -91,7 +91,7 @@ export default function Home({ stars, forks, repos }) {
             variants={aboutChild}
             className="text-sm xl:text-lg text-neutral-300"
           >
-            I'm a computer science major from New York attending{" "}
+            I&apos;m a computer science major from New York attending{" "}
             <span
               title="Massachusetts Institute of Technology"
               className="bg-gradient-to-br from-red-500 to-[#A31F34] bg-clip-text text-transparent font-semibold inline"

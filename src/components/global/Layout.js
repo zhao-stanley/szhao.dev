@@ -135,9 +135,9 @@ export default function Layout({ children }) {
       <footer className="w-full px-6 pb-6 flex justify-center relative z-10 bg-neutral-800">
         <div className="w-full max-w-lg border-t pt-2 border-neutral-500 lg:max-w-3xl xl:max-w-6xl flex flex-row justify-between items-center">
           <span className="relative font-chinese text-base xl:text-lg text-neutral-300 sm:[&>span]:hover:block cursor-help">
-            "{proverbCn}"
+            &quot;{proverbCn}&quot;
             <span className="font-mono px-2 py-1 bg-neutral-900/50 shadow-lg rounded-md tracking-tighter hidden absolute bottom-10 left-0 text-xs xl:text-sm whitespace-nowrap z-10">
-              "{proverbEn}"
+              &quot;{proverbEn}&quot;
             </span>
           </span>
           <div className="flex flex-row items-center gap-2">
