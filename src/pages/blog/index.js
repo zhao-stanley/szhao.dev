@@ -49,7 +49,7 @@ export default function Blog({ data }) {
               </>
             )}
           </h1>
-          <p className="text-neutral-200 text-sm xl:text-lg">
+          <p className="text-neutral-200 text-sm xl:text-base">
             I write about a variety of topics, including but not limited to
             programming, web development, and design. I also write about my
             personal life and experiences.
