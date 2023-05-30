@@ -73,7 +73,7 @@ export default function Layout({ children }) {
       <main
         className={`w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col lg:flex-row-reverse gap-8 lg:gap-32 ${
           router.pathname === "/" ? "sticky top-0" : "relative"
-        } px-6 pt-8 py-8 bg-neutral-800 z-[2]`}
+        } px-6 py-8 bg-neutral-800 z-[2]`}
       >
         <motion.nav
           variants={linksContainer}

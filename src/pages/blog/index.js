@@ -21,7 +21,7 @@ export default function Blog({ data }) {
     if (genre !== undefined) {
       setSearchValue(genre);
     }
-  }, [router.query]);
+  }, [router.query, genre]);
 
   const filteredPosts =
     searchValue.length > 0

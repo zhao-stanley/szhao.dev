@@ -31,7 +31,7 @@
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
-  z-index: 20;
+  z-index: 3;
   opacity: 0;
   transform: skew(30deg);
   animation: shine 0.75s linear 1;
@@ -54,7 +54,9 @@
 
 /* =================== Progress =================== */
 #nprogress {
+  position: relative;
   pointer-events: none;
+  z-index: 1031;
 }
 
 #nprogress .bar {
