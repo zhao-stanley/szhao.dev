@@ -19,9 +19,9 @@ export default function Post({ postContent }) {
           title={`[DRAFT] ${data.title} | ${siteMetadata.title}`}
           desc={"This post is still being written... 🚧"}
         />
-        <div className="w-full max-w-2xl flex flex-col gap-8">
+        <div className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col gap-8 px-6 lg:pt-8 pb-16">
           <main className="w-full flex flex-col gap-4">
-            <h1 className="font-serif text-3xl lg:text-4xl">
+            <h1 className="font-bold text-3xl lg:text-4xl">
               {data.draft === true ? (
                 <span className="text-red-500">[DRAFT] </span>
               ) : (
@@ -37,7 +37,7 @@ export default function Post({ postContent }) {
                   month: "long",
                   day: "2-digit",
                 })}
-                className="p-2 border-[1px] border-neutral-800 rounded-md whitespace-nowrap"
+                className="p-2 border-[1px] border-neutral-700 rounded-md whitespace-nowrap"
               >
                 {new Date(data.date).toLocaleString("en-US", {
                   timeZone: "UTC",
@@ -46,15 +46,15 @@ export default function Post({ postContent }) {
                   day: "2-digit",
                 })}
               </span>
-              <div className="w-full h-[0.125rem] bg-neutral-800"></div>
+              <div className="w-full h-[0.125rem] bg-neutral-700"></div>
               <span
                 title={`0 minute read`}
-                className="p-2 border-[1px] border-neutral-800 rounded-md whitespace-nowrap"
+                className="p-2 border-[1px] border-neutral-700 rounded-md whitespace-nowrap"
               >
                 0 min read
               </span>
             </section>
-            <section className="p-2 border-[1px] border-neutral-800 rounded-md text-neutral-200 text-xs sm:text-sm whitespace-nowrap flex flex-row justify-around">
+            <section className="p-2 border-[1px] border-neutral-700 rounded-md text-neutral-200 text-xs sm:text-sm whitespace-nowrap flex flex-row justify-around">
               {data.genre.length > 0 ? (
                 data.genre.map((g, key) => (
                   <Link
@@ -85,9 +85,9 @@ export default function Post({ postContent }) {
   return (
     <>
       <SEO title={`${data.title} | ${siteMetadata.title}`} desc={data.desc} />
-      <div className="w-full max-w-2xl flex flex-col gap-8">
+      <div className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col gap-8 px-6 lg:pt-8 pb-16">
         <main className="w-full flex flex-col gap-4">
-          <h1 className="font-serif text-3xl lg:text-4xl">{data.title}</h1>
+          <h1 className="font-bold text-3xl lg:text-4xl">{data.title}</h1>
           <section className="text-neutral-200 text-xs sm:text-sm w-full flex flex-row justify-between items-center gap-2">
             <span
               title={new Date(data.date).toLocaleString("en-US", {
@@ -96,7 +96,7 @@ export default function Post({ postContent }) {
                 month: "long",
                 day: "2-digit",
               })}
-              className="p-2 border-[1px] border-neutral-800 rounded-md whitespace-nowrap"
+              className="p-2 border-[1px] border-neutral-700 rounded-md whitespace-nowrap"
             >
               {new Date(data.date).toLocaleString("en-US", {
                 timeZone: "UTC",
@@ -105,15 +105,15 @@ export default function Post({ postContent }) {
                 day: "2-digit",
               })}
             </span>
-            <div className="w-full h-[0.125rem] bg-neutral-800"></div>
+            <div className="w-full h-[0.125rem] bg-neutral-700"></div>
             <span
               title={`${readingTime(content)} minute read`}
-              className="p-2 border-[1px] border-neutral-800 rounded-md whitespace-nowrap"
+              className="p-2 border-[1px] border-neutral-700 rounded-md whitespace-nowrap"
             >
               {readingTime(content)} min read
             </span>
           </section>
-          <section className="p-2 border-[1px] border-neutral-800 rounded-md text-neutral-200 text-xs sm:text-sm whitespace-nowrap flex flex-row justify-around">
+          <section className="p-2 border-[1px] border-neutral-700 rounded-md text-neutral-200 text-xs sm:text-sm whitespace-nowrap flex flex-row justify-around">
             {data.genre.map((g, key) => (
               <Link
                 className="font-medium hover:text-blue-500 transition ease-linear"

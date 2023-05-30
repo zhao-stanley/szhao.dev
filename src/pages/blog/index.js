@@ -36,23 +36,23 @@ export default function Blog({ data }) {
   return (
     <>
       <SEO title={`Blog | ${siteMetadata.title}`} />
-      <div className="w-full max-w-xl lg:max-w-2xl flex flex-col gap-8">
+      <div className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col gap-8 px-6 lg:pt-8 pb-16 bg-neutral-800">
         <main className="w-full flex flex-col gap-4">
-          <h1 className="font-serif text-3xl lg:text-4xl">
-            Blog{searchValue ? ` Posts About ` : null}
-            {searchValue ? (
+          <h1 className="text-xl xl:text-2xl font-semibold">
+            {searchValue ? `Posts About ` : "All Posts"}
+            {searchValue && (
               <>
                 <span className="text-blue-500 underline decoration-white underline-offset-[6px]">
                   {searchValue.substring(0, 10)}
                 </span>
                 {searchValue.length > 10 ? "..." : "."}
               </>
-            ) : null}
+            )}
           </h1>
-          <p className="text-neutral-200 text-sm sm:text-base">
-            I like to write about whatever is on my mind, whether that be a new
-            framework I&apos;m experimenting with or the journey of learning
-            something new.
+          <p className="text-neutral-200 text-sm xl:text-lg">
+            I write about a variety of topics, including but not limited to
+            programming, web development, and design. I also write about my
+            personal life and experiences.
             <br />
             <br />
             As of now, I&apos;ve written a total of{" "}
@@ -70,10 +70,10 @@ export default function Blog({ data }) {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search by post name, tag, or description"
-              className="block w-full rounded-md border bg-transparent text-xs sm:text-sm pl-4 pr-8 py-2 focus:ring-primary-500 border-neutral-800 text-white"
+              className="block w-full rounded-md border bg-transparent text-xs sm:text-sm pl-4 pr-8 py-2 focus:ring-primary-500 border-neutral-700 placeholder:text-neutral-500 text-white"
             />
             <svg
-              className="absolute right-2 top-3 h-4 w-4 text-white"
+              className="absolute right-2 top-2 h-4 w-4 sm:top-3 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ export default function Blog({ data }) {
             <Link
               key={key}
               title={`${p.draft === true ? "[DRAFT]" : ""} ${p.title}`}
-              className="w-full p-4 text-neutral-200 text-sm sm:text-base max-w-full truncate overflow-x-hidden overflow-ellipsis whitespace-nowrap border-[1px] border-neutral-800 transition-all ease-linear hover:bg-neutral-900 rounded-lg flex flex-col gap-2"
+              className="w-full p-4 text-neutral-200 text-sm sm:text-base max-w-full truncate overflow-x-hidden overflow-ellipsis whitespace-nowrap border-[1px] border-neutral-700 transition-all ease-linear hover:bg-neutral-700 rounded-lg flex flex-col gap-2"
               href={`/blog/${p.slug}`}
             >
               <div className="flex flex-col">
