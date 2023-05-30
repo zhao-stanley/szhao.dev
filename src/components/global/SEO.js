@@ -35,7 +35,7 @@ export default function SEO({ title, desc }) {
       />
       <meta
         property="og:image"
-        content="https://www.szhao.dev/static/img/logo.png"
+        content="https://www.szhao.dev/static/img/full.jpg"
       />
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://www.szhao.dev/" />
@@ -49,7 +49,7 @@ export default function SEO({ title, desc }) {
       />
       <meta
         property="twitter:image"
-        content="https://www.szhao.dev/static/img/logo.png"
+        content="https://www.szhao.dev/static/img/full.jpg"
       />
     </Head>
   );
