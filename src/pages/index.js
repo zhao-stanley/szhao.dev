@@ -8,6 +8,8 @@ import { getGithubStars, getGithubForks } from "../utils";
 import closedSourceRepos from "../data/closedSourceRepos";
 import { motion } from "framer-motion";
 import siteMetadata from "../data/siteMetadata";
+import scilynk from "../../public/static/img/scilynk.png";
+import mit from "../../public/static/img/mit.png";
 
 const aboutContainer = {
   hidden: {
@@ -18,9 +20,9 @@ const aboutContainer = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.3,
       type: "linear",
-      staggerChildren: 0.3,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -40,7 +42,94 @@ export default function Home({ stars, forks, repos }) {
   return (
     <>
       <SEO title={`Stanley Zhao | ${siteMetadata.title}`} />
-      <section className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col justify-center lg:flex-row gap-8 px-6 pb-8 z-[1]">
+      <section className="w-full py-16 flex flex-col">
+        <motion.div
+          variants={aboutContainer}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col gap-8"
+        >
+          <div>
+            <motion.h3 variants={aboutChild} className="text-white text-2xl font-serif">
+              Stanley Zhao
+            </motion.h3>
+            <motion.h3
+              variants={aboutChild}
+              className="text-lg font-serif text-neutral-500"
+            >
+              / stænli · ʒaʊ /
+            </motion.h3>
+          </div>
+          <motion.p
+            variants={aboutChild}
+            className="tracking-tight text-lg text-neutral-300 font-serif"
+          >
+            Hey! I'm Stanley, an 18-year-old founder, software engineer, and
+            student from New York.
+          </motion.p>
+          <motion.div
+            variants={aboutChild}
+            className="tracking-tight text-lg text-neutral-300 font-serif"
+          >
+            I'll be attending{" "}
+            <Link
+              href="https://www.mit.edu/"
+              target="_blank"
+              className="mx-1 px-2 py-1 gap-1 rounded-md ring-1 ring-neutral-700 inline-flex items-center text-sm font-sans font-medium hover:bg-neutral-700 ease-linear transition"
+            >
+              <div className="relative w-8 h-4">
+                <Image
+                  className="object-cover object-center"
+                  placeholder="blur"
+                  fill
+                  draggable="false"
+                  sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              25vw"
+                  alt="Stanley Zhao"
+                  title="Stanley Zhao"
+                  src={mit}
+                />
+              </div>
+              <p>MIT</p>
+            </Link>{" "}
+            in the fall, where I plan to major in computer science and business.
+            I'm currently working as the Chief Technology Officer at{" "}
+            <Link
+              href="https://www.scilynk.com/"
+              target="_blank"
+              className="mx-1 p-1 gap-1 rounded-md ring-1 ring-neutral-700 inline-flex items-center pr-2 text-sm font-sans font-medium hover:bg-neutral-700 ease-linear transition"
+            >
+              <div className="relative w-4 h-4">
+                <Image
+                  className="object-cover object-center"
+                  placeholder="blur"
+                  fill
+                  draggable="false"
+                  sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              25vw"
+                  alt="Stanley Zhao"
+                  title="Stanley Zhao"
+                  src={scilynk}
+                />
+              </div>
+              <p>SciLynk</p>
+            </Link>
+            , where I lead full-stack development to revolutionize the research
+            workflow.
+          </motion.div>
+          <motion.p
+            variants={aboutChild}
+            className="text-sm xl:text-lg text-neutral-300"
+          >
+            Outside of programming, I enjoy spending time with friends and
+            playing a variety of sports, including volleyball, basketball, and
+            badminton.
+          </motion.p>
+        </motion.div>
+      </section>
+      {/* <section className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col justify-center lg:flex-row gap-8 px-6 pb-8 z-[1]">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -220,7 +309,7 @@ export default function Home({ stars, forks, repos }) {
             <CurrentlyPlaying />
           </div>
         </section>
-      </section>
+      </section> */}
     </>
   );
 }

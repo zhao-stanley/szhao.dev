@@ -11,7 +11,7 @@ const closedSourceRepos = [
     name: "WebLFG",
     href: "https://www.weblfg.com/",
     description:
-      "Publisher of the most popular, memorable, and cutting-edge browser games, completely free. From internet classics to present-day favorites, it's online entertainment right at your fingertips.",
+      "Publisher of the most popular, memorable, and cutting-edge browser games, completely free. From internet classics to present-day favorites, it's online entertainment right at your fingertips.~",
     lang: "JavaScript",
     img: "weblfg.png",
   },
