@@ -15,9 +15,9 @@ Router.onRouteChangeError = () => NProgress.done();
 function App({ Component, pageProps }) {
   return (
     <>
-      <Layout>
+      {/* <Layout> */}
         <Component {...pageProps} />
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

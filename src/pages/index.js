@@ -1,22 +1,14 @@
-import SEO from "../components/global/SEO";
-import Body from "../components/home/Body";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Gradient } from "../gradient";
 import { getRandomGradient } from "../utils";
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
-import Link from "next/link";
-import Image from "next/image";
+
 import pfp from "../../public/static/img/full.jpg";
 import { getGithubRepos, scrollToTop } from "../utils";
 import { getGithubStars, getGithubForks } from "../utils";
-import closedSourceRepos from "../data/closedSourceRepos";
+
 import { motion } from "framer-motion";
-import siteMetadata from "../data/siteMetadata";
-import scilynk from "../../public/static/img/scilynk.png";
-import mit from "../../public/static/img/mit.png";
 
 const aboutContainer = {
   hidden: {
@@ -47,7 +39,7 @@ export default function Home({ numberPosts, githubFollowers, viewCount }) {
 
   return (
     <>
-      <div className="w-full h-full min-h-screen flex flex-row gap-24 px-36">
+      <div className="w-full h-full min-h-screen flex flex-row gap-24 px-36 font-sans">
         <section className="relative w-1/2 h-screen flex flex-col justify-center py-12">
           <div className="absolute px-8">
             <h1 className="text-6xl font-bold drop-shadow-lg">Stanley Zhao</h1>
