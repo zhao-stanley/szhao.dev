@@ -1,4 +1,11 @@
 import SEO from "../components/global/SEO";
+import Body from "../components/home/Body";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import { Gradient } from "../gradient";
+import { getRandomGradient } from "../utils";
+import { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import CurrentlyPlaying from "../components/home/CurrentlyPlaying";
 import Link from "next/link";
 import Image from "next/image";
@@ -27,289 +34,160 @@ const aboutContainer = {
   },
 };
 
-const aboutChild = {
-  hidden: {
-    opacity: 0,
-    y: -10,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
+export default function Home({ numberPosts, githubFollowers, viewCount }) {
+  let gradient = new Gradient();
+  const canvasRef = useRef(null);
+  const [colors, setColors] = useState(getRandomGradient());
 
-export default function Home({ stars, forks, repos }) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      gradient.initGradient("#gradient-canvas", colors);
+    }
+  }, [colors]);
+
   return (
     <>
-      <SEO title={`Stanley Zhao | ${siteMetadata.title}`} />
-      <section className="w-full py-16 flex flex-col">
-        <motion.div
-          variants={aboutContainer}
-          initial="hidden"
-          animate="show"
-          className="flex flex-col gap-8"
-        >
-          <div>
-            <motion.h3 variants={aboutChild} className="text-white text-2xl font-serif">
-              Stanley Zhao
-            </motion.h3>
-            <motion.h3
-              variants={aboutChild}
-              className="text-lg font-serif text-neutral-500"
-            >
-              / stænli · ʒaʊ /
-            </motion.h3>
+      <div className="w-full h-full min-h-screen flex flex-row gap-24 px-36">
+        <section className="relative w-1/2 h-screen flex flex-col justify-center py-12">
+          <div className="absolute px-8">
+            <h1 className="text-6xl font-bold drop-shadow-lg">Stanley Zhao</h1>
+            <h3 className="text-gray-200 font-medium text-4xl tracking-tighter drop-shadow-lg">
+              SWE \ Entrepreneur \ @MIT
+            </h3>
           </div>
-          <motion.p
-            variants={aboutChild}
-            className="tracking-tight text-lg text-neutral-300 font-serif"
-          >
-            Hey! I'm Stanley, an 18-year-old founder, software engineer, and
-            student from New York.
-          </motion.p>
-          <motion.div
-            variants={aboutChild}
-            className="tracking-tight text-lg text-neutral-300 font-serif"
-          >
-            I'll be attending{" "}
-            <Link
-              href="https://www.mit.edu/"
-              target="_blank"
-              className="mx-1 px-2 py-1 gap-1 rounded-md ring-1 ring-neutral-700 inline-flex items-center text-sm font-sans font-medium hover:bg-neutral-700 ease-linear transition"
-            >
-              <div className="relative w-8 h-4">
-                <Image
-                  className="object-cover object-center"
-                  placeholder="blur"
-                  fill
-                  draggable="false"
-                  sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              25vw"
-                  alt="Stanley Zhao"
-                  title="Stanley Zhao"
-                  src={mit}
-                />
-              </div>
-              <p>MIT</p>
-            </Link>{" "}
-            in the fall, where I plan to major in computer science and business.
-            I'm currently working as the Chief Technology Officer at{" "}
-            <Link
-              href="https://www.scilynk.com/"
-              target="_blank"
-              className="mx-1 p-1 gap-1 rounded-md ring-1 ring-neutral-700 inline-flex items-center pr-2 text-sm font-sans font-medium hover:bg-neutral-700 ease-linear transition"
-            >
-              <div className="relative w-4 h-4">
-                <Image
-                  className="object-cover object-center"
-                  placeholder="blur"
-                  fill
-                  draggable="false"
-                  sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              25vw"
-                  alt="Stanley Zhao"
-                  title="Stanley Zhao"
-                  src={scilynk}
-                />
-              </div>
-              <p>SciLynk</p>
-            </Link>
-            , where I lead full-stack development to revolutionize the research
-            workflow.
-          </motion.div>
-          <motion.p
-            variants={aboutChild}
-            className="text-sm xl:text-lg text-neutral-300"
-          >
-            Outside of programming, I enjoy spending time with friends and
-            playing a variety of sports, including volleyball, basketball, and
-            badminton.
-          </motion.p>
-        </motion.div>
-      </section>
-      {/* <section className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col justify-center lg:flex-row gap-8 px-6 pb-8 z-[1]">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="relative w-full h-[18vh] lg:w-[250px] lg:h-[250px] xl:w-[450px] xl:h-[450px] flex-shrink-0 shadow-lg shadow-neutral-700 overflow-hidden rounded-lg select-none ease-linear transition [&>.shine]:hover:block"
-        >
-          <Image
-            className="object-cover object-center"
-            placeholder="blur"
-            fill
-            draggable="false"
-            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              25vw"
-            alt="Stanley Zhao"
-            title="Stanley Zhao"
-            src={pfp}
+          <canvas
+            // ref={canvasRef}
+            id="gradient-canvas"
+            className={`w-full h-full rounded-2xl transition ease-linear`}
+            data-transition-in
           />
-          <div className="shine" />
-        </motion.div>
-        <motion.div
-          variants={aboutContainer}
-          initial="hidden"
-          animate="show"
-          className="flex flex-col gap-8"
-        >
-          <motion.h3
-            variants={aboutChild}
-            className="text-xl xl:text-4xl font-medium"
-          >
-            I&apos;m a student and software engineer from New York building eye
-            candy for the web.
-          </motion.h3>
-          <motion.p
-            variants={aboutChild}
-            className="text-base xl:text-xl text-neutral-400"
-          >
-            Currently CTO @{" "}
+        </section>
+        <section className="relative w-1/2 flex flex-col py-12">
+          <p className="text-neutral-200 text-sm sm:text-base">
+            Hello! I&apos;m a computer science major from New York who will be
+            attending{" "}
+            <span
+              title="Massachusetts Institute of Technology"
+              className="bg-gradient-to-br from-red-500 to-[#A31F34] bg-clip-text text-transparent font-black inline"
+            >
+              MIT
+            </span>{" "}
+            in the fall. My interests in computer science include (but are not
+            limited to) web development, artificial intelligence, and
+            cybersecurity.
+            <br />
+            <br /> Outside of computer science, I enjoy performing music,
+            dabbling in graphic design, and playing sports like volleyball,
+            basketball, and badminton.
+            <br />
+            <br />
+            You can{" "}
+            <Link
+              className="font-bold"
+              href="/resume"
+              title="Click to view resume"
+            >
+              view my resume here
+            </Link>
+            .
+          </p>
+          <br />
+          <div className="w-full h-[0.125rem] bg-neutral-700" />
+          <br />
+          <p className="text-neutral-200 text-sm sm:text-base">
+            Currently, I&apos;m the Chief Technology Officer @{" "}
             <Link
               href="https://scilynk.com/"
               target="_blank"
               rel="opener"
-              className="bg-gradient-to-br from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-semibold inline"
+              title="SciLynk"
+              className="bg-gradient-to-br from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-bold inline"
             >
               SciLynk
             </Link>
-            , the best way to accelerate your research workflow.
-          </motion.p>
-          <motion.p
-            variants={aboutChild}
-            className="text-sm xl:text-lg text-neutral-300"
-          >
-            I&apos;m a computer science major from New York attending{" "}
-            <span
-              title="Massachusetts Institute of Technology"
-              className="bg-gradient-to-br from-red-500 to-[#A31F34] bg-clip-text text-transparent font-semibold inline"
+            , where I lead full-stack development to deliver a beautiful and
+            efficient experience for researchers to help accelerate their
+            workflow. <br />
+            <br />
+            I&apos;m also a{" "}
+            <Link
+              title="Bug Hunter @ Discord"
+              target="_blank"
+              href="https://support.discord.com/hc/en-us/articles/360046057772-Discord-Bugs#h_01F2HKTD57FVC60P8B8JW6FTKX"
             >
-              MIT
-            </span>{" "}
-            in the fall. My interests in the field include web development,
-            artificial intelligence, and cybersecurity. To date, my open source
-            projects have accumulated a total of{" "}
-            <span
-              className="font-semibold inline-flex flex-row items-center"
-              title={`${stars} stars`}
-            >
-              {stars}
-              ⭐️
-            </span>{" "}
-            and{" "}
-            <span
-              className="font-semibold inline-flex flex-row items-center"
-              title={`${forks} forks`}
-            >
-              {forks}
-              <svg className="mr-1 w-4 h-auto fill-white" viewBox="0 0 16 16">
-                <path
-                  fillRule="evenodd"
-                  d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                ></path>
-              </svg>
-            </span>
-            on GitHub.
-          </motion.p>
-        </motion.div>
-      </section>
-      <section
-        id="projects"
-        className="w-full h-full flex flex-col items-center gap-1"
-      >
-        {closedSourceRepos.map((repo, key) => (
-          <Link
-            key={key}
-            href={repo.href}
-            target="_blank"
-            className="sticky z-[2] top-0 lg:top-32 [&>div>.shine]:hover:block w-full max-w-lg lg:max-w-3xl xl:max-w-6xl h-[60vh] lg:h-[75vh] lg:max-h-[600px] flex flex-col xl:flex-row justify-start gap-8 px-4 py-12 lg:px-6 xl:px-12 xl:py-24 bg-white rounded-xl"
-            style={{ boxShadow: "0 0 5px 1px #a3a3a33d" }}
-          >
-            <div className="flex flex-col gap-4">
-              <h3 className="font-medium text-xl xl:text-2xl 2xl:text-3xl text-black">
-                {repo.name}
-              </h3>
-              <p className="text-base xl:text-lg 2xl:text-xl text-neutral-700">
-                {repo.description}
-              </p>
-            </div>
-            <div className="relative w-full h-[30vh] lg:h-[50vh] max-h-[400px] xl:w-2/3 flex-shrink-0 overflow-hidden rounded-md select-none shadow-lg shadow-neutral-500">
-              <Image
-                className="object-cover object-center"
-                fill
-                draggable="false"
-                sizes="100vw"
-                alt={repo.name}
-                title={repo.name}
-                src={`/static/img/projects/${repo.img.toLowerCase()}`}
-              />
-              <div className="w-full h-full shine" />
-            </div>
-          </Link>
-        ))}
-        {repos.map((repo, key) => (
-          <Link
-            key={key}
-            href={repo.html_url}
-            target="_blank"
-            className="sticky z-[2] top-0 lg:top-32 [&>div>.shine]:hover:block w-full max-w-lg lg:max-w-3xl xl:max-w-6xl h-[60vh] lg:h-[75vh] max-h-[600px] flex flex-col xl:flex-row justify-start gap-8 px-4 py-12 lg:px-6 xl:px-12 xl:py-24 bg-white rounded-xl"
-            style={{ boxShadow: "0 0 5px 1px #a3a3a33d" }}
-          >
-            <div className="w-full flex flex-col gap-4">
-              <h3 className="font-medium text-xl xl:text-2xl 2xl:text-3xl text-black">
-                {repo.name}
-              </h3>
-              <p className="text-base xl:text-lg 2xl:text-xl text-neutral-700">
-                {repo.description}
-              </p>
-            </div>
-            <div className="relative w-full h-[30vh] lg:h-[50vh] max-h-[400px] xl:w-2/3 flex-shrink-0 overflow-hidden rounded-md select-none shadow-lg shadow-neutral-500">
-              <Image
-                className="object-cover object-center"
-                fill
-                draggable="false"
-                sizes="100vw"
-                alt={repo.name}
-                title={repo.name}
-                src={`/static/img/projects/${repo.name.toLowerCase()}.png`}
-              />
-              <div className="w-full h-full shine" />
-            </div>
-          </Link>
-        ))}
-        <section className="w-full h-screen flex flex-col items-center justify-between sticky top-0 z-[2] px-6 lg:px-0 py-24 bg-neutral-800 overflow-hidden">
-          <div className="w-full max-w-lg lg:max-w-3xl xl:max-w-6xl flex flex-col gap-16 2xl:gap-32 lg:px-6">
-            <div>
-              <h3 className="text-2xl xl:text-3xl font-semibold text-white">
-                {"That's all for now :)"}
-              </h3>
-              <span
-                href="/"
-                onClick={() => scrollToTop()}
-                className="flex w-fit items-center gap-2 text-2xl xl:text-3xl text-neutral-400 hover:text-white transition ease-linear cursor-pointer"
+              Bug Hunter
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="inline w-6 h-auto"
+                viewBox="0 0 24 24"
               >
-                Return Home
-                <svg
-                  className="w-6 xl:w-8 h-auto"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.85355 2.14645C5.04882 2.34171 5.04882 2.65829 4.85355 2.85355L3.70711 4H9C11.4853 4 13.5 6.01472 13.5 8.5C13.5 10.9853 11.4853 13 9 13H5C4.72386 13 4.5 12.7761 4.5 12.5C4.5 12.2239 4.72386 12 5 12H9C10.933 12 12.5 10.433 12.5 8.5C12.5 6.567 10.933 5 9 5H3.70711L4.85355 6.14645C5.04882 6.34171 5.04882 6.65829 4.85355 6.85355C4.65829 7.04882 4.34171 7.04882 4.14645 6.85355L2.14645 4.85355C1.95118 4.65829 1.95118 4.34171 2.14645 4.14645L4.14645 2.14645C4.34171 1.95118 4.65829 1.95118 4.85355 2.14645Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-            </div>
-            <CurrentlyPlaying />
-          </div>
+                <path
+                  fill="#3ba55c"
+                  d="M16.582 2.638s7.672 5.236 4.757 12.589c-2.915 7.352-8.714 5.313-6.547 3.165 2.167-2.149-2.557-3.606-5.581-6.394l7.365-9.36"
+                ></path>
+                <path
+                  fill="#b4e1cd"
+                  d="M16.116 9.837c-1.618 2.059-3.9 3.088-5.665 2.717L4.294 20.4a1.279 1.279 0 01-1.796.218 1.279 1.279 0 01-.224-1.803l6.125-7.832c-.812-1.624-.365-4.111 1.278-6.19 2.04-2.582 5.115-3.548 6.899-2.154 1.784 1.394 1.566 4.616-.46 7.2z"
+                ></path>
+              </svg>{" "}
+              @ <span className="text-[#5865F2] font-bold">Discord</span>
+            </Link>
+            , where I help identify, reproduce, and provide high quality bug
+            reports to the engineering team.
+            <br />
+            <br />I enjoy developing for the web the most, as I find the ability
+            to view your code&apos;s output in real-time extremely satisfying.
+            <br />
+            <br />
+            My go-to tech stack includes{" "}
+            <strong>Next.js, TailwindCSS, Node.js, and MongoDB</strong>.
+            <br />
+            <br />
+            Feel free to connect/contact me through my socials below!
+          </p>
         </section>
-      </section> */}
+      </div>
+      <div className="flex flex-row w-full gap-8">
+        <div className="w-full flex flex-col">
+          <div className="relative w-full h-full">
+            <Image
+              className="object-center object-cover"
+              src="https://images.unsplash.com/photo-1682685797795-5640f369a70a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2371&q=80"
+              draggable="false"
+              fill
+              sizes="(max-width: 768px) 100vw,
+           (max-width: 1200px) 50vw,
+           33vw"
+            />
+          </div>
+        </div>
+        <div className="w-full flex flex-col">
+          <div className="relative w-full h-full">
+            <Image
+              className="object-center object-cover"
+              src="https://images.unsplash.com/photo-1684072108336-40bb8228888e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+              draggable="false"
+              fill
+              sizes="(max-width: 768px) 100vw,
+           (max-width: 1200px) 50vw,
+           33vw"
+            />
+          </div>
+        </div>
+      </div>
+      {/* <SEO />
+      <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
+        <div className="w-full h-full flex flex-col gap-y-4 items-center">
+          <Hero />
+          <RecentPosts recentPosts={recentPosts} />
+          <FavoriteProjects>
+            <h2 className="text-xl md:text-2xl font-semibold tracking-tight">
+              Some of my favorite projects...
+            </h2>
+          </FavoriteProjects>
+          <ContactMe />
+        </div>
+      </div> */}
     </>
   );
 }

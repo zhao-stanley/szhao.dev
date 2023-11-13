@@ -165,16 +165,10 @@ export const getAvailability = (currentTime) => {
   }
 };
 
-export const getRandomProverb = () => {
-  let proverb = proverbs[Math.floor(Math.random() * proverbs.length)];
-  return {
-    chinese: proverb.chinese,
-    english: proverb.english,
-  };
-};
+let gradients = [
+  ["#390099", "#9e0059", "#ff0054", "#00a6fb", "#ffbd00"],
+];
 
-export const scrollToTop = () => {
-  if (typeof window !== "undefined") {
-    return window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-};
+export function getRandomGradient() {
+  return gradients[Math.floor(Math.random() * gradients.length)];
+}

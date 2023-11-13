@@ -10,7 +10,7 @@ const nextConfig = {
   },
   swcMinify: true,
   images: {
-    domains: ["i.scdn.co"],
+    domains: ["images.unsplash.com"],
   },
 };
 

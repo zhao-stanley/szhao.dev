@@ -11,10 +11,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        serif: ["Prata", ...defaultTheme.fontFamily.serif],
-        chinese: ["Ma Shan Zheng", ...defaultTheme.fontFamily.serif],
+        sans: ["Gruppo", ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         gshift: {
