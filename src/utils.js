@@ -165,6 +165,14 @@ export const getAvailability = (currentTime) => {
   }
 };
 
+export const getRandomProverb = () => {
+  let proverb = proverbs[Math.floor(Math.random() * proverbs.length)];
+  return {
+    chinese: proverb.chinese,
+    english: proverb.english,
+  };
+};
+
 let gradients = [["#390099", "#9e0059", "#ff0054", "#00a6fb", "#ffbd00"]];
 
 export function getRandomGradient() {

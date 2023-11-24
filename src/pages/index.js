@@ -117,7 +117,7 @@ export default function Home({ gallery }) {
           data-transition-in
         />
       </section> */}
-      <section className="flex h-full min-h-screen w-full flex-col items-center gap-4 px-2 py-24 text-center font-sans">
+      <section className="flex h-full min-h-screen w-full flex-col items-center gap-4 px-2 py-24 text-center font-sans sm:px-4">
         <div className="flex flex-col items-center font-ein">
           <h1 className="-mb-1 bg-gradient-to-b from-white/75 to-transparent bg-cover bg-clip-text text-3xl leading-snug tracking-tighter text-transparent lg:-mb-3 lg:text-5xl lg:leading-normal">
             Software Engineer

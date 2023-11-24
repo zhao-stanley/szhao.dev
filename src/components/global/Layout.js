@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-// import dynamic from "next/dynamic";
-// import { getRandomProverb } from "../../utils";
+import dynamic from "next/dynamic";
+import { getRandomProverb } from "../../utils";
 import siteMetadata from "../../data/siteMetadata";
 import Lenis from "@studio-freight/lenis";
 import {
@@ -15,9 +15,10 @@ import {
   IconBrandLinkedin,
   IconBrandX,
 } from "@tabler/icons-react";
-// const Clock = dynamic(() => import("./Clock"), {
-//   ssr: false,
-// });
+import CurrentlyPlaying from "../home/CurrentlyPlaying";
+const Clock = dynamic(() => import("./Clock"), {
+  ssr: false,
+});
 const navLinks = [
   {
     name: "Home",
@@ -115,14 +116,29 @@ export default function Layout({ children }) {
 
     requestAnimationFrame(raf);
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      let prevScrollpos = window.scrollY;
+      window.onscroll = function () {
+        let currentScrollPos = window.scrollY;
+        if (prevScrollpos > currentScrollPos || currentScrollPos < 50) {
+          document.getElementsByTagName("nav")[0].style.top = "8px";
+        } else {
+          document.getElementsByTagName("nav")[0].style.top = "-48px";
+        }
+        prevScrollpos = currentScrollPos;
+      };
+    }
+  }, []);
   const router = useRouter();
-  // const [proverbCn, setProverbCN] = useState("");
-  // const [proverbEn, setProverbEn] = useState("");
-  // useEffect(() => {
-  //   const proverb = getRandomProverb();
-  //   setProverbCN(proverb.chinese);
-  //   setProverbEn(proverb.english);
-  // }, [router]);
+  const [proverbCn, setProverbCN] = useState("");
+  const [proverbEn, setProverbEn] = useState("");
+  useEffect(() => {
+    const proverb = getRandomProverb();
+    setProverbCN(proverb.chinese);
+    setProverbEn(proverb.english);
+  }, [router]);
   return (
     <div className="relative flex h-full min-h-screen w-full flex-col items-center">
       <svg
@@ -150,7 +166,7 @@ export default function Layout({ children }) {
       </svg>
       <motion.nav
         className={
-          "fixed top-2 z-10 grid h-8 w-fit grid-cols-7 items-center rounded-full ring-1 ring-neutral-600 backdrop-blur-lg backdrop-brightness-50 sm:h-10 lg:top-4"
+          "fixed top-2 z-10 grid h-8 w-fit grid-cols-7 items-center rounded-full ring-1 ring-neutral-600 drop-shadow backdrop-blur-lg backdrop-brightness-50 transition-[top] duration-500 sm:h-10 lg:top-4"
         }
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: 1, y: 0 }}
@@ -182,22 +198,26 @@ export default function Layout({ children }) {
         />
       </motion.nav>
       <main className="flex h-full w-full flex-col">{children}</main>
-      {/* <footer className="w-full px-6 pb-6 flex justify-center relative z-10 bg-neutral-800">
-        <div className="w-full max-w-lg border-t pt-2 border-neutral-500 lg:max-w-3xl xl:max-w-6xl flex flex-row justify-between items-center">
-          <span className="relative font-chinese text-base xl:text-lg text-neutral-300 sm:[&>span]:hover:block cursor-help">
+      <footer className="relative z-10 flex w-full flex-col justify-center gap-2 px-4 py-8 lg:px-8">
+        <div className="flex w-full flex-row items-center justify-between">
+          <h1 className="font-ein text-2xl tracking-tighter">szhao.dev</h1>
+          <CurrentlyPlaying />
+        </div>
+        <div className="flex w-full flex-row items-center justify-between">
+          <span className="font-chinese relative cursor-help text-base text-neutral-300 xl:text-lg sm:[&>span]:hover:block">
             &quot;{proverbCn}&quot;
-            <span className="font-mono px-2 py-1 bg-neutral-900/50 shadow-lg rounded-md tracking-tighter hidden absolute bottom-10 left-0 text-xs xl:text-sm whitespace-nowrap z-10">
+            <span className="absolute bottom-10 left-0 z-10 hidden whitespace-nowrap rounded-md bg-neutral-900/50 px-2 py-1 font-mono text-xs tracking-tighter shadow-lg xl:text-sm">
               &quot;{proverbEn}&quot;
             </span>
           </span>
           <div className="flex flex-row items-center gap-2">
-            <span className="text-sm xl:text-base text-neutral-300">
+            <span className="text-sm text-neutral-300 xl:text-base">
               {new Date().getFullYear()}
             </span>
             <Clock />
           </div>
         </div>
-      </footer> */}
+      </footer>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { fisherYates, getBase64, splitArray } from "../utils";
+import { fisherYates, splitArray } from "../utils";
 
 export default function Gallery({ gallery }) {
   return (
     <>
-      <section className="flex h-full min-h-screen w-full flex-col items-center gap-4 px-2 pb-2 pt-12 text-center font-sans lg:pt-[4.5rem]">
+      <section className="flex h-full min-h-screen w-full flex-col items-center gap-4 px-2 pb-2 sm:px-4 sm:pb-4 pt-12 text-center font-sans lg:pt-[4.5rem]">
         <div className="grid h-full min-h-screen w-full grid-flow-col gap-2">
           <div className="flex w-full flex-col gap-2">
             {gallery[0].map((media, key) => {
@@ -26,6 +26,7 @@ export default function Gallery({ gallery }) {
                   <Image
                     className="h-auto w-full rounded-md border border-neutral-800 transition duration-500 ease-in-out"
                     src={`/static/gallery/${media}`}
+                    alt={"szhao.dev Gallery"}
                     width={100}
                     height={100}
                     sizes="50vw"
@@ -56,6 +57,7 @@ export default function Gallery({ gallery }) {
                   <Image
                     className="h-auto w-full rounded-md border border-neutral-800 transition duration-500 ease-in-out"
                     src={`/static/gallery/${media}`}
+                    alt={"szhao.dev Gallery"}
                     width={100}
                     height={100}
                     sizes="50vw"
@@ -86,6 +88,7 @@ export default function Gallery({ gallery }) {
                   <Image
                     className="h-auto w-full rounded-md border border-neutral-800 transition duration-500 ease-in-out"
                     src={`/static/gallery/${media}`}
+                    alt={"szhao.dev Gallery"}
                     width={100}
                     height={100}
                     sizes="50vw"
