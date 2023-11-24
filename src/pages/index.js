@@ -145,12 +145,17 @@ export default function Home({ gallery }) {
             </Link>
           ))}
         </div> */}
-        <h1 className="pt-16 font-ein text-2xl tracking-tighter drop-shadow-lg lg:text-4xl">
+        <h1 className="pt-16 font-ein text-2xl tracking-tighter text-neutral-300 drop-shadow-lg lg:text-4xl">
           Experience
         </h1>
         <div className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2">
           {projects.map((media, key) => (
-            <Link target="_blank" className="relative" href={media.href}>
+            <Link
+              target="_blank"
+              className="relative"
+              href={media.href}
+              key={key}
+            >
               <Image
                 className="h-auto w-full rounded-md border border-neutral-800 transition duration-500 ease-in-out"
                 src={`/static/projects/${media.img}`}
