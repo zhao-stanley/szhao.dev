@@ -72,7 +72,7 @@ export const getGithubStars = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    }
+    },
   );
   const repositories = await response.json();
   let totalStars = 0;
@@ -86,7 +86,7 @@ export const getGithubStars = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    }
+    },
   );
   const codeclubJson = await codeclub.json();
   totalStars += codeclubJson.stargazers_count;
@@ -100,7 +100,7 @@ export const getGithubForks = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    }
+    },
   );
   const repositories = await response.json();
   let totalForks = 0;
@@ -114,7 +114,7 @@ export const getGithubForks = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    }
+    },
   );
   const codeclubJson = await codeclub.json();
   totalForks += codeclubJson.forks_count;
@@ -128,7 +128,7 @@ export const getGithubRepos = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    }
+    },
   );
   const repositories = await response.json();
   const codeclub = await fetch(
@@ -137,7 +137,7 @@ export const getGithubRepos = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    }
+    },
   );
   const codeclubJson = await codeclub.json();
   repositories.push(codeclubJson);
@@ -165,10 +165,58 @@ export const getAvailability = (currentTime) => {
   }
 };
 
-let gradients = [
-  ["#390099", "#9e0059", "#ff0054", "#00a6fb", "#ffbd00"],
-];
+let gradients = [["#390099", "#9e0059", "#ff0054", "#00a6fb", "#ffbd00"]];
 
 export function getRandomGradient() {
   return gradients[Math.floor(Math.random() * gradients.length)];
+}
+
+export function splitArray(arr) {
+  const totalLength = arr.length;
+  const subArrayLength = Math.floor(totalLength / 3);
+  const remainder = totalLength % 3;
+
+  let start = 0;
+  const result = [];
+
+  for (let i = 0; i < 3; i++) {
+    let subLength = subArrayLength;
+    if (i < remainder) {
+      subLength++;
+    }
+    result.push(arr.slice(start, start + subLength));
+    start += subLength;
+  }
+
+  return result;
+}
+
+export function fisherYates(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+export function parseDate(date) {
+  let d = date.split("/");
+  let month = d[0];
+  let year = d[1];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  return `${months[month - 1]} 20${year}`;
 }

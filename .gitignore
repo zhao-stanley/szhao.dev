@@ -36,3 +36,6 @@ countapi.txt
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prettier
+prettier.config.js

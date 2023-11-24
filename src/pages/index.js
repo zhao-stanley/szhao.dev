@@ -1,14 +1,17 @@
 import Image from "next/image";
 import { Gradient } from "../gradient";
-import { getRandomGradient } from "../utils";
+import { getRandomGradient, parseDate } from "../utils";
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-
+import siteMetadata from "../data/siteMetadata";
 import pfp from "../../public/static/img/full.jpg";
-import { getGithubRepos, scrollToTop } from "../utils";
-import { getGithubStars, getGithubForks } from "../utils";
-
 import { motion } from "framer-motion";
+import {
+  IconMail,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandX,
+} from "@tabler/icons-react";
 
 const aboutContainer = {
   hidden: {
@@ -25,8 +28,75 @@ const aboutContainer = {
     },
   },
 };
+const socials = [
+  {
+    name: "Mail",
+    icon: <IconMail className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
+    href: siteMetadata.email,
+  },
+  {
+    name: "GitHub",
+    icon: <IconBrandGithub className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
+    href: siteMetadata.github,
+  },
+  {
+    name: "LinkedIn",
+    icon: <IconBrandLinkedin className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
+    href: siteMetadata.linkedin,
+  },
+  {
+    name: "Twitter",
+    icon: <IconBrandX className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
+    href: siteMetadata.twitter,
+  },
+];
 
-export default function Home({ numberPosts, githubFollowers, viewCount }) {
+let projects = [
+  {
+    name: "SciLynk",
+    href: "https://scilynk.com",
+    img: "scilynk.png",
+    date: "8/22",
+  },
+  {
+    name: "ShopBlox",
+    href: "https://shopblox.codes",
+    img: "shopblox.png",
+    date: "8/23",
+  },
+  {
+    name: "WebLFG",
+    href: "https://weblfg.com",
+    img: "weblfg.png",
+    date: "7/22",
+  },
+  {
+    name: "Chroma AI",
+    href: "https://chroma.szhao.dev",
+    img: "chroma.png",
+    date: "3/23",
+  },
+  {
+    name: "Roslyn Code Club",
+    href: "https://roslyncode.club",
+    img: "roslyncodeclub.png",
+    date: "7/22",
+  },
+  {
+    name: "Roslyn Academy",
+    href: "https://roslyn.academy",
+    img: "roslynacademy.png",
+    date: "3/23",
+  },
+  {
+    name: "DiscussMed",
+    href: "https://discussmed.szhao.dev",
+    img: "discussmed.png",
+    date: "6/22",
+  },
+];
+
+export default function Home({ gallery }) {
   let gradient = new Gradient();
   const canvasRef = useRef(null);
   const [colors, setColors] = useState(getRandomGradient());
@@ -39,167 +109,83 @@ export default function Home({ numberPosts, githubFollowers, viewCount }) {
 
   return (
     <>
-      <div className="w-full h-full min-h-screen flex flex-row gap-24 px-36 font-sans">
-        <section className="relative w-1/2 h-screen flex flex-col justify-center py-12">
-          <div className="absolute px-8">
-            <h1 className="text-6xl font-bold drop-shadow-lg">Stanley Zhao</h1>
-            <h3 className="text-gray-200 font-medium text-4xl tracking-tighter drop-shadow-lg">
-              SWE \ Entrepreneur \ @MIT
-            </h3>
-          </div>
-          <canvas
-            // ref={canvasRef}
-            id="gradient-canvas"
-            className={`w-full h-full rounded-2xl transition ease-linear`}
-            data-transition-in
-          />
-        </section>
-        <section className="relative w-1/2 flex flex-col py-12">
-          <p className="text-neutral-200 text-sm sm:text-base">
-            Hello! I&apos;m a computer science major from New York who will be
-            attending{" "}
-            <span
-              title="Massachusetts Institute of Technology"
-              className="bg-gradient-to-br from-red-500 to-[#A31F34] bg-clip-text text-transparent font-black inline"
-            >
-              MIT
-            </span>{" "}
-            in the fall. My interests in computer science include (but are not
-            limited to) web development, artificial intelligence, and
-            cybersecurity.
-            <br />
-            <br /> Outside of computer science, I enjoy performing music,
-            dabbling in graphic design, and playing sports like volleyball,
-            basketball, and badminton.
-            <br />
-            <br />
-            You can{" "}
+      {/* <section className="relative w-screen h-screen blur">
+        <canvas
+          ref={canvasRef}
+          id="gradient-canvas"
+          className={`w-full h-full transition ease-linear`}
+          data-transition-in
+        />
+      </section> */}
+      <section className="flex h-full min-h-screen w-full flex-col items-center gap-4 px-2 py-24 text-center font-sans">
+        <div className="flex flex-col items-center font-ein">
+          <h1 className="-mb-1 bg-gradient-to-b from-white/75 to-transparent bg-cover bg-clip-text text-3xl leading-snug tracking-tighter text-transparent lg:-mb-3 lg:text-5xl lg:leading-normal">
+            Software Engineer
+          </h1>
+          <h1 className="text-5xl tracking-tighter drop-shadow-lg lg:text-7xl">
+            Stanley Zhao
+          </h1>
+        </div>
+        <p className="animate-gshift text-base tracking-tight text-neutral-400 lg:text-lg">
+          Passion for building utilitarian eye-candy on the web. Currently
+          studying CS at MIT.
+        </p>
+        {/* <div className="flex w-full max-w-[75vw] items-center justify-around lg:max-w-sm">
+          {socials.map((link, key) => (
             <Link
-              className="font-bold"
-              href="/resume"
-              title="Click to view resume"
-            >
-              view my resume here
-            </Link>
-            .
-          </p>
-          <br />
-          <div className="w-full h-[0.125rem] bg-neutral-700" />
-          <br />
-          <p className="text-neutral-200 text-sm sm:text-base">
-            Currently, I&apos;m the Chief Technology Officer @{" "}
-            <Link
-              href="https://scilynk.com/"
+              className={
+                "w-fit rounded-2xl p-2 text-sm font-medium text-neutral-400 antialiased transition duration-300 hover:text-white focus:text-white focus:outline-none focus:ring-white focus-visible:ring"
+              }
+              href={link.href}
+              title={link.name}
+              key={key}
               target="_blank"
-              rel="opener"
-              title="SciLynk"
-              className="bg-gradient-to-br from-[#55e0af] to-[#289178] bg-clip-text text-transparent font-bold inline"
             >
-              SciLynk
+              {link.icon}
             </Link>
-            , where I lead full-stack development to deliver a beautiful and
-            efficient experience for researchers to help accelerate their
-            workflow. <br />
-            <br />
-            I&apos;m also a{" "}
-            <Link
-              title="Bug Hunter @ Discord"
-              target="_blank"
-              href="https://support.discord.com/hc/en-us/articles/360046057772-Discord-Bugs#h_01F2HKTD57FVC60P8B8JW6FTKX"
-            >
-              Bug Hunter
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="inline w-6 h-auto"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="#3ba55c"
-                  d="M16.582 2.638s7.672 5.236 4.757 12.589c-2.915 7.352-8.714 5.313-6.547 3.165 2.167-2.149-2.557-3.606-5.581-6.394l7.365-9.36"
-                ></path>
-                <path
-                  fill="#b4e1cd"
-                  d="M16.116 9.837c-1.618 2.059-3.9 3.088-5.665 2.717L4.294 20.4a1.279 1.279 0 01-1.796.218 1.279 1.279 0 01-.224-1.803l6.125-7.832c-.812-1.624-.365-4.111 1.278-6.19 2.04-2.582 5.115-3.548 6.899-2.154 1.784 1.394 1.566 4.616-.46 7.2z"
-                ></path>
-              </svg>{" "}
-              @ <span className="text-[#5865F2] font-bold">Discord</span>
+          ))}
+        </div> */}
+        <h1 className="pt-16 font-ein text-2xl tracking-tighter drop-shadow-lg lg:text-4xl">
+          Experience
+        </h1>
+        <div className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2">
+          {projects.map((media, key) => (
+            <Link target="_blank" className="relative" href={media.href}>
+              <Image
+                className="h-auto w-full rounded-md border border-neutral-800 transition duration-500 ease-in-out"
+                src={`/static/projects/${media.img}`}
+                width={100}
+                height={100}
+                sizes="100vw"
+                key={key}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 z-[1] h-full w-full rounded-md bg-gradient-to-b from-transparent to-black/75" />
+              <span className="absolute bottom-4 left-4 z-[2] font-ein text-sm tracking-tighter">
+                {media.name}
+              </span>
+              <span className="absolute bottom-4 right-4 z-[2] font-ein text-sm tracking-tighter text-neutral-400">
+                {parseDate(media.date)}
+              </span>
             </Link>
-            , where I help identify, reproduce, and provide high quality bug
-            reports to the engineering team.
-            <br />
-            <br />I enjoy developing for the web the most, as I find the ability
-            to view your code&apos;s output in real-time extremely satisfying.
-            <br />
-            <br />
-            My go-to tech stack includes{" "}
-            <strong>Next.js, TailwindCSS, Node.js, and MongoDB</strong>.
-            <br />
-            <br />
-            Feel free to connect/contact me through my socials below!
-          </p>
-        </section>
-      </div>
-      <div className="flex flex-row w-full gap-8">
-        <div className="w-full flex flex-col">
-          <div className="relative w-full h-full">
-            <Image
-              className="object-center object-cover"
-              src="https://images.unsplash.com/photo-1682685797795-5640f369a70a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2371&q=80"
-              draggable="false"
-              fill
-              sizes="(max-width: 768px) 100vw,
-           (max-width: 1200px) 50vw,
-           33vw"
-            />
-          </div>
+          ))}
         </div>
-        <div className="w-full flex flex-col">
-          <div className="relative w-full h-full">
-            <Image
-              className="object-center object-cover"
-              src="https://images.unsplash.com/photo-1684072108336-40bb8228888e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
-              draggable="false"
-              fill
-              sizes="(max-width: 768px) 100vw,
-           (max-width: 1200px) 50vw,
-           33vw"
-            />
-          </div>
-        </div>
-      </div>
-      {/* <SEO />
-      <div className="w-full h-full min-h-screen py-24 sm:py-0 px-8 flex flex-col items-center">
-        <div className="w-full h-full flex flex-col gap-y-4 items-center">
-          <Hero />
-          <RecentPosts recentPosts={recentPosts} />
-          <FavoriteProjects>
-            <h2 className="text-xl md:text-2xl font-semibold tracking-tight">
-              Some of my favorite projects...
-            </h2>
-          </FavoriteProjects>
-          <ContactMe />
-        </div>
-      </div> */}
+      </section>
     </>
   );
 }
 
-export const getStaticProps = async () => {
-  const stars = await getGithubStars("zhao-stanley");
-  const forks = await getGithubForks("zhao-stanley");
-  const data = await getGithubRepos("zhao-stanley");
+// export const getServerSideProps = async () => {
+//   const fs = require("fs");
+//   const shuffled = fisherYates(
+//     fs.readdirSync(`${process.cwd()}/public/static/gallery`),
+//   );
 
-  let repos = data.filter((repo) => !repo.fork);
-  repos = repos
-    .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 3);
+//   const gallery = splitArray(shuffled, 3);
 
-  return {
-    props: {
-      stars,
-      forks,
-      repos,
-    },
-    revalidate: 30,
-  };
-};
+//   return {
+//     props: {
+//       gallery,
+//     },
+//   };
+// };
