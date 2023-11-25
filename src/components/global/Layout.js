@@ -187,7 +187,6 @@ export default function Layout({ children }) {
             target={link.external ? "_blank" : undefined}
             title={link.name}
             key={key}
-            scroll
           >
             {link.icon}
           </Link>
