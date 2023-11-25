@@ -187,6 +187,7 @@ export default function Layout({ children }) {
             target={link.external ? "_blank" : undefined}
             title={link.name}
             key={key}
+            scroll
           >
             {link.icon}
           </Link>
@@ -201,21 +202,16 @@ export default function Layout({ children }) {
       <footer className="relative z-10 flex w-full flex-col justify-center gap-2 px-4 py-8 lg:px-8">
         <div className="flex w-full flex-row items-center justify-between">
           <h1 className="font-ein text-2xl tracking-tighter">szhao.dev</h1>
-          <CurrentlyPlaying />
+          <Clock />
         </div>
         <div className="flex w-full flex-row items-center justify-between">
           <span className="font-chinese relative cursor-help text-base text-neutral-300 xl:text-lg sm:[&>span]:hover:block">
             &quot;{proverbCn}&quot;
-            <span className="absolute bottom-10 left-0 z-10 hidden whitespace-nowrap rounded-md bg-neutral-900/50 px-2 py-1 font-mono text-xs tracking-tighter shadow-lg xl:text-sm">
+            <span className="absolute bottom-10 left-0 z-10 hidden whitespace-nowrap rounded-md bg-neutral-900/50 px-2 py-1 font-mono text-xs tracking-tighter shadow-lg backdrop-blur backdrop-brightness-50 xl:text-sm">
               &quot;{proverbEn}&quot;
             </span>
           </span>
-          <div className="flex flex-row items-center gap-2">
-            <span className="text-sm text-neutral-300 xl:text-base">
-              {new Date().getFullYear()}
-            </span>
-            <Clock />
-          </div>
+          <CurrentlyPlaying />
         </div>
       </footer>
     </div>

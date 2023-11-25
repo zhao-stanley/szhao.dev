@@ -3,7 +3,7 @@ import NProgress from "nprogress";
 import Router from "next/router";
 import Layout from "../components/global/Layout";
 
-NProgress.configure({ showSpinner: false });
+NProgress.configure({ showSpinner: true });
 Router.onRouteChangeStart = (url) => {
   NProgress.start();
 };

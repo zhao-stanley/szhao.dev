@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         ein: ["Ein"],
+        chinese: ["Ma Shan Zheng", ...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         gshift: {
@@ -64,7 +65,7 @@ module.exports = {
         container.append(isFirefoxRule);
         isFirefoxRule.walkRules((rule) => {
           rule.selector = `.${e(
-            `firefox${separator}${rule.selector.slice(1)}`
+            `firefox${separator}${rule.selector.slice(1)}`,
           )}`;
         });
       });

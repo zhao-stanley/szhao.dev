@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap");
 @font-face {
   font-family: "Ein";
   src: url("../public/static/Ein.woff") format("woff");
@@ -9,6 +9,8 @@
 
 :root {
   --npc: white; /* nprogresscolor */
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 html.lenis {
@@ -86,6 +88,7 @@ html.lenis {
   background: var(--npc);
   position: fixed;
   z-index: 1031;
+  display: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -98,7 +101,9 @@ html.lenis {
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px var(--npc), 0 0 5px var(--npc);
+  box-shadow:
+    0 0 10px var(--npc),
+    0 0 5px var(--npc);
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);

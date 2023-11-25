@@ -23,26 +23,26 @@ export default function Clock() {
 
   return (
     <>
-      <div className="z-10 [&>span]:hover:block w-6 h-6 rounded-full border border-neutral-500 relative rotate-180 cursor-help">
+      <div className="relative z-10 h-6 w-6 rotate-180 cursor-help rounded-full border border-neutral-500 [&>span]:hover:block">
         <div
-          className="bg-neutral-300 h-[6px] w-[1px] rounded-full absolute top-1/2 left-1/2 transform origin-top"
+          className="absolute left-1/2 top-1/2 h-[6px] w-[1px] origin-top transform rounded-full bg-neutral-300"
           style={{
             transform: `rotate(${hourRotation}deg)`,
           }}
         />
         <div
-          className="bg-neutral-300 h-[8px] w-[1px] rounded-full absolute top-1/2 left-1/2 transform origin-top"
+          className="absolute left-1/2 top-1/2 h-[8px] w-[1px] origin-top transform rounded-full bg-neutral-300"
           style={{
             transform: `rotate(${minuteRotation}deg)`,
           }}
         />
         <div
-          className="bg-neutral-300 h-[10px] w-[1px] rounded-full absolute top-1/2 left-1/2 transform origin-top"
+          className="absolute left-1/2 top-1/2 h-[10px] w-[1px] origin-top transform rounded-full bg-neutral-300"
           style={{
             transform: `rotate(${secondRotation}deg)`,
           }}
         />
-        <span className="font-mono px-2 py-1 bg-neutral-900/50 text-neutral-300 shadow-lg rounded-md tracking-tighter hidden absolute rotate-180 top-10 xl:top-9 text-xs lg:text-sm whitespace-nowrap z-10">
+        <span className="absolute left-0 top-10 z-10 hidden rotate-180 whitespace-nowrap rounded-md bg-neutral-900/50 px-2 py-1 font-mono text-xs tracking-tighter text-neutral-300 shadow-lg backdrop-blur backdrop-brightness-50 lg:text-sm xl:top-9">
           {time.toLocaleTimeString("en-US", {
             hour: "numeric",
             minute: "2-digit",

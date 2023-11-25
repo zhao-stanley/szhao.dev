@@ -3,15 +3,8 @@ import { Gradient } from "../gradient";
 import { getRandomGradient, parseDate } from "../utils";
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-import siteMetadata from "../data/siteMetadata";
 import pfp from "../../public/static/img/full.jpg";
 import { motion } from "framer-motion";
-import {
-  IconMail,
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandX,
-} from "@tabler/icons-react";
 
 const aboutContainer = {
   hidden: {
@@ -28,28 +21,6 @@ const aboutContainer = {
     },
   },
 };
-const socials = [
-  {
-    name: "Mail",
-    icon: <IconMail className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
-    href: siteMetadata.email,
-  },
-  {
-    name: "GitHub",
-    icon: <IconBrandGithub className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
-    href: siteMetadata.github,
-  },
-  {
-    name: "LinkedIn",
-    icon: <IconBrandLinkedin className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
-    href: siteMetadata.linkedin,
-  },
-  {
-    name: "Twitter",
-    icon: <IconBrandX className="h-4 w-4 sm:h-6 sm:w-6" stroke={1.5} />,
-    href: siteMetadata.twitter,
-  },
-];
 
 let projects = [
   {
@@ -130,21 +101,6 @@ export default function Home({ gallery }) {
           Passion for building utilitarian eye-candy on the web. Currently
           studying CS at MIT.
         </p>
-        {/* <div className="flex w-full max-w-[75vw] items-center justify-around lg:max-w-sm">
-          {socials.map((link, key) => (
-            <Link
-              className={
-                "w-fit rounded-2xl p-2 text-sm font-medium text-neutral-400 antialiased transition duration-300 hover:text-white focus:text-white focus:outline-none focus:ring-white focus-visible:ring"
-              }
-              href={link.href}
-              title={link.name}
-              key={key}
-              target="_blank"
-            >
-              {link.icon}
-            </Link>
-          ))}
-        </div> */}
         <h1 className="pt-16 font-ein text-2xl tracking-tighter text-neutral-300 drop-shadow-lg lg:text-4xl">
           Experience
         </h1>
