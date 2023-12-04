@@ -1,6 +1,4 @@
-import Image from "next/image";
-import { fisherYates, splitArray } from "@/data/utils";
-import { getPlaiceholder } from "plaiceholder";
+import { splitArray } from "@/data/utils";
 import Media from "@/components/gallery/Media";
 
 async function getData() {
