@@ -72,13 +72,13 @@ const variants = {
   blog: { x: "200%" },
 };
 
-const getVariant = () => {
+function getVariant() {
   const pathname = usePathname();
   if (pathname === "/") return "home";
   if (pathname.includes("/gallery")) return "gallery";
   if (pathname.includes("/blog")) return "blog";
   return "home";
-};
+}
 
 const linksContainer = {
   hidden: {
