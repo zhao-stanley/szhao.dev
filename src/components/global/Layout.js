@@ -72,14 +72,6 @@ const variants = {
   blog: { x: "200%" },
 };
 
-function getVariant() {
-  const pathname = usePathname();
-  if (pathname === "/") return "home";
-  if (pathname.includes("/gallery")) return "gallery";
-  if (pathname.includes("/blog")) return "blog";
-  return "home";
-}
-
 const linksContainer = {
   hidden: {
     opacity: 0,
@@ -108,6 +100,15 @@ const link = {
 };
 
 export default function Layout({ children }) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  function getVariant() {
+    if (pathname === "/") return "home";
+    if (pathname.includes("/gallery")) return "gallery";
+    if (pathname.includes("/blog")) return "blog";
+    return "home";
+  }
   useEffect(() => {
     if (typeof window !== "undefined") {
       let prevScrollpos = window.scrollY;
@@ -122,7 +123,7 @@ export default function Layout({ children }) {
       };
     }
   }, []);
-  const router = useRouter();
+
   const [proverbCn, setProverbCN] = useState("");
   const [proverbEn, setProverbEn] = useState("");
   useEffect(() => {
