@@ -7,6 +7,7 @@ async function getData() {
   data = data.filter(
     (media) => !media.includes("mp4") || !media.includes("mov")
   );
+  console.log(data);
   data = data.map((media) => {
     if (!media.includes("mp4") || !media.includes("mov")) {
       return `https://cdn.szhao.dev/static/gallery/${media}`;
@@ -17,6 +18,7 @@ async function getData() {
 
 export default async function Gallery() {
   const data = await getData();
+  console.log(splitArray(data, 3)[2])
   return (
     <>
       <section className="flex h-full min-h-screen w-full flex-col items-center gap-4 px-2 pb-2 sm:px-4 sm:pb-4 pt-12 text-center font-sans lg:pt-[4.5rem]">
@@ -34,11 +36,11 @@ export default async function Gallery() {
               <Media src={media} key={key} />
             ))}
           </div>
-          <div className="flex w-full flex-col gap-2">
+          {/* <div className="flex w-full flex-col gap-2">
             {splitArray(data, 3)[2].map((media, key) => (
               <Media src={media} key={key} />
             ))}
-          </div>
+          </div> */}
 
           {/* <div className="flex w-full flex-col gap-2">
             {gallery[0].map((media, key) => {
