@@ -3,11 +3,7 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -65,7 +61,7 @@ module.exports = {
         container.append(isFirefoxRule);
         isFirefoxRule.walkRules((rule) => {
           rule.selector = `.${e(
-            `firefox${separator}${rule.selector.slice(1)}`,
+            `firefox${separator}${rule.selector.slice(1)}`
           )}`;
         });
       });

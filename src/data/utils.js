@@ -1,4 +1,4 @@
-import proverbs from "./data/proverbs";
+import proverbs from "./proverbs";
 
 let base64 = require("base-64");
 
@@ -72,7 +72,7 @@ export const getGithubStars = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    },
+    }
   );
   const repositories = await response.json();
   let totalStars = 0;
@@ -86,7 +86,7 @@ export const getGithubStars = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    },
+    }
   );
   const codeclubJson = await codeclub.json();
   totalStars += codeclubJson.stargazers_count;
@@ -100,7 +100,7 @@ export const getGithubForks = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    },
+    }
   );
   const repositories = await response.json();
   let totalForks = 0;
@@ -114,7 +114,7 @@ export const getGithubForks = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    },
+    }
   );
   const codeclubJson = await codeclub.json();
   totalForks += codeclubJson.forks_count;
@@ -128,7 +128,7 @@ export const getGithubRepos = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    },
+    }
   );
   const repositories = await response.json();
   const codeclub = await fetch(
@@ -137,7 +137,7 @@ export const getGithubRepos = async (username) => {
       headers: {
         Authorization: `token ${process.env.GITHUB_TOKEN}`,
       },
-    },
+    }
   );
   const codeclubJson = await codeclub.json();
   repositories.push(codeclubJson);

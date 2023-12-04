@@ -1,11 +1,13 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { getRandomProverb } from "../../utils";
+import { getRandomProverb } from "../../data/utils";
 import siteMetadata from "../../data/siteMetadata";
-import Lenis from "@studio-freight/lenis";
+
 import {
   IconHome,
   IconPhotoHeart,
@@ -71,10 +73,10 @@ const variants = {
 };
 
 const getVariant = () => {
-  const router = useRouter();
-  if (router.pathname === "/") return "home";
-  if (router.pathname.includes("/gallery")) return "gallery";
-  if (router.pathname.includes("/blog")) return "blog";
+  const pathname = usePathname();
+  if (pathname === "/") return "home";
+  if (pathname.includes("/gallery")) return "gallery";
+  if (pathname.includes("/blog")) return "blog";
   return "home";
 };
 
@@ -106,17 +108,6 @@ const link = {
 };
 
 export default function Layout({ children }) {
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       let prevScrollpos = window.scrollY;

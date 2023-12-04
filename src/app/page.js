@@ -1,0 +1,53 @@
+import Image from "next/image";
+import Link from "next/link";
+import { projects } from "@/data/projects";
+import { parseDate } from "@/data/utils";
+
+export default function Home() {
+  return (
+    <section className="flex h-full min-h-screen w-full flex-col items-center gap-4 px-2 py-24 text-center font-sans sm:px-4">
+      <div className="flex flex-col items-center font-ein">
+        <h1 className="-mb-1 bg-gradient-to-b from-white/75 to-transparent bg-cover bg-clip-text text-3xl leading-snug tracking-tighter text-transparent lg:-mb-3 lg:text-5xl lg:leading-normal">
+          Software Engineer
+        </h1>
+        <h1 className="text-5xl tracking-tighter drop-shadow-lg lg:text-7xl">
+          Stanley Zhao
+        </h1>
+      </div>
+      <p className="animate-gshift text-base tracking-tight text-neutral-400 lg:text-lg">
+        Passion for building utilitarian eye-candy on the web. Currently
+        studying CS at MIT.
+      </p>
+      <h1 className="pt-16 font-ein text-2xl tracking-tighter text-neutral-300 drop-shadow-lg lg:text-4xl">
+        Experience
+      </h1>
+      <div className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2">
+        {projects.map((media, key) => (
+          <Link
+            target="_blank"
+            className="relative"
+            href={media.href}
+            key={key}
+          >
+            <Image
+              className="h-auto w-full rounded-md border border-neutral-800 transition duration-500 ease-in-out"
+              src={`/static/projects/${media.img}`}
+              width={100}
+              height={100}
+              sizes="100vw"
+              key={key}
+              loading="lazy"
+            />
+            <div className="absolute inset-0 z-[1] h-full w-full rounded-md bg-gradient-to-b from-transparent to-black/75" />
+            <span className="absolute bottom-4 left-4 z-[2] font-ein text-sm tracking-tighter">
+              {media.name}
+            </span>
+            <span className="absolute bottom-4 right-4 z-[2] font-ein text-sm tracking-tighter text-neutral-400">
+              {parseDate(media.date)}
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}

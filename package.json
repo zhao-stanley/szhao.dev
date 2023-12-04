@@ -1,5 +1,5 @@
 {
-  "name": "portfolio22",
+  "name": "new",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,36 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@studio-freight/lenis": "^1.0.28",
+    "@plaiceholder/next": "^3.0.0",
     "@tabler/icons-react": "^2.42.0",
-    "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/typography": "^0.5.8",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
     "base-64": "^1.0.0",
-    "countapi-js": "^1.0.2",
-    "eslint-config-next": "^13.0.2",
-    "framer-motion": "^7.6.5",
-    "gray-matter": "^4.0.3",
-    "millify": "^5.0.1",
-    "motion": "^10.15.5",
-    "next": "^13.0.2",
-    "nprogress": "^0.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.3",
-    "react-syntax-highlighter": "^15.5.0",
-    "rehype-katex": "^6.0.2",
-    "rehype-raw": "^6.1.1",
-    "remark-gemoji": "^7.0.1",
-    "remark-math": "^5.1.1",
-    "sharp": "^0.32.6",
-    "swr": "^2.0.4"
+    "framer-motion": "^10.16.12",
+    "motion": "^10.16.4",
+    "next": "14.0.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.12",
-    "eslint": "8.26.0",
-    "postcss": "^8.4.18",
-    "prettier": "^3.1.0",
-    "prettier-plugin-tailwindcss": "^0.5.7",
-    "tailwindcss": "^3.2.1"
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.5"
   }
 }
