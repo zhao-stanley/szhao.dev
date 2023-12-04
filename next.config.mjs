@@ -3,7 +3,12 @@ import withPlaiceholder from "@plaiceholder/next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn.szhao.dev"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.szhao.dev",
+      },
+    ],
   },
 };
 

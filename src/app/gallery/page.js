@@ -1,17 +1,22 @@
 import { splitArray } from "@/data/utils";
 import Media from "@/components/gallery/Media";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 async function getData() {
   const fs = require("fs");
   let data = fs.readdirSync(`${process.cwd()}/public/static/gallery`);
-  data = data.filter(
-    (media) => !media.includes("mp4") || !media.includes("mov")
-  );
-  data = data.map((media) => {
-    if (!media.includes("mp4") || !media.includes("mov")) {
-      return `https://cdn.szhao.dev/static/gallery/${media}`;
-    }
+  data.forEach((media, key) => {
+    data[key] = `https://cdn.szhao.dev/static/gallery/${media}`;
   });
+  // data = data.filter(
+  //   (media) => !media.includes("mp4") || !media.includes("mov")
+  // );
+  // data = data.map((media) => {
+  //   if (!media.includes("mp4") || !media.includes("mov")) {
+  //     return `https://cdn.szhao.dev/static/gallery/${media}`;
+  //   }
+  // });
   return data;
 }
 
