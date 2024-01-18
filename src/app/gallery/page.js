@@ -9,14 +9,6 @@ async function getData() {
   data.forEach((media, key) => {
     data[key] = `https://cdn.szhao.dev/static/gallery/${media}`;
   });
-  // data = data.filter(
-  //   (media) => !media.includes("mp4") || !media.includes("mov")
-  // );
-  // data = data.map((media) => {
-  //   if (!media.includes("mp4") || !media.includes("mov")) {
-  //     return `https://cdn.szhao.dev/static/gallery/${media}`;
-  //   }
-  // });
   return data;
 }
 
